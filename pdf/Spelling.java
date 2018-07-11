@@ -1,10 +1,12 @@
 package pdf;
 
-public class Spelling {
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ResourceBundle;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+class Spelling {
+  public static void main(String[] args) throws IOException {
+    ResourceBundle ptC = ResourceBundle.getBundle("res/palavrasAcentuadas.res");
+    System.out.println(ptC.getString("branco"));
+  }
 }
