@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
@@ -24,7 +25,7 @@ public class lePdf {
   static String logo = "c:/CNISLINHA/logoINSS.jpg";
   static String pathAdobe = null;
   static String diretorio = null;
-  ResourceBundle ptC = ResourceBundle.getBundle("res/palavrasAcentuadas.res");
+  ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
     "o &", "o ~", "u `", "u '", "u &", "c ,", "A `", "A '", "A &", 
@@ -190,7 +191,7 @@ public class lePdf {
   
   public static String corrigePalavra(String dadoOri) throws Exception {
     try {
-      ResourceBundle ptC = ResourceBundle.getBundle("res/palavrasAcentuadas.res");
+      ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
       String palavra = null;
       Boolean carac = Boolean.valueOf(true);
       Boolean OES = Boolean.valueOf(false);
@@ -307,6 +308,12 @@ public class lePdf {
   
   public static void main(String[] args) {
     diretorio = "C:/CNISLINHA/";
+    
+    if (args.length < 3) {
+      System.out.println("Erro lePdf: Argumentos insuficientes.");
+      System.runFinalization();
+      System.exit(1);
+    }
     
     String entrada = args[0];
 	String saida = args[1];

@@ -12,7 +12,6 @@ public class PdfParser {
     File f = new File(enderecoRecurso);
     PDDocument pdfDocument = null;
     try {
-      //PDFParser parser = new PDFParser(is);
       RandomAccessFile randomAccessFile = new RandomAccessFile(f, "r");
       PDFParser parser = new PDFParser(randomAccessFile);
       parser.parse();
@@ -25,7 +24,6 @@ public class PdfParser {
       return "ERRO: Não é possível abrir o stream" + e;
     }
     catch (Throwable e) {
-      String str;
       return "ERRO: Um erro ocorreu enquanto tentava obter o conteúdo do PDF " + e.getCause();
     }
     finally {
@@ -41,6 +39,12 @@ public class PdfParser {
   }
   
   public static void main(String[] args) {
+	if (args.length < 1) {
+	  System.out.println("Erro pdfParser: Argumentos insuficientes.");
+	  System.runFinalization();
+	  System.exit(1);
+	}
+	  
     enderecoRecurso = args[0];
     System.out.println(getConteudo());
   }
