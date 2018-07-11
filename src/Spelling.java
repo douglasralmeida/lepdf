@@ -1,7 +1,4 @@
-package pdf;
-
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ResourceBundle;
 
 class Spelling {

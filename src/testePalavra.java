@@ -1,7 +1,3 @@
-package pdf;
-
-import java.io.PrintStream;
-
 public class testePalavra {
   public static void main(String[] args) throws Exception {
     String palavra = null;

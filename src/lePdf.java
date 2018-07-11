@@ -1,5 +1,3 @@
-package pdf;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.FontFactory;
@@ -15,7 +13,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.util.ResourceBundle;
@@ -37,41 +34,6 @@ public class lePdf {
     "é", "ê", "ì", "í", "î", "ò", "ó", "ô", "õ", "ù", "ù", "û", "ç", 
     "À", "Á", "Â", "Ã", "È", "É", "Ê", "Ì", "Í", "Î", "Ò", "Ó", "Ô", 
     "Õ", "Ù", "Ú", "Û", "Ç" };
-  
-  public static void main(String[] args) {
-    diretorio = "C:/CNISLINHA/";
-    
-    String entrada = args[0];
-    String saida = args[1];
-    String processo = args[2];
-    boolean processaMaisUm = false;
-    if (args.length > 3) {
-      processaMaisUm = true;
-    }
-    if (processo.equals("I")) {
-      removeArquivos(entrada, saida);
-      tamFonte = calculaFonte(diretorio + entrada);
-      if (tamFonte == 0.0F) {
-        tamFonte = 10.0F;
-      }
-      processaTexto(diretorio + entrada, diretorio + saida);
-      if (processaMaisUm) {
-        processaPDF(diretorio + saida);
-      }
-    }
-    if (processo.equals("E")) {
-      processaPDF(diretorio + saida);
-      System.runFinalization();
-      System.exit(0);
-    }
-    if (processo.equals("D")) {
-      removeArquivos(entrada, saida);
-      System.runFinalization();
-      System.exit(0);
-    }
-    System.runFinalization();
-    System.exit(0);
-  }
   
   public static float calculaFonte(String arquivo) {
     try {
@@ -194,17 +156,15 @@ public class lePdf {
           int length = arquivos.length;
           for (int i = 0; i < length; i++) {
             File f = arquivos[i];
-            if ((f.isFile()) && 
-               (!f.getName().toString().equals(lePdf.this)) && 
-               (!f.getName().toString().equals(arqpdf))) {
-              if (f.getName().indexOf("ARQTXT") != -1) {
-                f.delete();
-                f.deleteOnExit();
-              }
-              if (f.getName().indexOf("ARQPDF") != -1) {
-                f.delete();
-                f.deleteOnExit();
-              }
+            if (f.isFile() && !f.getName().toString().equals(arqpdf)) {
+                 if (f.getName().indexOf("ARQTXT") != -1) {
+                   f.delete();
+                   f.deleteOnExit();
+                 }
+                 if (f.getName().indexOf("ARQPDF") != -1) {
+                   f.delete();
+                   f.deleteOnExit();
+                 }
             }
           }
         }
@@ -334,7 +294,6 @@ public class lePdf {
       try {
         int c;
         while ((c = this.is.read()) != -1) {
-          int c;
           this.sw.write(c);
         }
       }
@@ -344,5 +303,41 @@ public class lePdf {
     public String getResult() {
       return this.sw.toString();
     }
+  }
+  
+  public static void main(String[] args) {
+    diretorio = "C:/CNISLINHA/";
+    
+    String entrada = args[0];
+	String saida = args[1];
+	String processo = args[2];
+	boolean processaMaisUm = false;
+	
+    if (args.length > 3) {
+	  processaMaisUm = true;
+	}
+	if (processo.equals("I")) {
+	  removeArquivos(entrada, saida);
+	  tamFonte = calculaFonte(diretorio + entrada);
+	  if (tamFonte == 0.0F) {
+	    tamFonte = 10.0F;
+	  }
+	  processaTexto(diretorio + entrada, diretorio + saida);
+	  if (processaMaisUm) {
+	    processaPDF(diretorio + saida);
+	  }
+	}
+	if (processo.equals("E")) {
+	  processaPDF(diretorio + saida);
+	  System.runFinalization();
+	  System.exit(0);
+    }
+	if (processo.equals("D")) {
+	  removeArquivos(entrada, saida);
+	   System.runFinalization();
+       System.exit(0);
+	}
+	System.runFinalization();
+	System.exit(0);
   }
 }
