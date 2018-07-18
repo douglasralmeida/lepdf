@@ -24,6 +24,8 @@ import java.net.URI;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class lePdf {
   static String usuario = System.getProperty("user.name");
@@ -313,7 +315,18 @@ public class lePdf {
     }
   }
   
+  private static void setAppTheme() {
+	try {
+	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e1) {
+	  e1.printStackTrace();
+	  return;
+	}
+  }
+  
   public static void main(String[] args) {
+	setAppTheme();
     if (args.length < 3) {
       System.out.println("Erro lePdf: Argumentos insuficientes.");
       System.exit(1);
