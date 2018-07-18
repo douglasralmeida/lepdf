@@ -41,7 +41,6 @@ public class PdfParser {
   public static void main(String[] args) {
 	if (args.length < 1) {
 	  System.out.println("Erro pdfParser: Argumentos insuficientes.");
-	  System.runFinalization();
 	  System.exit(1);
 	}
 	  

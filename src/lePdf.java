@@ -1,3 +1,9 @@
+/* 
+ * lePdf
+ * versão 1.0.3
+ * 
+ */
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.FontFactory;
@@ -109,8 +115,9 @@ public class lePdf {
           }
           resto = resto.substring(pos + 1, resto.length());
         }
+        FontFactory.register("C:\\Windows\\Fonts\\consola.ttf", "Consolas");
         Paragraph p = new Paragraph(nvline.toString(), 
-          FontFactory.getFont("Courier", tamFonte, 0, 
+          FontFactory.getFont("Consolas", tamFonte, 0, 
           new BaseColor(0, 0, 0)));
         p.setAlignment(3);
         output.add(p);
@@ -311,7 +318,6 @@ public class lePdf {
     
     if (args.length < 3) {
       System.out.println("Erro lePdf: Argumentos insuficientes.");
-      System.runFinalization();
       System.exit(1);
     }
     
