@@ -1,6 +1,6 @@
 /* 
  * lePdf
- * versão 1.0.3
+ * versão 1.0.4
  * 
  */
 
@@ -28,9 +28,9 @@ import javax.swing.JOptionPane;
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String logo = "c:/CNISLINHA/logoINSS.jpg";
+  static String logo = "img/logoINSS.jpg";
   static String pathAdobe = null;
-  static String diretorio = null;
+  static String diretorio = System.getProperty("user.dir") + '\\';
   ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
@@ -314,21 +314,14 @@ public class lePdf {
   }
   
   public static void main(String[] args) {
-    diretorio = "C:/CNISLINHA/";
-    
     if (args.length < 3) {
       System.out.println("Erro lePdf: Argumentos insuficientes.");
       System.exit(1);
     }
-    
     String entrada = args[0];
 	String saida = args[1];
-	String processo = args[2];
-	boolean processaMaisUm = false;
-	
-    if (args.length > 3) {
-	  processaMaisUm = true;
-	}
+	String processo = args[2];	
+	boolean processaMaisUm = args.length > 3;
 	if (processo.equals("I")) {
 	  removeArquivos(entrada, saida);
 	  tamFonte = calculaFonte(diretorio + entrada);
@@ -336,9 +329,8 @@ public class lePdf {
 	    tamFonte = 10.0F;
 	  }
 	  processaTexto(diretorio + entrada, diretorio + saida);
-	  if (processaMaisUm) {
+	  if (processaMaisUm)
 	    processaPDF(diretorio + saida);
-	  }
 	}
 	if (processo.equals("E")) {
 	  processaPDF(diretorio + saida);
@@ -347,8 +339,8 @@ public class lePdf {
     }
 	if (processo.equals("D")) {
 	  removeArquivos(entrada, saida);
-	   System.runFinalization();
-       System.exit(0);
+	  System.runFinalization();
+      System.exit(0);
 	}
 	System.runFinalization();
 	System.exit(0);
