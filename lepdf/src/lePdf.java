@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
+import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
@@ -30,7 +31,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String logo = "img/logoINSS.jpg";
+  static String logo = "resources/logoINSS.jpg";
   static String pathAdobe = null;
   static String diretorio = "C:/CNISLINHA/";
   ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
@@ -85,7 +86,9 @@ public class lePdf {
       output.addSubject(usuario + " " + entrada);
       output.addTitle(saida);
       
-      Image img = Image.getInstance(logo);
+      URL url = lePdf.class.getResource(logo);
+      Image img = Image.getInstance(url);
+      
       img.scaleAbsolute(86.0F, 50.0F);
       img.getAlignment();
       img.getScaledHeight();
