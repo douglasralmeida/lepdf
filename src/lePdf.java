@@ -32,7 +32,7 @@ public class lePdf {
   static float tamFonte = 0.0F;
   static String logo = "img/logoINSS.jpg";
   static String pathAdobe = null;
-  static String diretorio = System.getProperty("user.dir") + '\\';
+  static String diretorio = "C:/CNISLINHA/";
   ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
@@ -117,7 +117,7 @@ public class lePdf {
           }
           resto = resto.substring(pos + 1, resto.length());
         }
-        FontFactory.register("C:\\Windows\\Fonts\\consola.ttf", "Consolas");
+        FontFactory.register("C:/Windows/Fonts/consola.ttf", "Consolas");
         Paragraph p = new Paragraph(nvline.toString(), 
           FontFactory.getFont("Consolas", tamFonte, 0, 
           new BaseColor(0, 0, 0)));
@@ -319,7 +319,7 @@ public class lePdf {
 	try {
 	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e1) {
+	       | UnsupportedLookAndFeelException e1) {
 	  e1.printStackTrace();
 	  return;
 	}
