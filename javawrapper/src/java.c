@@ -1,18 +1,30 @@
 /*
 **	Wrapper para Java 8/10
-**	O Prisma chama o aplicativo lePdf atraves do comando
+**	O Prisma chama o aplicativo lePdf atraves do comando:
 **
-**  Para torna-lo compatível com Java 8 ou superior este aplicativo
-**	refaz a chamada.
-**  Isso o torna incompatível com Java 6.
+**  C:\Program Files\Java\jre6\bin\java.exe -jar lepdf.jar <args>
+**
+**  Para torna-lo compatível com Java 8 ou superior, este aplicativo
+**	refaz a chamada para o javaw.exe disponível no path do sistema.
+**  
+**  Como ele fica no diretório do Java 6, isso o torna incompatível com
+**  esta versão do Java.
 */
 
 #include <stdlib.h>
 #include <windows.h>
 
+void chamarJavaReal(char* arg) {
+  char* javaexe = "javaw.exe";
+    
+  ShellExecuteA(NULL, "open", javaexe, arg, NULL, SW_SHOWNORMAL);
+  /*if (res == ERROR_FILE_NOT_FOUND)
+    MessageBoxA(NULL, "Java não encontrado.", "Geracao de PDF", 0); */
+}
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
-    MessageBox(NULL, lpCmdLine, L"Java Wrapper", 0);
-	exit(EXIT_SUCCESS);
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+  chamarJavaReal(lpCmdLine);
+  exit(EXIT_SUCCESS);
 }

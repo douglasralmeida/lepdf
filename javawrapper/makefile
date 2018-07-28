@@ -14,7 +14,7 @@ WRES=windres -Iinclude/
 # O comando windres compila os recursos do aplicativo, como ícone, definicao de versao, etc.
 
 LIBS=
-LDFLAGS=-mwindows -municode
+LDFLAGS=-mwindows
 BINDIR=bin
 OBJDIR=obj
 OBJFILES=java.o
