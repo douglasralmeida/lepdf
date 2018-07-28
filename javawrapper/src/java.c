@@ -4,6 +4,11 @@
 **
 **  C:\Program Files\Java\jre6\bin\java.exe -jar lepdf.jar <args>
 **
+**  Entretanto, cada versão Java possui seu diretório individual, o que
+**  torna a chamada incompatível com versões posteriores do Java.
+**  A chamada correta deveria ser pelo path do sistema, ou, pelo menos,
+**  pelo javapath definido pela Oracle.
+**
 **  Para torna-lo compatível com Java 8 ou superior, este aplicativo
 **	refaz a chamada para o javaw.exe disponível no path do sistema.
 **  
