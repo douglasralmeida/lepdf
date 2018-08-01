@@ -19,17 +19,17 @@
 #include <stdlib.h>
 #include <windows.h>
 
-void chamarJavaReal(char* arg) {
-  char* javaexe = "javaw.exe";
+void chamarJavaReal(wchar_t* arg) {
+  wchar_t* javaexe = L"javaw.exe";
     
-  ShellExecuteA(NULL, "open", javaexe, arg, NULL, SW_SHOWNORMAL);
+  ShellExecute(NULL, L"open", javaexe, arg, NULL, SW_SHOWNORMAL);
   /*if (res == ERROR_FILE_NOT_FOUND)
     MessageBoxA(NULL, "Java não encontrado.", "Geracao de PDF", 0); */
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
   chamarJavaReal(lpCmdLine);
   exit(EXIT_SUCCESS);
 }
