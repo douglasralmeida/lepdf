@@ -16,19 +16,24 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-ChangesEnvironment=true
-DefaultDirName={pf}\Aplicativos do INSS\Componente PDF para Prisma
-DefaultGroupName=Aplicativos do INSS\Componente PDF para Prisma
 AllowNoIcons=yes
 ArchitecturesInstallIn64BitMode=x64
-OutputBaseFilename=prismapdfinstala
+ChangesEnvironment=true
 Compression=lzma
+DefaultDirName={pf}\Aplicativos do INSS\Componente PDF para Prisma
+DefaultGroupName=Aplicativos do INSS\Componente PDF para Prisma
+DisableWelcomePage=False
+MinVersion=0,6.1
+OutputBaseFilename=prismapdfinstala
+SetupIconFile=setupicone.ico
 SolidCompression=yes
 ShowLanguageDialog=no
 UninstallDisplayName=Componente PDF para Prisma
+UninstallDisplayIcon={uninstallexe}
 VersionInfoVersion=1.0.0
 VersionInfoProductVersion=1.0
-MinVersion=0,6.1
+WizardImageFile=setupgrande.bmp
+WizardSmallImageFile=setuppequeno.bmp
 
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
