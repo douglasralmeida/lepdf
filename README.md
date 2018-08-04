@@ -2,7 +2,7 @@
 
 O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Social (INSS) que auxilia o sistema legado Prisma a gerar arquivos em PDF.
 
-## Instalando o lePdf
+## Instalando o Componente PDF para Prisma
 
 1. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/) ou superior.
 2. Baixe o instalador mais recente disponível em [Release](https://github.com/douglasralmeida/lepdf/releases).
@@ -19,11 +19,11 @@ O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Socia
 
 ## Aviso de incompatibilidade
 
-Para torná-lo compatível com o Java 8 ou superior, o lePdf é incompatível com o Java 6. Desinstale qualquer versão deste JRE do seu computador antes de instalá-lo e remova seu endereço do javapath nas variáveis de sistema.
+Para torná-lo compatível com o Java 8 ou superior, o componente PDF é incompatível com o Java 6. Desinstale qualquer versão deste JRE do seu computador antes de instalá-lo e remova seu endereço do javapath nas variáveis de sistema.
 
 ## Compilação
 
-Para compilar o lePdf, é necessário:
+Para compilar todos os componentes, é necessário:
 
 * IDE Eclipse.
 * JRE 8.0 ou superior.
@@ -31,6 +31,7 @@ Para compilar o lePdf, é necessário:
 * MingW-w64.
 * Biblioteca itextpdf-5.5.13.jar
 * Biblioteca pdfbox-2.0.11.jar
+* LaTeX.
 * Inno Setup.
 
 Antes de compilar o java6wrapper, altere os arquivos make32 e make64, substituindo a variável makeexe pelo endereço do MingW-Make do seu computador.
