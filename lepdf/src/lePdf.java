@@ -46,25 +46,24 @@ public class lePdf {
     "Õ", "Ù", "Ú", "Û", "Ç" };
   
   public static float calculaFonte(String arquivo) {
+    int tamMaiorLinha = 0;
+    BufferedReader input;
+    String line = null;
+      
     try {
-      BufferedReader input = null;
       input = new BufferedReader(new FileReader(arquivo));
-      int tam = 0;
-      String line = null;
       while ((line = input.readLine()) != null) {
-        if ((line.trim() != null) && (line.length() > tam)) {
-          tam = line.length();
+        if ((line.trim() != null) && (line.length() > tamMaiorLinha)) {
+          tamMaiorLinha = line.length();
         }
       }
       input.close();
-      if (tam <= 100) {
-        tamFonte = 10.0F;
-      }
-      if ((tam > 100) && (tam < 110)) {
-        tamFonte = 8.0F;
-      }
-      if (tam > 132) {
-        tamFonte = 6.0F;
+      if (tamMaiorLinha <= 86) {
+        tamFonte = 11.0F;
+      } else if ((tamMaiorLinha > 86) && (tamMaiorLinha <= 106)) {
+        tamFonte = 9.0F;
+      } else if (tamMaiorLinha > 106) {
+    	tamFonte = 6.5F;
       }
       return tamFonte;
     }
@@ -120,6 +119,7 @@ public class lePdf {
           }
           resto = resto.substring(pos + 1, resto.length());
         }
+        FontFactory.defaultEmbedding = true;
         FontFactory.register("C:/Windows/Fonts/consola.ttf", "Consolas");
         Paragraph p = new Paragraph(nvline.toString(), 
           FontFactory.getFont("Consolas", tamFonte, 0, 
@@ -143,7 +143,6 @@ public class lePdf {
     }
     catch (Exception e) {
       JOptionPane.showMessageDialog(null, e.getMessage());
-      System.out.println("pressione enter para continuar...");
       BufferedInputStream reader = new BufferedInputStream(System.in);
       try {
         reader.read();
@@ -331,7 +330,7 @@ public class lePdf {
   public static void main(String[] args) {
 	setAppTheme();
     if (args.length < 3) {
-      System.out.println("Erro lePdf: Argumentos insuficientes.");
+      JOptionPane.showMessageDialog(null, "Erro no lePdf: Argumentos insuficientes.");
       System.exit(1);
     }
     String entrada = args[0];
@@ -342,7 +341,7 @@ public class lePdf {
 	  removeArquivos(entrada, saida);
 	  tamFonte = calculaFonte(diretorio + entrada);
 	  if (tamFonte == 0.0F) {
-	    tamFonte = 10.0F;
+	    tamFonte = 11.0F;
 	  }
 	  processaTexto(diretorio + entrada, diretorio + saida);
 	  if (processaMaisUm)
