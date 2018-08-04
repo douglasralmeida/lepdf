@@ -1,4 +1,4 @@
-; Script para o instalador do Componente PDF para Prisma
+﻿; Script para o instalador do Componente PDF para Prisma
 
 #include "ambiente.iss"
 
@@ -42,7 +42,11 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Source: "..\dist\java32.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 32bit
 Source: "..\dist\java64.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 64bit
 Source: "..\dist\lepdf.jar"; DestDir: "C:\cnislinha"; Flags: ignoreversion
+Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+[Icons]
+Name: "{group}\Instruções para Geração de PDF no Prisma"; Filename: "{app}\manual.pdf"; WorkingDir: "{app}"
 
 [Code]
 function InitializeSetup(): boolean;
@@ -53,7 +57,7 @@ begin
     Result := true;    
   end
   else begin          
-    if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Voc� deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then begin
+    if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Você deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then begin
       Result := false;
       ShellExec('open', 'https://java.com/download/', '', '', SW_SHOW, ewNoWait, ResultCode);
     end;  
