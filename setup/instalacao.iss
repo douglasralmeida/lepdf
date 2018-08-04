@@ -1,7 +1,9 @@
 ; Script para o instalador do Componente PDF para Prisma
 
+#include "ambiente.iss"
+
 #define MyAppName "Componente PDF para Prisma"
-#define MyAppVersion "1.0.5"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Douglas R. Almeida"
 #define MyAppURL "https://github.com/douglasralmeida"
 
@@ -14,6 +16,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
+ChangesEnvironment=true
 DefaultDirName={pf}\Aplicativos do INSS\Componente PDF para Prisma
 DefaultGroupName=Aplicativos do INSS\Componente PDF para Prisma
 AllowNoIcons=yes
@@ -23,7 +26,7 @@ Compression=lzma
 SolidCompression=yes
 ShowLanguageDialog=no
 UninstallDisplayName=Componente PDF para Prisma
-VersionInfoVersion=1.0.5
+VersionInfoVersion=1.0.0
 VersionInfoProductVersion=1.0
 MinVersion=0,6.1
 
@@ -50,4 +53,11 @@ begin
       ShellExec('open', 'https://java.com/download/', '', '', SW_SHOW, ewNoWait, ResultCode);
     end;  
   end;
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+  { Remove o caminho do JRE 6 do systempath }
+  if CurStep = ssPostInstall then
+    EnvRemovePath(ExpandConstant('{pf}') + '\Java\jre6\bin');
 end;
