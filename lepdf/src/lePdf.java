@@ -1,6 +1,6 @@
 /* 
- * lePdf
- * versão 1.0.0
+ * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
+ * Agosto de 2018
  * 
  */
 
@@ -32,7 +32,6 @@ public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
   static String logo = "resources/logoINSS.jpg";
-  static String pathAdobe = null;
   static String diretorio = "C:/CNISLINHA/";
   ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
@@ -46,23 +45,23 @@ public class lePdf {
     "Õ", "Ù", "Ú", "Û", "Ç" };
   
   public static float calculaFonte(String arquivo) {
-    int tamMaiorLinha = 0;
-    BufferedReader input;
-    String line = null;
+    int tamanhoMaiorLinha = 0;
+    String linha = null;
+    BufferedReader input;    
       
     try {
       input = new BufferedReader(new FileReader(arquivo));
-      while ((line = input.readLine()) != null) {
-        if ((line.trim() != null) && (line.length() > tamMaiorLinha)) {
-          tamMaiorLinha = line.length();
+      while ((linha = input.readLine()) != null) {
+        if ((linha.trim() != null) && (linha.length() > tamanhoMaiorLinha)) {
+          tamanhoMaiorLinha = linha.length();
         }
       }
       input.close();
-      if (tamMaiorLinha <= 86) {
+      if (tamanhoMaiorLinha <= 86) {
         tamFonte = 11.0F;
-      } else if ((tamMaiorLinha > 86) && (tamMaiorLinha <= 106)) {
+      } else if (tamanhoMaiorLinha <= 106) {
         tamFonte = 9.0F;
-      } else if (tamMaiorLinha > 106) {
+      } else {
     	tamFonte = 6.5F;
       }
       return tamFonte;
@@ -74,9 +73,10 @@ public class lePdf {
   }
   
   public static void processaTexto(String entrada, String saida) {
+	BufferedReader input = null;
+    Document output = null;
+      
     try {
-      BufferedReader input = null;
-      Document output = null;
       input = new BufferedReader(new FileReader(entrada));
       output = new Document(PageSize.A4, 40.0F, 30.0F, 20.0F, 20.0F);
       PdfWriter.getInstance(output, new FileOutputStream(saida));
@@ -199,101 +199,7 @@ public class lePdf {
     }
     return dado;
   }
-  
-  public static String corrigePalavra(String dadoOri) throws Exception {
-    try {
-      ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
-      String palavra = null;
-      Boolean carac = Boolean.valueOf(true);
-      Boolean OES = Boolean.valueOf(false);
-      Boolean oes = Boolean.valueOf(false);
-      Boolean plural = Boolean.valueOf(false);
-      if (dadoOri.lastIndexOf("oes") != -1) {
-        dadoOri = dadoOri.replace("oes", "ao");
-        oes = Boolean.valueOf(true);
-      }
-      if (dadoOri.lastIndexOf("OES") != -1) {
-        dadoOri = dadoOri.replace("OES", "AO");
-        OES = Boolean.valueOf(true);
-      }
-      String comp = dadoOri.substring(dadoOri.length() - 1);
-      String letra = dadoOri.substring(dadoOri.length() - 1);
-      if ((comp.equalsIgnoreCase("S")) && 
-         (!oes.booleanValue()) &&
-         (!OES.booleanValue())) {
-        plural = Boolean.valueOf(true);
-        dadoOri = dadoOri.substring(0, dadoOri.length() - 1);
-      }
-      if (carac.booleanValue()) {
-        String mcu = dadoOri.toUpperCase();
-        String mcl = dadoOri.toLowerCase();
-        String mct = mcl.substring(0, 1).toUpperCase().concat(
-          mcl.substring(1, mcl.length()));
-        if (ptC.containsKey(mcl)) {
-          String palavramcl = ptC.getString(mcl);
-          String palavramcu = palavramcl.toUpperCase();
-          String palavramct = palavramcl.substring(0, 1)
-            .toUpperCase().concat(palavramcl.substring(1, palavramcl.length()));
-          if (mcu.equals(dadoOri)) {
-            if (OES.booleanValue()) {
-              palavramcu = palavramcu.replace("ÃO", "ÕES");
-            }
-            palavra = palavramcu;
-          }
-          if (mcl.equals(dadoOri)) {
-            if (oes.booleanValue()) {
-              palavramcl = palavramcl.replace("ão", "ões");
-            }
-            palavra = palavramcl;
-          }
-          if (mct.equals(dadoOri)) {
-            if (oes.booleanValue()) {
-              palavramct = palavramct.replace("ão", "ões");
-            }
-            palavra = palavramct;
-          }
-          if (plural.booleanValue()) {
-            if (mcl.equals(dadoOri)) {
-              palavra = palavramcl.concat("s");
-            }
-            if (mcu.equals(dadoOri)) {
-              palavra = palavramcu.concat("S");
-            }
-            if (mct.equals(dadoOri)) {
-              palavra = palavramcl.concat("s");
-            }
-            System.out.println(dadoOri + "  " + palavra);
-          }
-        }
-      }
-      if (palavra == null) {
-        if (plural.booleanValue()) {
-          palavra = dadoOri.concat(letra);
-        }
-      }
-      return dadoOri;
-    }
-    catch (Exception e) {}
-    return dadoOri;
-  }
-  
-  public static final String readRegistry(String location) {
-    try {
-      Process process = Runtime.getRuntime().exec(
-        "reg query \"" + location);
-      StreamReader reader = new StreamReader(process.getInputStream());
-      reader.start();
-      process.waitFor();
-      reader.join();
-      String output = reader.getResult();
-      String[] parsed = output.split("\t");
-      
-      return parsed[(parsed.length - 1)];
-    }
-    catch (Exception e) {}
-    return null;
-  }
-  
+    
   static class StreamReader extends Thread {
     private InputStream is;
     private StringWriter sw = new StringWriter();
