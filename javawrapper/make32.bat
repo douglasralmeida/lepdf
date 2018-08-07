@@ -1,3 +1,4 @@
-SET "makeexe=D:\mingw64\bin\mingw32-make.exe"
+SET "TOOLCHAINDIR=D:\mingw32\bin"
+SET "MAKEEXE=%TOOLCHAINDIR%\mingw32-make.exe"
 
-%makeexe% CC=i686-w64-mingw32-gcc PROJECTNAME=java32
+%MAKEEXE% CC=i686-w64-mingw32-gcc WRES="%TOOLCHAINDIR%\windres.exe -Iinclude/" PROJECTNAME=java32

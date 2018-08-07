@@ -1,0 +1,44 @@
+#include <windows.h>
+#include "recursos.h"
+// Icone do aplicativo.
+IDI_APPICON ICON                       "appicone.ico"
+
+// Manifesto do aplicativo.
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Application.manifest"
+
+//Tabela de strings
+STRINGTABLE
+BEGIN
+IDS_OLAMUNDO L"Ol\x00E1, mundo!"
+IDS_JAVANAOENCONTRADO L"Java nN\x00E3o encontrado."
+END
+
+// Informacoes de versao do executavel.
+VS_VERSION_INFO    VERSIONINFO
+FILEVERSION        1,0,0
+PRODUCTVERSION     1,0,0
+FILEFLAGSMASK      0
+FILEFLAGS          0
+FILEOS             VOS_NT_WINDOWS32
+FILETYPE           VFT_APP
+FILESUBTYPE        VFT2_UNKNOWN
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "041604b0"
+    BEGIN
+      VALUE "CompanyName", "Douglas R. Almeida"
+      VALUE "FileDescription", "Java 6 Wrapper para o Componente PDF para Prisma"
+      VALUE "FileVersion", "1.0.0"
+      VALUE "InternalName", "JAVA"
+      VALUE "LegalCopyright", "Sem direitos autorais"
+      VALUE "OriginalFilename", "java.exe"
+      VALUE "ProductName", "Componente PDF para Prisma"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0416, 1200
+  END
+END
