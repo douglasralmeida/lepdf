@@ -43,21 +43,48 @@ Source: "..\dist\java32.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe
 Source: "..\dist\java64.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 64bit
 Source: "..\dist\lepdf.jar"; DestDir: "C:\cnislinha"; Flags: ignoreversion
 Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\dist\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{group}\Instruções para Geração de PDF no Prisma"; Filename: "{app}\manual.pdf"; WorkingDir: "{app}"
+
+[Run]
+Filename: "schtasks"; \
+  Parameters: "/Create /RU SYSTEM /F /SC DAILY /TN ""Limpeza diária do Componente PDF para Prisma"" /TR ""'{app}\deltmpfiles.bat'"" /ST 01:00"; \
+  Flags: runhidden; \
+  StatusMsg: "Definindo tarefas agendadas..."
+
+Filename: "schtasks"; \
+  Parameters: "/Create /RU SYSTEM /F /SC ONLOGON /TN ""Limpeza ao logon do Componente PDF para Prisma"" /TR ""'{app}\deltmpfiles.bat'"""; \
+  Flags: runhidden; \
+  StatusMsg: "Definindo tarefas agendadas..."
+
+[UninstallRun]
+Filename: "schtasks"; \
+  Parameters: "/Delete /F /TN ""Limpeza diária do Componente PDF para Prisma"""; \
+  Flags: runhidden; \
+  StatusMsg: "Excluindo tarefas agendadas..."
+
+Filename: "schtasks"; \
+  Parameters: "/Delete /F /TN ""Limpeza ao logon do Componente PDF para Prisma"""; \
+  Flags: runhidden; \
+  StatusMsg: "Excluindo tarefas agendadas..."
 
 [Code]
 function InitializeSetup(): boolean;
 var
   ResultCode: integer;
 begin
-  if Exec('java', '-version', '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then begin
+  { Checa a existencia do JRE instalado }
+  if Exec('java', '-version', '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then
+  begin
     Result := true;    
   end
-  else begin          
-    if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Você deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then begin
+  else
+  begin          
+    if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Você deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then
+    begin
       Result := false;
       ShellExec('open', 'https://java.com/download/', '', '', SW_SHOW, ewNoWait, ResultCode);
     end;  

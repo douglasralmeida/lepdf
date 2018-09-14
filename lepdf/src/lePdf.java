@@ -14,7 +14,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -152,38 +151,7 @@ public class lePdf {
       }
     }
   }
-  
-  public static void removeArquivos(String arqtxt, final String arqpdf) {
-    new Thread(new Runnable() {
-      public void run() {
-        try {
-          Thread.sleep(2000L);
-        }
-        catch (InterruptedException e) {
-          e.printStackTrace();
-        }
-        File dir = new File(lePdf.diretorio);
-        File[] arquivos = dir.listFiles();
-        if (arquivos != null) {
-          int length = arquivos.length;
-          for (int i = 0; i < length; i++) {
-            File f = arquivos[i];
-            if (f.isFile() && !f.getName().toString().equals(arqpdf)) {
-                 if (f.getName().indexOf("ARQTXT") != -1) {
-                   f.delete();
-                   f.deleteOnExit();
-                 }
-                 if (f.getName().indexOf("ARQPDF") != -1) {
-                   f.delete();
-                   f.deleteOnExit();
-                 }
-            }
-          }
-        }
-      }
-    }).start();
-  }
-  
+    
   public static String limpaLinha(String dado) {
     dado = dado.replace('\b', ' ');
     dado = dado.replace('^', '&');
@@ -244,7 +212,6 @@ public class lePdf {
 	String processo = args[2];	
 	boolean processaMaisUm = args.length > 3;
 	if (processo.equals("I")) {
-	  removeArquivos(entrada, saida);
 	  tamFonte = calculaFonte(diretorio + entrada);
 	  if (tamFonte == 0.0F) {
 	    tamFonte = 11.0F;
@@ -259,7 +226,6 @@ public class lePdf {
 	  System.exit(0);
     }
 	if (processo.equals("D")) {
-	  removeArquivos(entrada, saida);
 	  System.runFinalization();
       System.exit(0);
 	}
