@@ -1,4 +1,5 @@
 ﻿; Script para o instalador do Componente PDF para Prisma
+; requer InnoSetup
 
 #include "ambiente.iss"
 
@@ -20,8 +21,8 @@ AllowNoIcons=yes
 ArchitecturesInstallIn64BitMode=x64
 ChangesEnvironment=true
 Compression=lzma
-DefaultDirName={pf}\Aplicativos do INSS\Componente PDF para Prisma
-DefaultGroupName=Aplicativos do INSS\Componente PDF para Prisma
+DefaultDirName={pf}\Componente PDF para Prisma
+DefaultGroupName=Componente PDF para Prisma
 DisableWelcomePage=False
 MinVersion=0,6.1
 OutputBaseFilename=prismapdfinstala
@@ -39,8 +40,8 @@ WizardSmallImageFile=..\res\setuppequeno.bmp
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "..\dist\java32.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 32bit
-Source: "..\dist\java64.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 64bit
+Source: "..\dist\java32.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 32bit; Check: not IsWin64
+Source: "..\dist\java64.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 64bit; Check: IsWin64
 Source: "..\dist\lepdf.jar"; DestDir: "C:\cnislinha"; Flags: ignoreversion
 Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\dist\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion
@@ -56,7 +57,7 @@ Filename: "schtasks"; \
   StatusMsg: "Definindo tarefas agendadas..."
 
 Filename: "schtasks"; \
-  Parameters: "/Create /RU SYSTEM /F /SC ONLOGON /TN ""Limpeza ao logon do Componente PDF para Prisma"" /TR ""'{app}\deltmpfiles.bat'"""; \
+  Parameters: "/Create /RU SYSTEM /F /SC ONLOGON /TN ""Limpeza durante logon do Componente PDF para Prisma"" /TR ""'{app}\deltmpfiles.bat'"""; \
   Flags: runhidden; \
   StatusMsg: "Definindo tarefas agendadas..."
 
@@ -67,7 +68,7 @@ Filename: "schtasks"; \
   StatusMsg: "Excluindo tarefas agendadas..."
 
 Filename: "schtasks"; \
-  Parameters: "/Delete /F /TN ""Limpeza ao logon do Componente PDF para Prisma"""; \
+  Parameters: "/Delete /F /TN ""Limpeza durante logon do Componente PDF para Prisma"""; \
   Flags: runhidden; \
   StatusMsg: "Excluindo tarefas agendadas..."
 
