@@ -78,23 +78,19 @@ var
   ResultCode: integer;
 begin
   { Checa a existencia do JRE instalado }
-  if Exec('java', '-version', '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then
-  begin
-    Result := true;    
-  end
-  else
+  if not Exec('java', '-version', '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then
   begin          
     if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Você deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then
     begin
-      Result := false;
       ShellExec('open', 'https://java.com/download/', '', '', SW_SHOW, ewNoWait, ResultCode);
-    end;  
+    end;    
   end;
+  Result := true;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
   { Remove o caminho do JRE 6 do systempath }
   if CurStep = ssPostInstall then
-    EnvRemovePath(ExpandConstant('{pf}') + '\Java\jre6\bin');
+    EnvRemovePath(ExpandConstant('{pf32}') + '\Java\jre6\bin');
 end;
