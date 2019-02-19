@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Douglas/Desktop/code/javalibs/itextpdf-5.5.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Douglas/Desktop/code/javalibs/pdfbox-2.0.11.jar"/>
+	<classpathentry kind="lib" path="D:/dev/javalibs/pdfbox-2.0.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
