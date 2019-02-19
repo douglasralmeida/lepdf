@@ -1,3 +1,4 @@
+package main.java;
 /* 
  * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
  * Agosto de 2018
