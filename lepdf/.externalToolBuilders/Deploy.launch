@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
     <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+    <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_BUILDER_ENABLED" value="false"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:/Program Files/ojdkbuild/java-11-openjdk-11.0.2-1/bin/jlink.exe"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="--add-modules java.base,java.desktop,lepdf --launcher gui=lepdf/lepdf.main --output output/ --strip-debug --compress 2 --no-header-files --no-man-pages"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="--module-path D:\dev\javalibs --add-modules java.base,java.desktop,lepdf --launcher gui=lepdf/lepdf.main --output output/ --strip-debug --compress 2 --no-header-files --no-man-pages"/>
     <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/lePdf}"/>
 </launchConfiguration>

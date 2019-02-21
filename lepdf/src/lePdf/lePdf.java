@@ -1,21 +1,13 @@
-package main.java;
+package lePdf;
 /* 
  * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
- * Agosto de 2018
+ * Março de 2019
  * 
  */
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,9 +16,23 @@ import java.net.URI;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfName;
+import com.itextpdf.kernel.pdf.PdfString;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.HorizontalAlignment;
 
 public class lePdf {
   static String usuario = System.getProperty("user.name");
@@ -67,39 +73,42 @@ public class lePdf {
       return tamFonte;
     }
     catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e.getMessage());
+      JOptionPane.showMessageDialog(null, "Erro a calcular tamanho da fonte: " + e.getMessage());
     }
     return tamFonte;
   }
   
   public static void processaTexto(String entrada, String saida) {
 	BufferedReader input = null;
-    Document output = null;
-      
+	PdfDocument pdf = null;
+	PdfFont fonte = null;
+    Document doc = null;
+    String line = "";
+
     try {
       input = new BufferedReader(new FileReader(entrada));
-      output = new Document(PageSize.A4, 40.0F, 30.0F, 20.0F, 20.0F);
-      PdfWriter.getInstance(output, new FileOutputStream(saida));
-      output.open();
-      output.addAuthor("Sistema Prisma");
-      output.addSubject(usuario + " " + entrada);
-      output.addTitle(saida);
+      pdf = new PdfDocument(new PdfWriter(saida));
+      pdf.setDefaultPageSize(PageSize.A4);
+      fonte = PdfFontFactory.createFont("C:/Windows/Fonts/consola.ttf", true);
+      doc = new Document(pdf);
+      doc.setMargins(30.0F, 20.0F, 20.0F, 40.0F);
+      doc.setFont(fonte);
+      
+      pdf.getCatalog().put(PdfName.Author, new PdfString("Sistema Prisma"));
+      pdf.getCatalog().put(PdfName.Subject, new PdfString(usuario + " " + entrada));
+      pdf.getCatalog().put(PdfName.Title, new PdfString(saida));
       
       URL url = lePdf.class.getResource(logo);
-      Image img = Image.getInstance(url);
+      Image img = new Image(ImageDataFactory.create(url));
+//      img.scaleAbsolute(86.0F, 50.0F);
+      doc.add(img);
       
-      img.scaleAbsolute(86.0F, 50.0F);
-      img.getAlignment();
-      img.getScaledHeight();
-      img.setAlignment(1);
-      output.add(img);
-      String line = "";
       while ((line = input.readLine()) != null) {
         char NP = '\f';
         byte np = (byte)NP;
         if (line.indexOf(np) != -1) {
-          output.newPage();
-          output.add(img);
+          pdf.addNewPage();
+          doc.add(img);
         }
         String nvline = null;
         nvline = limpaLinha(line);
@@ -119,19 +128,15 @@ public class lePdf {
           }
           resto = resto.substring(pos + 1, resto.length());
         }
-        FontFactory.defaultEmbedding = true;
-        FontFactory.register("C:/Windows/Fonts/consola.ttf", "Consolas");
-        Paragraph p = new Paragraph(nvline.toString(), 
-          FontFactory.getFont("Consolas", tamFonte, 0, 
-          new BaseColor(0, 0, 0)));
-        p.setAlignment(3);
-        output.add(p);
+        Paragraph p = new Paragraph(nvline.toString()).setFontSize(tamFonte);
+        p.setHorizontalAlignment(HorizontalAlignment.LEFT);
+        doc.add(p);
       }
-      output.close();
+      doc.close();
       input.close();
     }
     catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e.getMessage());
+      JOptionPane.showMessageDialog(null, "Erro de processameto: " + e.getMessage());
     }
   }
   
@@ -203,7 +208,7 @@ public class lePdf {
   }
   
   public static void main(String[] args) {
-	setAppTheme();
+	//setAppTheme();
     if (args.length < 3) {
       JOptionPane.showMessageDialog(null, "Erro no lePdf: Argumentos insuficientes.");
       System.exit(1);
