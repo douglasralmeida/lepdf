@@ -5,22 +5,12 @@ package lePdf;
  * 
  */
 
-import java.awt.Desktop;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.net.URI;
 import java.net.URL;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -34,12 +24,14 @@ import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
 
+import winapi.Mensagem;
+import winapi.Shell;
+
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/CNISLINHA/";
-  ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
     "o &", "o ~", "u `", "u '", "u &", "c ,", "A `", "A '", "A &", 
@@ -79,7 +71,8 @@ public class lePdf {
   }
   
   public static void exibirMsg(String msg) {
-	  JOptionPane.showMessageDialog(null, msg);
+	  //JOptionPane.showMessageDialog(null, msg);
+	  Mensagem.exibir(msg, "Processador PDF");
   }
   
   public static void processaTexto(String entrada, String saida) {
@@ -104,6 +97,7 @@ public class lePdf {
       
       URL url = lePdf.class.getResource(logo);
       Image img = new Image(ImageDataFactory.create(url));
+      img.setHorizontalAlignment(HorizontalAlignment.CENTER);
       img.scaleAbsolute(86.0F, 50.0F);
       doc.add(img);
       
@@ -144,21 +138,13 @@ public class lePdf {
     }
   }
   
-  public static void processaPDF(String saida) {
+  public static void exibirPDF(String saida) {
     try {
-      Desktop.getDesktop().browse(new URI(saida));
- 
+      Shell.executar(saida);
       return;
     }
     catch (Exception e) {
       exibirMsg(e.getMessage());
-      BufferedInputStream reader = new BufferedInputStream(System.in);
-      try {
-        reader.read();
-      }
-      catch (IOException ex) {
-        ex.printStackTrace();
-      }
     }
   }
     
@@ -200,19 +186,8 @@ public class lePdf {
       return this.sw.toString();
     }
   }
-  
-  private static void setAppTheme() {
-	try {
-	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-	} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-	       | UnsupportedLookAndFeelException e1) {
-	  e1.printStackTrace();
-	  return;
-	}
-  }
-  
+   
   public static void main(String[] args) {
-	setAppTheme();
     if (args.length < 3) {
       exibirMsg("Erro ao abrir o componente de processamento PDF: Argumentos insuficientes.");
       System.exit(1);
@@ -228,10 +203,10 @@ public class lePdf {
 	  }
 	  processaTexto(diretorio + entrada, diretorio + saida);
 	  if (processaMaisUm)
-	    processaPDF(diretorio + saida);
+		  exibirPDF(diretorio + saida);
 	}
 	if (processo.equals("E")) {
-	  processaPDF(diretorio + saida);
+		exibirPDF(diretorio + saida);
 	  System.runFinalization();
 	  System.exit(0);
     }
