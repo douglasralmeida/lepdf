@@ -71,7 +71,6 @@ public class lePdf {
   }
   
   public static void exibirMsg(String msg) {
-	  //JOptionPane.showMessageDialog(null, msg);
 	  Mensagem.exibir(msg, "Processador PDF");
   }
   
