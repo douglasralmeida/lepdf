@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="limit-modules" value="java.base,java.desktop,jdk.jdwp.agent"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/slf4j-api-1.7.25.jar">
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.7.25.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/itextpdf.io-7.1.5.jar">
+	<classpathentry exported="true" kind="lib" path="lib/itextpdf.io-7.1.5.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/itextpdf.kernel-7.1.5.jar">
+	<classpathentry exported="true" kind="lib" path="lib/itextpdf.kernel-7.1.5.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="add-reads" value="itextpdf.kernel=itextpdf.io"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/itextpdf.layout-7.1.5.jar">
+	<classpathentry exported="true" kind="lib" path="lib/itextpdf.layout-7.1.5.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
-			<attribute name="add-reads" value="itextpdf.layout=itextpdf.kernel:itextpdf.layout=itextpdf.io"/>
+			<attribute name="add-reads" value="itextpdf.layout=itextpdf.kernel:itextpdf.layout=itextpdf.io:itextpdf.layout=slf4j.api"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

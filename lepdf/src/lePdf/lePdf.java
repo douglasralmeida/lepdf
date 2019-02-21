@@ -37,7 +37,7 @@ import com.itextpdf.layout.property.HorizontalAlignment;
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String logo = "resources/logoINSS.jpg";
+  static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/CNISLINHA/";
   ResourceBundle ptC = ResourceBundle.getBundle("resources.palavrasAcentuadas", new Locale("pt", "BR"));
   static final String[] acentuados = { "a `", "a '", "a &", 
@@ -73,9 +73,13 @@ public class lePdf {
       return tamFonte;
     }
     catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Erro a calcular tamanho da fonte: " + e.getMessage());
+      exibirMsg("Erro a calcular tamanho do texto: " + e.getMessage());
     }
     return tamFonte;
+  }
+  
+  public static void exibirMsg(String msg) {
+	  JOptionPane.showMessageDialog(null, msg);
   }
   
   public static void processaTexto(String entrada, String saida) {
@@ -100,7 +104,7 @@ public class lePdf {
       
       URL url = lePdf.class.getResource(logo);
       Image img = new Image(ImageDataFactory.create(url));
-//      img.scaleAbsolute(86.0F, 50.0F);
+      img.scaleAbsolute(86.0F, 50.0F);
       doc.add(img);
       
       while ((line = input.readLine()) != null) {
@@ -136,7 +140,7 @@ public class lePdf {
       input.close();
     }
     catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Erro de processameto: " + e.getMessage());
+      exibirMsg("Erro de processameto: " + e.getMessage());
     }
   }
   
@@ -147,7 +151,7 @@ public class lePdf {
       return;
     }
     catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e.getMessage());
+      exibirMsg(e.getMessage());
       BufferedInputStream reader = new BufferedInputStream(System.in);
       try {
         reader.read();
@@ -208,9 +212,9 @@ public class lePdf {
   }
   
   public static void main(String[] args) {
-	//setAppTheme();
+	setAppTheme();
     if (args.length < 3) {
-      JOptionPane.showMessageDialog(null, "Erro no lePdf: Argumentos insuficientes.");
+      exibirMsg("Erro ao abrir o componente de processamento PDF: Argumentos insuficientes.");
       System.exit(1);
     }
     String entrada = args[0];
