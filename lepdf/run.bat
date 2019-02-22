@@ -1,0 +1,1 @@
+javaw --add-modules lePdf --module-path lib;bin -m lePdf/lePdf.lePdf
