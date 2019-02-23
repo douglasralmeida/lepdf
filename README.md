@@ -4,7 +4,7 @@ O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Socia
 
 * [Notas de lançamento](docs/atualizacoes.md)
 
-## Instalando o Componente PDF para Prisma
+## Instalando o Componente PDF para Prisma 1.0
 
 1. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/) ou superior.
 2. Baixe o instalador mais recente disponível em [Release](https://github.com/douglasralmeida/lepdf/releases).
@@ -29,16 +29,22 @@ Ao instalar o JRE 6 em um computador com o Componente PDF instalado o tornará i
 
 Para compilar todos os componentes, é necessário:
 
-* IDE Eclipse.
-* JRE 8.0 ou superior.
-* Compilador GCC.
+* IDE Eclipse 2018.12 ou superior.
+* OpenJDK 11.0.
+* Compilador GCC 8.1.
 * MingW-w64.
-* Biblioteca itextpdf-5.5.13.jar
-* Biblioteca pdfbox-2.0.11.jar
+* Biblioteca itextpdf io 7.1.5
+* Biblioteca itextpdf kernel 7.1.5
+* Biblioteca itextpdf layout 7.1.5
+* Biblioteca Java Native Access 5.2.0
+* Bibilioteca Simple Logging Facade for Java 1.7.25
+* Biblioteca BouncyCastle 1.60
 * LaTeX.
 * Inno Setup.
 
-Antes de compilar o java6wrapper, altere os arquivos make32 e make64, substituindo a variável makeexe pelo endereço do MingW-Make do seu computador.
+As bibliotecas JAR descritas acima não possuem suporte a modularização do Java 11. Use as versões modificadas disponíveis em loader/lib/.
+
+Antes de compilar o loader, altere os arquivos make32 e make64, substituindo a variável makeexe pelo endereço do MingW-Make do seu computador.
 
 ## Feedback
 * Use o item [Issues](https://github.com/douglasralmeida/lepdf/issues) do Github para fornecer feedback.
