@@ -10,13 +10,13 @@ CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Application.manifest"
 STRINGTABLE
 BEGIN
 IDS_OLAMUNDO L"Ol\x00E1, mundo!"
-IDS_JAVANAOENCONTRADO L"Java nN\x00E3o encontrado."
+IDS_JAVANAOENCONTRADO L"Subsistema Java nN\x00E3o encontrado. Reinstale este aplicativo."
 END
 
 // Informacoes de versao do executavel.
 VS_VERSION_INFO    VERSIONINFO
-FILEVERSION        1,0,0
-PRODUCTVERSION     1,0,0
+FILEVERSION        2,0,0
+PRODUCTVERSION     2,0,0
 FILEFLAGSMASK      0
 FILEFLAGS          0
 FILEOS             VOS_NT_WINDOWS32
@@ -28,13 +28,13 @@ BEGIN
     BLOCK "041604b0"
     BEGIN
       VALUE "CompanyName", "Douglas R. Almeida"
-      VALUE "FileDescription", "Java 6 Wrapper para o Componente PDF para Prisma"
-      VALUE "FileVersion", "1.0.0"
-      VALUE "InternalName", "JAVA"
+      VALUE "FileDescription", "Carregador do componente PDF"
+      VALUE "FileVersion", "2.0.0"
+      VALUE "InternalName", "LOADER"
       VALUE "LegalCopyright", "Sem direitos autorais"
-      VALUE "OriginalFilename", "java.exe"
+      VALUE "OriginalFilename", "loader.exe"
       VALUE "ProductName", "Componente PDF para Prisma"
-      VALUE "ProductVersion", "1.0"
+      VALUE "ProductVersion", "2.0"
     END
   END
   BLOCK "VarFileInfo"

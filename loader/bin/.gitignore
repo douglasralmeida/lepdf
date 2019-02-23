@@ -1,3 +1,4 @@
 # Ignorar o conteudo desta pasta exceto este arquivo
 !.gitignore
-*.o
+loader32.exe
+loader64.exe

@@ -1,4 +1,4 @@
 # Ignorar o conteudo desta pasta exceto este arquivo
 !.gitignore
-java32.exe
-java64.exe
+*.o
+*.ro
