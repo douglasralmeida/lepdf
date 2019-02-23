@@ -4,9 +4,9 @@
 #include "ambiente.iss"
 
 #define MyAppName "Componente PDF para Prisma"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "2.0.0"
 #define MyAppPublisher "Douglas R. Almeida"
-#define MyAppURL "https://github.com/douglasralmeida"
+#define MyAppURL "https://github.com/douglasralmeida/lepdf"
 
 [Setup]
 AppId={{22EFC3AD-9B60-4497-A15F-1936987858C9}
@@ -30,25 +30,32 @@ SetupIconFile=..\res\setupicone.ico
 SolidCompression=yes
 ShowLanguageDialog=no
 UninstallDisplayName=Componente PDF para Prisma
-UninstallDisplayIcon={uninstallexe}
-VersionInfoVersion=1.0.0
-VersionInfoProductVersion=1.0
+UninstallDisplayIcon={app}\loader.exe
+VersionInfoVersion=2.0.0
+VersionInfoProductVersion=2.0
 WizardImageFile=..\res\setupgrande.bmp
 WizardSmallImageFile=..\res\setuppequeno.bmp
+UninstallDisplaySize=50000000
+OutputDir=output
+ArchitecturesAllowed=x64
+DisableReadyPage=True
 
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "..\dist\java32.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 32bit; Check: not IsWin64
-Source: "..\dist\java64.exe"; DestDir: "{pf}\Java\jre6\bin"; DestName: "java.exe"; Flags: ignoreversion 64bit; Check: IsWin64
-Source: "..\dist\lepdf.jar"; DestDir: "C:\cnislinha"; Flags: ignoreversion
-Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\dist\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "..\dist\loader32.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 32bit; Components: programa; Check: not IsWin64
+Source: "..\dist\loader64.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 64bit; Components: programa; Check: IsWin64
+Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\dist\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\dist\jre\*"; DestDir: "{app}\jre"; Flags: ignoreversion createallsubdirs recursesubdirs; Components: java
+
+[Dirs]
+Name: "{pf}\Java\jre6\bin"; Components: programa
 
 [Icons]
-Name: "{group}\Instruções para Geração de PDF no Prisma"; Filename: "{app}\manual.pdf"; WorkingDir: "{app}"
+Name: "{group}\Manual para Geração de PDF no Prisma"; Filename: "{app}\manual.pdf"; WorkingDir: "{app}"
 
 [Run]
 Filename: "schtasks"; \
@@ -72,25 +79,39 @@ Filename: "schtasks"; \
   Flags: runhidden; \
   StatusMsg: "Excluindo tarefas agendadas..."
 
+[Components]
+Name: "programa"; Description: "Arquivos do programa"; ExtraDiskSpaceRequired: 1024; Types: compact custom full; Flags: fixed
+Name: "java"; Description: "Subsistema Java"; Types: compact custom full; Flags: fixed
+
 [Code]
-function InitializeSetup(): boolean;
+function CreateSoftLink(lpSymlinkFileName, lpTargetFileName: string; dwFlags: Integer): Boolean;
+  external 'CreateSymbolicLinkW@kernel32.dll stdcall';
+
+procedure CriarJavaLink;
 var
-  ResultCode: integer;
+  ExistingFile, LinkFile: string;
 begin
-  { Checa a existencia do JRE instalado }
-  if not Exec('java', '-version', '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then
-  begin          
-    if MsgBox('O Componente PDF para Prisma requer a plataforma Java instalada no seu computador. Baixe e instale o Java apropriado para o seu computador e, depois, execute este instalador novamente. Você deseja ir para o site do Java agora?', mbConfirmation, MB_YESNO) = idYes then
-    begin
-      ShellExec('open', 'https://java.com/download/', '', '', SW_SHOW, ewNoWait, ResultCode);
-    end;    
-  end;
-  Result := true;
+  ExistingFile := ExpandConstant('{app}\loader.exe');
+  LinkFile := ExpandConstant('{pf}\Java\jre6\bin\java.exe');
+  CreateSoftLink(LinkFile, ExistingFile, 0);
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
-  { Remove o caminho do JRE 6 do systempath }
   if CurStep = ssPostInstall then
+  begin
+    
+    { Remove o caminho do JRE 6 do systempath }
+    EnvRemovePath(ExpandConstant('{pf}') + '\Java\jre6\bin');
     EnvRemovePath(ExpandConstant('{pf32}') + '\Java\jre6\bin');
+
+    {  Cria um link simbolico que finge ser o executavel Java  }
+    CriarJavaLink;
+  end;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+  if CurUninstallStep = usUninstall then
+    DeleteFile(ExpandConstant('{pf}\Java\jre6\bin\java.exe'));
 end;
