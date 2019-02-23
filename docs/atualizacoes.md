@@ -1,6 +1,6 @@
 # lepdf - Notas de Lançamento
 
-Este documento descrve os novos recursos e as correções disponíveis durante a atualização de versão do Componente PDF para Prisma.
+Este documento descreve os novos recursos e as correções disponíveis durante a atualização de versão do Componente PDF para Prisma.
 
 ## Versão 2.0.0 beta (a lançar)
 
