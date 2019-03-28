@@ -1,4 +1,9 @@
-SET "TOOLCHAINDIR=D:\mingw32\bin"
-SET "MAKEEXE=%TOOLCHAINDIR%\mingw32-make.exe"
+SETLOCAL
+
+SET "TOOLCHAINDIR=C:\mingw32\bin"
+SET "MAKEEXE=mingw32-make.exe"
+SET PATH=%TOOLCHAINDIR%
 
 %MAKEEXE% CC=i686-w64-mingw32-gcc WRES="%TOOLCHAINDIR%\windres.exe -Iinclude/" PROJECTNAME=loader32
+
+ENDLOCAL
