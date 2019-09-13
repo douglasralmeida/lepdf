@@ -8,7 +8,7 @@ public class Mensagem {
 	
 	static int MB_ICONERROR = 16;
 
-	public interface user32 extends Library {
+	private interface user32 extends Library {
         public int MessageBoxW(int algo, WString texto, WString titulo, int flags);
     }
 	public static void exibir(String texto, String titulo) {

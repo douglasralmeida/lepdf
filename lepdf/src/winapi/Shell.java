@@ -6,7 +6,7 @@ import com.sun.jna.WString;
 
 public class Shell {
 
-	public interface Shell32 extends Library {
+	private interface Shell32 extends Library {
 		public int ShellExecuteW(int hwnd,
 	                             WString Operation,
 	                             WString File,

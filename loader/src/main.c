@@ -34,6 +34,7 @@ void alterarArg(wchar_t* novoarg, wchar_t* arg) {
   p = wcschr(arg, L' ');
   p = wcschr(p+2, L' ');
   
+  /* concatena o restante */
   wcscat(novoarg, p);
 }
 
@@ -49,7 +50,7 @@ void setJavaPath(wchar_t* path) {
 /* executa a aplicação Java */
 void chamarSubsistemaJava(wchar_t* arg) {
   wchar_t* javaexe = L"javaw.exe";
-  wchar_t novoarg[256];
+  wchar_t novoarg[256] = {0};
   wchar_t javapath[MAX_PATH + 1];
 
   alterarArg(novoarg, arg);

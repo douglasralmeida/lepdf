@@ -1,7 +1,7 @@
 package lePdf;
 /* 
  * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
- * Março de 2019
+ * Setembro de 2019
  * 
  */
 
@@ -23,6 +23,8 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.Leading;
+import com.itextpdf.layout.property.Property;
 
 import winapi.Mensagem;
 import winapi.Shell;
@@ -30,6 +32,7 @@ import winapi.Shell;
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
+  static String arquivoFonte = "C:/Windows/Fonts/consola.ttf";
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/CNISLINHA/";
   static final String[] acentuados = { "a `", "a '", "a &", 
@@ -42,50 +45,67 @@ public class lePdf {
     "À", "Á", "Â", "Ã", "È", "É", "Ê", "Ì", "Í", "Î", "Ò", "Ó", "Ô", 
     "Õ", "Ù", "Ú", "Û", "Ç" };
   
-  public static float calculaFonte(String arquivo) {
+  public static void calcularFonte(String arquivo) {
+	BufferedReader entrada;
     int tamanhoMaiorLinha = 0;
     String linha = null;
-    BufferedReader input;    
       
     try {
-      input = new BufferedReader(new FileReader(arquivo));
-      while ((linha = input.readLine()) != null) {
-        if ((linha.trim() != null) && (linha.length() > tamanhoMaiorLinha)) {
+      entrada = new BufferedReader(new FileReader(arquivo));
+      while ((linha = entrada.readLine()) != null) {
+        if ((linha.trim() != null) && (linha.length() > tamanhoMaiorLinha))
           tamanhoMaiorLinha = linha.length();
-        }
       }
-      input.close();
-      if (tamanhoMaiorLinha <= 86) {
+      entrada.close();
+      if (tamanhoMaiorLinha <= 86)
         tamFonte = 11.0F;
-      } else if (tamanhoMaiorLinha <= 106) {
+      else if (tamanhoMaiorLinha <= 106)
         tamFonte = 9.0F;
-      } else {
+      else
     	tamFonte = 6.5F;
-      }
-      return tamFonte;
     }
     catch (Exception e) {
       exibirMsg("Erro a calcular tamanho do texto: " + e.getMessage());
+      tamFonte = 11.0F;
     }
-    return tamFonte;
   }
   
   public static void exibirMsg(String msg) {
 	  Mensagem.exibir(msg, "Processador PDF");
   }
+
+  public static String processarLinha(String linha) {
+    String linhaRetorno;
+
+    linhaRetorno = limparLinha(linha);
+    String resto = linhaRetorno.replaceAll("[^a-zA-Z ]", " ").trim().concat(" ");
+    while (resto.indexOf(" ") != -1) {
+      int pos = resto.indexOf(" ");
+      String palavra = resto.substring(0, pos);
+      String palavraCorrigida = null;
+      if ((palavra.length() >= 3) && (palavra.length() < 16)) {
+        palavraCorrigida = palavra;
+        if (!palavraCorrigida.equals(""))
+          linhaRetorno = linhaRetorno.replace(palavra, palavraCorrigida);
+      }
+      resto = resto.substring(pos + 1, resto.length());
+    }
+    
+    return linhaRetorno;
+  }
   
-  public static void processaTexto(String entrada, String saida) {
+  public static void processarTexto(String entrada, String saida) {
 	BufferedReader input = null;
 	PdfDocument pdf = null;
 	PdfFont fonte = null;
     Document doc = null;
-    String line = "";
+    String linha = "";
 
     try {
       input = new BufferedReader(new FileReader(entrada));
       pdf = new PdfDocument(new PdfWriter(saida));
       pdf.setDefaultPageSize(PageSize.A4);
-      fonte = PdfFontFactory.createFont("C:/Windows/Fonts/consola.ttf", true);
+      fonte = PdfFontFactory.createFont(arquivoFonte, true);
       doc = new Document(pdf);
       doc.setMargins(30.0F, 20.0F, 20.0F, 40.0F);
       doc.setFont(fonte);
@@ -99,37 +119,20 @@ public class lePdf {
       img.setHorizontalAlignment(HorizontalAlignment.CENTER);
       img.scaleAbsolute(86.0F, 50.0F);
       doc.add(img);
+      doc.setProperty(Property.LEADING, new Leading(Leading.MULTIPLIED, 1.0f));
       
-      while ((line = input.readLine()) != null) {
-        char NP = '\f';
-        byte np = (byte)NP;
-        if (line.indexOf(np) != -1) {
+      while ((linha = input.readLine()) != null) {
+        byte np = (byte)'\f';
+        if (linha.indexOf(np) != -1) {
           pdf.addNewPage();
           doc.add(img);
         }
-        String nvline = null;
-        nvline = limpaLinha(line);
-        
-        String resto = nvline.replaceAll("[^a-zA-Z ]", " ");
-        resto = resto.trim();
-        resto = resto.concat(" ");
-        while (resto.indexOf(" ") != -1) {
-          int pos = resto.indexOf(" ");
-          String palavra = resto.substring(0, pos);
-          String palavraCorrigida = null;
-          if ((palavra.length() >= 3) && (palavra.length() < 16)) {
-            palavraCorrigida = palavra;
-            if (!palavraCorrigida.equals("")) {
-              nvline = nvline.replace(palavra, palavraCorrigida);
-            }
-          }
-          resto = resto.substring(pos + 1, resto.length());
-        }
+        String nvline = processarLinha(linha);
         Paragraph p = new Paragraph(nvline.toString()).setFontSize(tamFonte);
         p.setHorizontalAlignment(HorizontalAlignment.LEFT);
         doc.add(p);
       }
-      doc.close();
+      doc.close();	
       input.close();
     }
     catch (Exception e) {
@@ -147,19 +150,18 @@ public class lePdf {
     }
   }
     
-  public static String limpaLinha(String dado) {
+  public static String limparLinha(String dado) {
     dado = dado.replace('\b', ' ');
     dado = dado.replace('^', '&');
     dado = dado.replaceAll("\033Y5!", "");
     for (int i = 0; i < acentuados.length; i++) {
       int x = dado.indexOf(acentuados[i]);
-      if (x != -1) {
+      if (x != -1)
         dado = dado.replaceAll(acentuados[i], trocados[i]);
-      }
     }
-    for (int i = 0; i <= 31; i++) {
+    for (int i = 0; i <= 31; i++)
       dado = dado.replace((char)i, '\000');
-    }
+
     return dado;
   }
     
@@ -174,9 +176,8 @@ public class lePdf {
     public void run() {
       try {
         int c;
-        while ((c = this.is.read()) != -1) {
+        while ((c = this.is.read()) != -1)
           this.sw.write(c);
-        }
       }
       catch (IOException localIOException) {}
     }
@@ -196,23 +197,13 @@ public class lePdf {
 	String processo = args[2];	
 	boolean processaMaisUm = args.length > 3;
 	if (processo.equals("I")) {
-	  tamFonte = calculaFonte(diretorio + entrada);
-	  if (tamFonte == 0.0F) {
-	    tamFonte = 11.0F;
-	  }
-	  processaTexto(diretorio + entrada, diretorio + saida);
+	  calcularFonte(diretorio + entrada);
+	  processarTexto(diretorio + entrada, diretorio + saida);
 	  if (processaMaisUm)
 		  exibirPDF(diretorio + saida);
-	}
-	if (processo.equals("E")) {
+	} else if (processo.equals("E")) {
 		exibirPDF(diretorio + saida);
-	  System.runFinalization();
-	  System.exit(0);
     }
-	if (processo.equals("D")) {
-	  System.runFinalization();
-      System.exit(0);
-	}
 	System.runFinalization();
 	System.exit(0);
   }
