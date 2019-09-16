@@ -164,28 +164,6 @@ public class lePdf {
 
     return dado;
   }
-    
-  static class StreamReader extends Thread {
-    private InputStream is;
-    private StringWriter sw = new StringWriter();
-    
-    public StreamReader(InputStream is) {
-      this.is = is;
-    }
-    
-    public void run() {
-      try {
-        int c;
-        while ((c = this.is.read()) != -1)
-          this.sw.write(c);
-      }
-      catch (IOException localIOException) {}
-    }
-    
-    public String getResult() {
-      return this.sw.toString();
-    }
-  }
    
   public static void main(String[] args) {
     if (args.length < 3) {
