@@ -6,6 +6,7 @@ module lePdf {
 	requires org.slf4j;
 	requires org.bouncycastle.pkix;
 	requires org.bouncycastle.provider;
+	requires com.sun.jna.platform;
 	
 	exports lePdf;
 }

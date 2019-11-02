@@ -35,6 +35,7 @@ import winapi.Mensagem;
 import winapi.Shell;
 
 public class lePdf {
+  static Config config = new Config();
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
   static String arquivoFonte = "C:/Windows/Fonts/Cascadia.ttf";
@@ -152,6 +153,7 @@ public class lePdf {
   public static void exibirPDF(String saida) {
     try {
       Shell.executar(saida);
+      
       return;
     }
     catch (Exception e) {
