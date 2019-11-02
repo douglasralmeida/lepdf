@@ -1,0 +1,7 @@
+package lePdf;
+
+public enum TipoGeracao {
+	TIPOGERACAO_DIRETA,
+	TIPOGERACAO_PRIMEIROPLANO,
+	TIPOGERACAO_SEGUNDOPLANO
+}

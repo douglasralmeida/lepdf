@@ -152,13 +152,24 @@ public class lePdf {
   
   public static void exibirPDF(String saida) {
     try {
-      Shell.executar(saida);
+      Shell.abrir(saida, config.modoGeracao);
       
       return;
     }
     catch (Exception e) {
       exibirMsg(e.getMessage());
     }
+  }
+  
+  public static void enviarParaPDF24(String saida) {
+	  String pdf24exe = "pdf24-Creator.exe";
+	  
+	  try {
+		  Shell.executar(config.arquivoPDF24, pdf24exe, saida);
+	  }
+	  catch (Exception e) {
+		  exibirMsg(e.getMessage());
+	  }
   }
     
   public static String limparLinha(String dado) {
@@ -189,7 +200,10 @@ public class lePdf {
 	  calcularFonte(diretorio + entrada);
 	  processarTexto(diretorio + entrada, diretorio + saida);
 	  if (processaMaisUm)
-		  exibirPDF(diretorio + saida);
+		  if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
+			  enviarParaPDF24(diretorio + saida);
+		  else
+		      exibirPDF(diretorio + saida);
 	} else if (processo.equals("E")) {
 		exibirPDF(diretorio + saida);
     }
