@@ -1,0 +1,170 @@
+11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  1
+                                                 ******************  ATE 31/12/2016  **********************
+                                                                                                                Versao.....: 9.5o 
+       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
+       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
+       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
+       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+                                                             DOCUMENTOS APRESENTADOS
+       
+           TIPO     NUMERO         SERIE   DESCRICAO DO DOCUMENTO
+       01  CTPS                           
+       02  CARNE    12345678901           
+       03  CTC                            
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       01 0001 01/02/1999  31/01/2001 30     TS   2  1          02  00  00                                   SECRETARIA DE ESTADO DE PLANEJ
+                                                                02  00  00                                   AMENTO E GESTAO      
+                                                                02  00  00      24                        
+       
+       
+       02 0001 01/08/2006  31/08/2006 30     TS   2  8    S     00  01  00                                   PER. CONTR. CNIS 3            
+                                                                00  00  00                                                        
+                                                                00  00  00                     2          
+       SP/RD 01/08/2006  31/08/2006
+       
+       02 0002 01/01/2007  28/02/2007 30     TS   2  8    S     00  02  00                                   PER. CONTR. CNIS 4            
+                                                                00  00  00                                                        
+                                                                00  00  00                     2          
+       SP/RD 01/01/2007  28/02/2007
+       
+       02 0003 01/03/2007  31/12/2007 30     TS   2  8          00  10  00                                   PER. CONTR. CNIS 4            
+                                                                00  10  00                                                        
+                                                                00  10  00      10             2          
+       
+       
+       02 0004 01/01/2008  31/01/2008 30     TS   2  8    S     00  01  00                                   PER. CONTR. CNIS 4            
+                                                                00  00  00                                                        
+                                                                00  00  00                     2          
+       SP/RD 01/01/2008  31/01/2008
+       
+       02 0005 01/06/2010  30/11/2010 30     TS   2  8          00  06  00                                   PER. CONTR. CNIS 5            
+                                                                00  06  00                                                        
+                                                                00  06  00       1             4 11/2010  
+       
+       
+       02 0006 01/02/2011  28/02/2011 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 6            
+                                                                00  01  00                                                        
+                                                                00  01  00       1             4 02/2011  
+       
+       
+       02 0007 01/04/2011  31/03/2012 30     TS   2  8          01  00  00                                   PER. CONTR. CNIS 7            
+                                                                01  00  00                                                        
+                                                                01  00  00      12             4 04/2011  
+       
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  2
+                                                 ******************  ATE 31/12/2016  **********************
+                                                                                                                Versao.....: 9.5o 
+
+       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
+       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
+       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
+       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       02 0008 01/10/2012  31/10/2012 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 8            
+                                                                00  01  00                                                        
+                                                                00  01  00       1             4          
+       
+       
+       02 0009 01/07/2014  31/07/2014 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 9            
+                                                                00  01  00                                                        
+                                                                00  01  00       1             4          
+       
+       
+       02 0010 01/10/2014  31/12/2014 30     TS   2  8          00  03  00                                   PER. CONTR. CNIS 10           
+                                                                00  03  00                                                        
+                                                                00  03  00       3             4          
+       
+       
+       02 0011 01/01/2015  31/01/2015 30     TS   2  5          00  01  00                                   PER. CONTR. CNIS 11           
+                                                                00  01  00                                                        
+                                                                00  01  00       1             4 01/2015  
+       
+       
+       02 0012 01/02/2015  31/10/2016 30     TS   2  8          01  09  00                                   PER. CONTR. CNIS 12           
+                                                                01  09  00                                                        
+                                                                01  09  00      21             4          
+       
+       
+       02 0013 01/12/2016  31/12/2016 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 13           
+                                                                00  01  00                                                        
+                                                                00  01  00       1             4 12/2016  
+       
+       
+       03 0001 01/04/1991  20/07/1992 30     TS   7  1          01  03  20                                   SEPLAG MG                     
+                                                                01  03  20                                                        
+                                                                01  03  20      16                        
+       
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  3
+                                                 ******************  ATE 31/12/2016  **********************
+                                                                                                                Versao.....: 9.5o 
+       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
+       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
+       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
+       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       03 0002 01/01/1993  29/01/1993 30     TS   7  1          00  00  29                                   SEPLAG MG                     
+                                                                00  00  29                                                        
+                                                                00  00  29       1                        
+       
+       
+       03 0003 02/08/1993  29/06/1994 30     TS   7  1          00  10  28                                   SEPLAG MG                     
+                                                                00  10  28                                                        
+                                                                00  10  28      11                        
+       
+       
+       03 0004 15/03/1995  12/05/1995 30     TS   7  1          00  01  28                                   SEPLAG MG                     
+                                                                00  01  28                                                        
+                                                                00  01  28       3                        
+       
+       
+       03 0005 16/05/1995  19/02/1998 30     TS   7  1          02  09  04                                   SEPLAG MG                     
+                                                                02  09  04                                                        
+                                                                02  09  04      33                        
+       
+       
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                          TEMPO DE CONTRIBUICAO COMUM ( BASE CONSIDERADA 30 ANOS )  :  11 ANOS   11 MESES   19 DIAS
+       
+                          GRUPO DE CONTRIBUICAO  :  12 GRUPOS 01 CONTRIBUICOES
+       
+                          TOTAL DE CARENCIA EM CONTRIBUICOES.......................................: 140
+                          TOTAL DE CARENCIA CONSIDERADA............................................: 140
+                          PERIODOS DE QUALIDADE DE SEGURADO........................................: 01/04/1991 a 15/03/2002
+                                                                                                     01/03/2007 a 16/02/2009
+                                                                                                     01/06/2010 a 16/12/2013
+                                                                                                     01/07/2014 a 15/02/2018
+       
+       
+       
+                                                      ____________________________________________
+                                                      Assinatura do Servidor
+                                                      douglas rodrigues de almeida
+                                                      1234567
+       Y5!                                                                              Y5!

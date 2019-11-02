@@ -1,7 +1,7 @@
 package lePdf;
 /* 
  * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
- * Setembro de 2019
+ * Novembro de 2019
  * 
  */
 
@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -20,8 +23,10 @@ import com.itextpdf.kernel.pdf.PdfName;
 import com.itextpdf.kernel.pdf.PdfString;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.Leading;
 import com.itextpdf.layout.property.Property;
@@ -32,7 +37,7 @@ import winapi.Shell;
 public class lePdf {
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String arquivoFonte = "C:/Windows/Fonts/consola.ttf";
+  static String arquivoFonte = "C:/Windows/Fonts/Cascadia.ttf";
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/CNISLINHA/";
   static final String[] acentuados = { "a `", "a '", "a &", 
@@ -51,7 +56,7 @@ public class lePdf {
     String linha = null;
       
     try {
-      entrada = new BufferedReader(new FileReader(arquivo));
+      entrada = new BufferedReader(new FileReader(arquivo, StandardCharsets.UTF_8));
       while ((linha = entrada.readLine()) != null) {
         if ((linha.trim() != null) && (linha.length() > tamanhoMaiorLinha))
           tamanhoMaiorLinha = linha.length();
@@ -75,10 +80,10 @@ public class lePdf {
   }
 
   public static String processarLinha(String linha) {
-    String linhaRetorno;
+    String linhaProcessada;
 
-    linhaRetorno = limparLinha(linha);
-    String resto = linhaRetorno.replaceAll("[^a-zA-Z ]", " ").trim().concat(" ");
+    linhaProcessada = limparLinha(linha);
+    String resto = linhaProcessada.replaceAll("[^a-zA-Z ]", " ").trim().concat(" ");
     while (resto.indexOf(" ") != -1) {
       int pos = resto.indexOf(" ");
       String palavra = resto.substring(0, pos);
@@ -86,23 +91,23 @@ public class lePdf {
       if ((palavra.length() >= 3) && (palavra.length() < 16)) {
         palavraCorrigida = palavra;
         if (!palavraCorrigida.equals(""))
-          linhaRetorno = linhaRetorno.replace(palavra, palavraCorrigida);
+          linhaProcessada = linhaProcessada.replace(palavra, palavraCorrigida);
       }
       resto = resto.substring(pos + 1, resto.length());
     }
-    
-    return linhaRetorno;
+    return linhaProcessada;
   }
   
   public static void processarTexto(String entrada, String saida) {
 	BufferedReader input = null;
 	PdfDocument pdf = null;
 	PdfFont fonte = null;
+	StringBuilder sb;
     Document doc = null;
     String linha = "";
 
     try {
-      input = new BufferedReader(new FileReader(entrada));
+      input = new BufferedReader(new FileReader(entrada, StandardCharsets.UTF_8));
       pdf = new PdfDocument(new PdfWriter(saida));
       pdf.setDefaultPageSize(PageSize.A4);
       fonte = PdfFontFactory.createFont(arquivoFonte, true);
@@ -119,17 +124,21 @@ public class lePdf {
       img.setHorizontalAlignment(HorizontalAlignment.CENTER);
       img.scaleAbsolute(86.0F, 50.0F);
       doc.add(img);
-      doc.setProperty(Property.LEADING, new Leading(Leading.MULTIPLIED, 1.0f));
+      doc.setProperty(Property.LEADING, new Leading(Leading.MULTIPLIED, 0.70f));
       
       while ((linha = input.readLine()) != null) {
-        byte np = (byte)'\f';
-        if (linha.indexOf(np) != -1) {
-          pdf.addNewPage();
+        if (linha.indexOf('\f') > -1) {
+          doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
           doc.add(img);
+          continue;
         }
-        String nvline = processarLinha(linha);
-        Paragraph p = new Paragraph(nvline.toString()).setFontSize(tamFonte);
-        p.setHorizontalAlignment(HorizontalAlignment.LEFT);
+        sb = new StringBuilder(processarLinha(linha));
+        int i = 7;
+        while (i < sb.length() && sb.charAt(i) == ' ') {
+          sb.setCharAt(i, '\u00A0');
+          i++;
+        }
+        Paragraph p = new Paragraph(sb.toString()).setFontSize(tamFonte);
         doc.add(p);
       }
       doc.close();	
@@ -172,7 +181,7 @@ public class lePdf {
     }
     String entrada = args[0];
 	String saida = args[1];
-	String processo = args[2];	
+	String processo = args[2];
 	boolean processaMaisUm = args.length > 3;
 	if (processo.equals("I")) {
 	  calcularFonte(diretorio + entrada);

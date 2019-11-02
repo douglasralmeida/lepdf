@@ -1,1 +1,1 @@
-..\dist\loader -jar lePdf.jar in.txt out.pdf I V
+..\dist\loader64 -jar lePdf.jar in.txt out.pdf I E
