@@ -23,7 +23,9 @@
 #include <stdlib.h>
 #include <windows.h>
 
-/* substitui o arg. -jar lepdf.jar */
+/* substitui o arg. -jar lepdf.jar por 
+   -m lePdf/lePdf.lePdf 
+*/
 void alterarArg(wchar_t* novoarg, wchar_t* arg) {
   wchar_t* p;
   wchar_t* q;
@@ -55,8 +57,6 @@ void chamarSubsistemaJava(wchar_t* arg) {
 
   alterarArg(novoarg, arg);
   setJavaPath(javapath);
-  MessageBoxW(0, arg, L"CmdLine", MB_ICONINFORMATION);
-  MessageBoxW(0, novoarg, L"CmdLine", MB_ICONINFORMATION);
   ShellExecute(NULL, L"open", javaexe, novoarg, javapath, SW_SHOWNORMAL);
 }
 
@@ -64,5 +64,5 @@ void chamarSubsistemaJava(wchar_t* arg) {
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
   chamarSubsistemaJava(lpCmdLine);
-  exit(EXIT_SUCCESS);
+  exit(EXIT_SUCCESS);    
 }

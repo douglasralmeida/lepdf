@@ -1,0 +1,1 @@
+..\dist\jre\bin\javaw -m lePdf/lePdf.lePdf
