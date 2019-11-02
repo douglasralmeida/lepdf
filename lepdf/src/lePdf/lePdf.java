@@ -85,6 +85,10 @@ public class lePdf {
 
     linhaProcessada = limparLinha(linha);
     String resto = linhaProcessada.replaceAll("[^a-zA-Z ]", " ").trim().concat(" ");
+    if (config.excluirNome && config.nomeAExcluir.length() > 0) {
+    	if (resto.toLowerCase().contains(config.nomeAExcluir.toLowerCase()))
+    		return "";
+    }
     while (resto.indexOf(" ") != -1) {
       int pos = resto.indexOf(" ");
       String palavra = resto.substring(0, pos);
