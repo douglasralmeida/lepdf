@@ -12,7 +12,7 @@
 **  O Java 6 não é mais suportado pela Oracle e, portanto, não recebe
 **  atualizações de segurança.
 **
-**  Para torna-lo compatível com Java 11, este aplicativo
+**  Para torna-lo compatível com Java 12, este aplicativo
 **	refaz a chamada para o javaw.exe disponível no subsistema Java.
 **
 **  É necessário configurar no diretório onde o Java 6 deveria estar
@@ -28,14 +28,13 @@
 */
 void alterarArg(wchar_t* novoarg, wchar_t* arg) {
   wchar_t* p;
-  wchar_t* q;
 
   wcscpy(novoarg, L"-m lePdf/lePdf.lePdf");
 
   /* elimina os dois primeiros argumentos */
   p = wcschr(arg, L' ');
   p = wcschr(p+2, L' ');
-  
+
   /* concatena o restante */
   wcscat(novoarg, p);
 }

@@ -30,10 +30,10 @@ BEGIN
       VALUE "CompanyName", "Douglas R. Almeida"
       VALUE "FileDescription", "Carregador do componente PDF"
       VALUE "FileVersion", "2.0.0"
-      VALUE "InternalName", "LOADER"
+      VALUE "InternalName", "LOADER64"
       VALUE "LegalCopyright", "Sem direitos autorais"
       VALUE "OriginalFilename", "loader.exe"
-      VALUE "ProductName", "Componente PDF para Prisma"
+      VALUE "ProductName", "Componente PrismaPDF"
       VALUE "ProductVersion", "2.0"
     END
   END

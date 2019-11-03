@@ -40,7 +40,7 @@ public class lePdf {
   static float tamFonte = 0.0F;
   static String arquivoFonte = "C:/Windows/Fonts/Cascadia.ttf";
   static String logo = "/resources/logoINSS.jpg";
-  static String diretorio = "C:/CNISLINHA/";
+  static String diretorio = "C:/cnislinha/";
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
     "o &", "o ~", "u `", "u '", "u &", "c ,", "A `", "A '", "A &", 
@@ -129,7 +129,7 @@ public class lePdf {
       img.setHorizontalAlignment(HorizontalAlignment.CENTER);
       img.scaleAbsolute(86.0F, 50.0F);
       doc.add(img);
-      doc.setProperty(Property.LEADING, new Leading(Leading.MULTIPLIED, 0.70f));
+      doc.setProperty(Property.LEADING, new Leading(Leading.MULTIPLIED, 0.40f));
       
       while ((linha = input.readLine()) != null) {
         if (linha.indexOf('\f') > -1) {
