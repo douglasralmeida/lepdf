@@ -50,6 +50,7 @@ Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components
 Source: "..\ini\config.ini"; DestDir: "{localappdata}\Aplicações do INSS\Componente PrismaPDF"; Flags: ignoreversion; Components: programa
 Source: "..\scripts\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
 Source: "..\dist\jre\*"; DestDir: "{app}\jre"; Flags: ignoreversion createallsubdirs recursesubdirs; Components: java
+Source: "..\fonts\Cascadia.ttf"; DestDir: "{fonts}"; FontInstall: "Cascadia Code"; Flags: onlyifdoesntexist uninsneveruninstall
 
 [Dirs]
 Name: "{pf}\Java\jre6\bin"; Components: programa
@@ -128,7 +129,7 @@ begin
     DeleteFile(ExpandConstant('{pf}\Java\jre6\bin\java.exe'));
 
     { Apaga do diretório do softlink }
-    DelTree(ExpandConstant('{pf}\Java\jre6', True, True, True));
+    DelTree(ExpandConstant('{pf}\Java\jre6'), True, True, True);
 
     { Apaga o diretório C:\cnislinha }
     DelTree('C:\cnislinha', True, True, True);

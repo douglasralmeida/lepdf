@@ -7,11 +7,7 @@ package lePdf;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import com.itextpdf.io.image.ImageDataFactory;
@@ -30,6 +26,8 @@ import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.Leading;
 import com.itextpdf.layout.property.Property;
+import com.sun.jna.platform.win32.Shell32Util;
+import com.sun.jna.platform.win32.ShlObj;
 
 import winapi.Mensagem;
 import winapi.Shell;
@@ -38,7 +36,7 @@ public class lePdf {
   static Config config = new Config();
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String arquivoFonte = "C:/Windows/Fonts/Cascadia.ttf";
+  static String arquivoFonte = Shell32Util.getFolderPath(ShlObj.CSIDL_FONTS) + "\\Cascadia.ttf";
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/cnislinha/";
   static final String[] acentuados = { "a `", "a '", "a &", 
