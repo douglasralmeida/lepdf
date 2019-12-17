@@ -87,8 +87,8 @@ Name: "programa"; Description: "Arquivos do programa"; ExtraDiskSpaceRequired: 1
 Name: "java"; Description: "Subsistema Java"; Types: compact custom full; Flags: fixed
 
 [Code]
-function CreateSoftLink(lpSymlinkFileName, lpTargetFileName: string; dwFlags: Integer): Boolean;
-  external 'CreateSymbolicLinkW@kernel32.dll stdcall';
+function CreateSoftLink(lpSymlinkFileName, lpTargetFileName: String; dwFlags: Integer): Boolean;
+  external 'CreateSymbolicLinkA@kernel32.dll stdcall';
 
 procedure CriarJavaLink;
 var

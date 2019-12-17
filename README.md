@@ -1,13 +1,22 @@
-# lepdf - Componente PDF para Prisma
+# lepdf - Componente PrismaPDF
 
 O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Social (INSS) que auxilia o sistema legado Prisma a gerar arquivos em PDF.
 
 * [Notas de lançamento](docs/atualizacoes.md)
 
+## Instalando o Componente PDF para Prisma 2.0
+
+A versão 2.0 requer sistema Windows de 64 bits.
+
+1. Baixe o instalador da versão 2.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
+2. Execute o progrma de instalação.
+
 ## Instalando o Componente PDF para Prisma 1.0
 
-1. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/) ou superior.
-2. Baixe o instalador mais recente disponível em [Release](https://github.com/douglasralmeida/lepdf/releases).
+A versão 1.0 é indicada para computadores antigos que executam sistema Windows de 32 bits.
+
+1. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/).
+2. Baixe o instalador da versão 1.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
 3. Execute o progrma de instalação.
 
 ## Ativando a geração de PDF
@@ -23,26 +32,28 @@ O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Socia
 
 Para torná-lo compatível com o Java 8 ou superior, o componente PDF é incompatível com o Java 6. Desinstale qualquer versão deste JRE do seu computador antes de instalá-lo e remova seu endereço do javapath nas variáveis de sistema.
 
-Ao instalar o JRE 6 em um computador com o Componente PDF instalado o tornará inutilizável.
+Instalar o JRE 6 em um computador com o Componente PDF instalado o tornará inutilizável.
 
 ## Compilação
 
 Para compilar todos os componentes, é necessário:
 
-* IDE Eclipse 2018.12 ou superior.
-* OpenJDK 11.0.
+* IDE Eclipse 2019.6 ou superior.
+* OpenJDK 12.0.2
 * Compilador GCC 8.1.
 * MingW-w64.
 * Biblioteca itextpdf io 7.1.5
 * Biblioteca itextpdf kernel 7.1.5
 * Biblioteca itextpdf layout 7.1.5
-* Biblioteca Java Native Access 5.2.0
+* Biblioteca Java Native Access 5.5.0
+* Biblioteca Java Native Access Platform 5.5.0
 * Bibilioteca Simple Logging Facade for Java 1.7.25
 * Biblioteca BouncyCastle 1.60
+* Biblioteca Ini4j 0.5.4
 * LaTeX.
-* Inno Setup.
+* Inno Setup 5.6.1.
 
-As bibliotecas JAR descritas acima não possuem suporte a modularização do Java 11. Use as versões modificadas disponíveis em loader/lib/.
+As bibliotecas JAR descritas acima não possuem suporte a modularização do Java 12. Use as versões modificadas disponíveis em loader/lib/.
 
 Antes de compilar o loader, altere os arquivos make32 e make64, substituindo a variável makeexe pelo endereço do MingW-Make do seu computador.
 
