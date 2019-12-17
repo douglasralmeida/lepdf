@@ -7,9 +7,13 @@ package lePdf;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import com.itextpdf.io.font.FontProgram;
+import com.itextpdf.io.font.FontProgramFactory;
+import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -36,7 +40,7 @@ public class lePdf {
   static Config config = new Config();
   static String usuario = System.getProperty("user.name");
   static float tamFonte = 0.0F;
-  static String arquivoFonte = Shell32Util.getFolderPath(ShlObj.CSIDL_FONTS) + "\\Cascadia.ttf";
+  static String arquivoFonte;
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/cnislinha/";
   static final String[] acentuados = { "a `", "a '", "a &", 
@@ -113,7 +117,11 @@ public class lePdf {
       input = new BufferedReader(new FileReader(entrada, StandardCharsets.UTF_8));
       pdf = new PdfDocument(new PdfWriter(saida));
       pdf.setDefaultPageSize(PageSize.A4);
-      fonte = PdfFontFactory.createFont(arquivoFonte, true);
+  
+      InputStream fs = lePdf.class.getResourceAsStream(arquivoFonte);
+      FontProgram fp = FontProgramFactory.createFont(fs.readAllBytes());
+      fonte = PdfFontFactory.createFont(fp, PdfEncodings.IDENTITY_H);
+      
       doc = new Document(pdf);
       doc.setMargins(30.0F, 20.0F, 20.0F, 40.0F);
       doc.setFont(fonte);
@@ -194,6 +202,7 @@ public class lePdf {
       exibirMsg("Erro ao abrir o componente de processamento PDF: Argumentos insuficientes.");
       System.exit(1);
     }
+    arquivoFonte = "/resources/" + config.nomeFonte;
     String entrada = args[0];
 	String saida = args[1];
 	String processo = args[2];

@@ -19,6 +19,8 @@ public class Config {
 	
 	String nomeAExcluir = "";
 	
+	String nomeFonte = "";
+	
 	TipoGeracao modoGeracao = TipoGeracao.TIPOGERACAO_PRIMEIROPLANO; 
 	
 	public Config() {
@@ -68,6 +70,11 @@ public class Config {
 		String localpdf24 = configuracoes.get("LocalPDF24");
 		if (localpdf24.length() > 0) {
 			arquivoPDF24 = localpdf24;
+		}
+		
+		String localNomeFonte = configuracoes.get("NomeFonte");
+		if (localNomeFonte.length() > 0) {
+			nomeFonte = localNomeFonte;
 		}
 	}
 }
