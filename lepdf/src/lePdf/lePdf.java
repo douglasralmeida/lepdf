@@ -202,6 +202,9 @@ public class lePdf {
       exibirMsg("Erro ao abrir o componente de processamento PDF: Argumentos insuficientes.");
       System.exit(1);
     }
+    if (PrimeiroUso.testar())
+    	if (!PrimeiroUso.processar())
+    		System.exit(1);    		
     arquivoFonte = "/resources/" + config.nomeFonte;
     String entrada = args[0];
 	String saida = args[1];
@@ -215,9 +218,8 @@ public class lePdf {
 			  enviarParaPDF24(diretorio + saida);
 		  else
 		      exibirPDF(diretorio + saida);
-	} else if (processo.equals("E")) {
+	} else if (processo.equals("E"))
 		exibirPDF(diretorio + saida);
-    }
 	System.runFinalization();
 	System.exit(0);
   }

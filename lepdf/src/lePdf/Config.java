@@ -6,9 +6,6 @@ import java.io.IOException;
 import org.ini4j.Ini;
 import org.ini4j.InvalidFileFormatException;
 
-import com.sun.jna.platform.win32.Shell32Util;
-import com.sun.jna.platform.win32.ShlObj;
-
 public class Config {
 
 	String arquivoConfig;
@@ -24,7 +21,7 @@ public class Config {
 	TipoGeracao modoGeracao = TipoGeracao.TIPOGERACAO_PRIMEIROPLANO; 
 	
 	public Config() {
-		String pastaDados = Shell32Util.getFolderPath(ShlObj.CSIDL_LOCAL_APPDATA) + '\\';
+		String pastaDados = Utils.obterPastaDados();
 		arquivoConfig = pastaDados + "Aplicações do INSS\\Componente PrismaPDF\\config.ini"; 
 		carregarConfig();
 	}

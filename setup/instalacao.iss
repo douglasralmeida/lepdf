@@ -47,7 +47,7 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: "..\dist\loader64.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 64bit; Components: programa; Check: IsWin64
 Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
-Source: "..\ini\config.ini"; DestDir: "{localappdata}\Aplicações do INSS\Componente PrismaPDF"; Flags: ignoreversion; Components: programa
+Source: "..\ini\config.ini.template"; DestDir: "{app}"; Flags: ignoreversion;
 Source: "..\scripts\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
 Source: "..\dist\jre\*"; DestDir: "{app}\jre"; Flags: ignoreversion createallsubdirs recursesubdirs; Components: java
 
