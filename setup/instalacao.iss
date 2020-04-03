@@ -26,7 +26,7 @@ DefaultGroupName=Componente PrismaPDF
 DisableWelcomePage=False
 MinVersion=0,6.1
 OutputBaseFilename=prismapdfinstala
-SetupIconFile=..\res\setupicone.ico
+SetupIconFile=..\res\setup.ico
 SolidCompression=yes
 ShowLanguageDialog=no
 UninstallDisplayName=Componente PrismaPDF
@@ -35,10 +35,12 @@ VersionInfoVersion=2.0.0
 VersionInfoProductVersion=2.0
 WizardImageFile=..\res\setupgrande.bmp
 WizardSmallImageFile=..\res\setuppequeno.bmp
-UninstallDisplaySize=50000000
+UninstallDisplaySize=3565159
 OutputDir=output
 ArchitecturesAllowed=x64
 DisableReadyPage=True
+ChangesAssociations=True
+AlwaysRestart=True
 
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
@@ -47,7 +49,8 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: "..\dist\loader64.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 64bit; Components: programa; Check: IsWin64
 Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
-Source: "..\ini\config.ini.template"; DestDir: "{app}"; Flags: ignoreversion;
+Source: "..\ini\config.ini.template"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\ini\config.ini.template"; DestDir: "{localappdata}\Aplicações do INSS\Componente PrismaPDF"; DestName: "config.ini"; Flags: ignoreversion; Components: programa
 Source: "..\scripts\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
 Source: "..\dist\jre\*"; DestDir: "{app}\jre"; Flags: ignoreversion createallsubdirs recursesubdirs; Components: java
 
