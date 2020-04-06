@@ -4,11 +4,13 @@
 ; ModoGeracao: PrimeiroPlano > Gerar o PDF e exibe na tela
 ;              SegundoPlano  > Gera o PDF numa janela minimizada
 ;              DiretoPDF24   > Gera o PDF e o envia para o PDF 24
-; LocalPDF24: Pasta de instalação do PDF 24
+; LocalPDF24: Pasta de instalação do PDF 24 (usar barras duplas '\\')
+; ExePDF24:  Nome do executável do PDF 24
 ; NomeFonte:  Nome da fonte utilizada nos arquivos PDF
 
 [Configuracoes]
 NomeApagar=NomeQualquer
 ModoGeracao=DiretoPDF24
+ExePDF24=pdf24-Creator.exe
 LocalPDF24=C:\\Program Files (x86)\\PDF24\\
 NomeFonte=CascadiaMono.ttf

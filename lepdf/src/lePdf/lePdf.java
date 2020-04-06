@@ -1,7 +1,7 @@
 package lePdf;
 /* 
  * lePdf - Componente para transformar arquivos textos gerados no Prisma em PDF
- * Novembro de 2019
+ * Abril de 2020
  * 
  */
 
@@ -30,8 +30,6 @@ import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.Leading;
 import com.itextpdf.layout.property.Property;
-import com.sun.jna.platform.win32.Shell32Util;
-import com.sun.jna.platform.win32.ShlObj;
 
 import winapi.Mensagem;
 import winapi.Shell;
@@ -39,7 +37,7 @@ import winapi.Shell;
 public class lePdf {
   static Config config = new Config();
   static String usuario = System.getProperty("user.name");
-  static float tamFonte = 0.0F;
+  static float tamanhoFonte = 0.0F;
   static String arquivoFonte;
   static String logo = "/resources/logoINSS.jpg";
   static String diretorio = "C:/cnislinha/";
@@ -66,15 +64,15 @@ public class lePdf {
       }
       entrada.close();
       if (tamanhoMaiorLinha <= 86)
-        tamFonte = 11.0F;
+        tamanhoFonte = 11.0F;
       else if (tamanhoMaiorLinha <= 106)
-        tamFonte = 9.0F;
+        tamanhoFonte = 9.0F;
       else
-    	tamFonte = 6.5F;
+    	tamanhoFonte = 6.5F;
     }
     catch (Exception e) {
       exibirMsg("Erro a calcular tamanho do texto: " + e.getMessage());
-      tamFonte = 11.0F;
+      tamanhoFonte = 11.0F;
     }
   }
   
@@ -149,7 +147,7 @@ public class lePdf {
           sb.setCharAt(i, '\u00A0');
           i++;
         }
-        Paragraph p = new Paragraph(sb.toString()).setFontSize(tamFonte);
+        Paragraph p = new Paragraph(sb.toString()).setFontSize(tamanhoFonte);
         doc.add(p);
       }
       doc.close();	
@@ -163,19 +161,15 @@ public class lePdf {
   public static void exibirPDF(String saida) {
     try {
       Shell.abrir(saida, config.modoGeracao);
-      
-      return;
     }
     catch (Exception e) {
       exibirMsg(e.getMessage());
     }
   }
   
-  public static void enviarParaPDF24(String saida) {
-	  String pdf24exe = "pdf24-Creator.exe";
-	  
+  public static void enviarParaPDF24(String saida) {	  
 	  try {
-		  Shell.executar(config.arquivoPDF24, pdf24exe, saida);
+		  Shell.executar(config.arquivoPDF24, config.exePDF24, saida);
 	  }
 	  catch (Exception e) {
 		  exibirMsg(e.getMessage());
@@ -199,7 +193,7 @@ public class lePdf {
    
   public static void main(String[] args) {
     if (args.length < 3) {
-      exibirMsg("Erro ao abrir o componente de processamento PDF: Argumentos insuficientes.");
+      exibirMsg("Erro ao executar o componente de processamento PDF: Argumentos insuficientes.");
       System.exit(1);
     }
     if (PrimeiroUso.testar())
@@ -209,11 +203,11 @@ public class lePdf {
     String entrada = args[0];
 	String saida = args[1];
 	String processo = args[2];
-	boolean processaMaisUm = args.length > 3;
+	boolean exibirArquivoPDF = args.length > 3;
 	if (processo.equals("I")) {
 	  calcularFonte(diretorio + entrada);
 	  processarTexto(diretorio + entrada, diretorio + saida);
-	  if (processaMaisUm)
+	  if (exibirArquivoPDF)
 		  if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
 			  enviarParaPDF24(diretorio + saida);
 		  else

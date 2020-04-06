@@ -38,7 +38,7 @@ public class PrimeiroUso {
 			try {
 				Files.createDirectories(pastaDados);
 			} catch (IOException e) {
-				winapi.Mensagem.exibir("Ocorreu um erro desconhecido ao configurar o Componente PrismaPDF para o primeiro uso.", "Componente PrismaPDF");
+				winapi.Mensagem.exibir("Ocorreu um erro desconhecido ao configurar o Componente PrismaPDF para o primeiro uso. Reinstale o componente para resolver este problema.", "Componente PrismaPDF");
 				e.printStackTrace();
 				return false;
 			}
@@ -46,7 +46,7 @@ public class PrimeiroUso {
 		try {
 			Files.copy(arquivoModelo, arquivoConfig, StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException e) {
-			winapi.Mensagem.exibir("Ocorreu um erro desconhecido ao configurar o Componente PrismaPDF para o primeiro uso.", "Componente PrismaPDF");
+			winapi.Mensagem.exibir("Ocorreu um erro desconhecido ao configurar o Componente PrismaPDF para o primeiro uso. Reinstale o componente para resolver este problema.", "Componente PrismaPDF");
 			e.printStackTrace();
 			return false;
 		}

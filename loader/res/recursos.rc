@@ -15,7 +15,7 @@ END
 
 // Informacoes de versao do executavel.
 VS_VERSION_INFO    VERSIONINFO
-FILEVERSION        2,0,0
+FILEVERSION        2,0,0,2
 PRODUCTVERSION     2,0,0
 FILEFLAGSMASK      0
 FILEFLAGS          0
@@ -29,7 +29,7 @@ BEGIN
     BEGIN
       VALUE "CompanyName", "Douglas R. Almeida"
       VALUE "FileDescription", "Carregador do componente PDF"
-      VALUE "FileVersion", "2.0.0"
+      VALUE "FileVersion", "2.0.0.2"
       VALUE "InternalName", "LOADER64"
       VALUE "LegalCopyright", "Sem direitos autorais"
       VALUE "OriginalFilename", "loader.exe"

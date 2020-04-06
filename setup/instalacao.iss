@@ -1,5 +1,5 @@
 ﻿; Script para o instalador do Componente PDF para Prisma
-; requer InnoSetup
+; requer InnoSetup 6
 
 #include "ambiente.iss"
 
@@ -18,29 +18,30 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 AllowNoIcons=yes
+AlwaysRestart=True
+ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
+ChangesAssociations=True
 ChangesEnvironment=true
 Compression=lzma
 DefaultDirName={pf}\Componente PrismaPDF
 DefaultGroupName=Componente PrismaPDF
+DisableReadyPage=True
 DisableWelcomePage=False
 MinVersion=0,6.1
 OutputBaseFilename=prismapdfinstala
-SetupIconFile=..\res\setup.ico
+OutputDir=output
+SetupIconFile=..\res\setupicone.ico
 SolidCompression=yes
 ShowLanguageDialog=no
 UninstallDisplayName=Componente PrismaPDF
 UninstallDisplayIcon={app}\loader.exe
+UninstallDisplaySize=50000000
 VersionInfoVersion=2.0.0
 VersionInfoProductVersion=2.0
 WizardImageFile=..\res\setupgrande.bmp
 WizardSmallImageFile=..\res\setuppequeno.bmp
-UninstallDisplaySize=3565159
-OutputDir=output
-ArchitecturesAllowed=x64
-DisableReadyPage=True
-ChangesAssociations=True
-AlwaysRestart=True
+WizardStyle=modern
 
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
@@ -90,7 +91,7 @@ Name: "java"; Description: "Subsistema Java"; Types: compact custom full; Flags:
 
 [Code]
 function CreateSoftLink(lpSymlinkFileName, lpTargetFileName: String; dwFlags: Integer): Boolean;
-  external 'CreateSymbolicLinkA@kernel32.dll stdcall';
+  external 'CreateSymbolicLinkW@kernel32.dll stdcall';
 
 procedure CriarJavaLink;
 var

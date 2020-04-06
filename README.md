@@ -6,18 +6,21 @@ O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Socia
 
 ## Instalando o Componente PDF para Prisma 2.0
 
-A versão 2.0 requer sistema Windows de 64 bits.
+A versão 2.0 requer sistema Windows de 64 bits e o aplicativo PDF24.
 
-1. Baixe o instalador da versão 2.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
-2. Execute o progrma de instalação.
+1. Se seu computador possui o Java 6 instalado, remova-o.
+2. Instale o PDF24 (https://tools.pdf24.org/pt/creator#download).
+3. Baixe o instalador da versão 2.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
+4. Execute o progrma de instalação.
 
 ## Instalando o Componente PDF para Prisma 1.0
 
 A versão 1.0 é indicada para computadores antigos que executam sistema Windows de 32 bits.
 
-1. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/).
-2. Baixe o instalador da versão 1.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
-3. Execute o progrma de instalação.
+1. Se seu computador possui o Java 6 instalado, remova-o.
+2. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/).
+3. Baixe o instalador da versão 1.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
+4. Execute o progrma de instalação.
 
 ## Ativando a geração de PDF
 

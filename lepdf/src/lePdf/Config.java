@@ -14,6 +14,8 @@ public class Config {
 	
 	String arquivoPDF24 = "";
 	
+	String exePDF24 = "";
+	
 	String nomeAExcluir = "";
 	
 	String nomeFonte = "";
@@ -65,13 +67,15 @@ public class Config {
 		}
 		
 		String localpdf24 = configuracoes.get("LocalPDF24");
-		if (localpdf24.length() > 0) {
+		if (localpdf24.length() > 0)
 			arquivoPDF24 = localpdf24;
-		}
+		
+		String localexepdf24 = configuracoes.get("ExePDF24");
+		if (localexepdf24.length() > 0)
+			exePDF24 = localexepdf24;
 		
 		String localNomeFonte = configuracoes.get("NomeFonte");
-		if (localNomeFonte.length() > 0) {
+		if (localNomeFonte.length() > 0)
 			nomeFonte = localNomeFonte;
-		}
 	}
 }
