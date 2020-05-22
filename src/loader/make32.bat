@@ -1,6 +1,6 @@
 SETLOCAL
 
-SET "TOOLCHAINDIR=C:\mingw32\bin"
+SET "TOOLCHAINDIR=C:\dev\mingw32\bin"
 SET "MAKEEXE=mingw32-make.exe"
 SET PATH=%TOOLCHAINDIR%
 

@@ -12,7 +12,7 @@
 **  O Java 6 não é mais suportado pela Oracle e, portanto, não recebe
 **  atualizações de segurança.
 **
-**  Para torna-lo compatível com Java 12, este aplicativo
+**  Para torna-lo compatível com Java 9 ou superior, este aplicativo
 **	refaz a chamada para o javaw.exe disponível no subsistema Java.
 **
 **  É necessário configurar no diretório onde o Java 6 deveria estar
@@ -23,10 +23,8 @@
 #include <stdlib.h>
 #include <windows.h>
 
-/* substitui o arg. -jar lepdf.jar por 
-   -m lePdf/lePdf.lePdf 
-*/
-void alterarArg(wchar_t* novoarg, wchar_t* arg) {
+/* substitui o arg. -jar lepdf.jar por -m lePdf/lePdf.lePdf */
+void alterarArg(wchar_t* arg, wchar_t* novoarg) {
   wchar_t* p;
 
   wcscpy(novoarg, L"-m lePdf/lePdf.lePdf");
@@ -39,7 +37,7 @@ void alterarArg(wchar_t* novoarg, wchar_t* arg) {
   wcscat(novoarg, p);
 }
 
-/* caminho do java */
+/* define o caminho do java runtime */
 void setJavaPath(wchar_t* path) {
   wchar_t exepath[MAX_PATH + 1];
 
@@ -54,7 +52,7 @@ void chamarSubsistemaJava(wchar_t* arg) {
   wchar_t novoarg[256] = {0};
   wchar_t javapath[MAX_PATH + 1];
 
-  alterarArg(novoarg, arg);
+  alterarArg(arg, novoarg);
   setJavaPath(javapath);
   ShellExecute(NULL, L"open", javaexe, novoarg, javapath, SW_SHOWNORMAL);
 }
