@@ -51,7 +51,7 @@ debug:
 	
 help:
 	@(echo Parametros disponiveis: && echo.)
-	@echo MAKE			Compila o aplicativo.
+	@echo MAKE		Compila o aplicativo.
 	@echo MAKE CLEAN	Limpa os objetos e executaveis para uma nova compilacao.
 	@echo MAKE DEBUG	Executa o aplicativo no modo de depuracao com a supervisao do GDB.
 	@echo MAKE HELP		Exibe este menu de ajuda.

@@ -1,3 +1,4 @@
 lepdf/bin/
-setup/output/
-dist/jre/
+dist/
+bin/jre32/
+bin/jre64/
