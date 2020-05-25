@@ -13,6 +13,7 @@ type
     Texto2: String;
   end;
 
+function CriarMutex: THandle;
 procedure ExibirMensagemErro(const Mensagem: String; const AjudaID: Integer=0);
 function ExibirMensagemInfo(const Mensagem: String; const Desc: String; ExibirNaoMostrarNovamente: Boolean): Boolean;
 function ExibirPergunta(const Mensagem: String; const Opcoes: Array of String; const Cancelar: Integer): Integer;
@@ -21,28 +22,19 @@ function SepararTexto(Texto: String; Sep: Char): TTupla;
 
 implementation
 
-uses Controls, Dialogs, unidExcecoes, unidExcecoesLista, unidVariaveis;
+uses Controls, Dialogs, Forms, Windows, unidExcecoes, unidExcecoesLista, unidVariaveis;
 
-function SepararTexto(Texto: String; Sep: Char): TTupla;
-var
-  Posicao: Integer;
+function CriarMutex: THandle;
 begin
-  Posicao := Pos(Sep, Texto);
-  Result.Texto1 := LeftStr(Texto, Posicao - 1);
-  Result.Texto2 := RightStr(Texto, Texto.Length - Posicao);
-end;
-
-procedure PrepararPastaConfig;
-var
-  PastaConfigPai: String;
-begin
-  PastaConfigPai := ExtractFilePath(ExcludeTrailingPathDelimiter(Variaveis.PastaConfig));
-  if not DirectoryExists(PastaConfigPai) then
-    if not CreateDir(PastaConfigPai) then
-      raise EProgramaErro.Create(excecaoCriarDirConfig);
-  if not DirectoryExists(Variaveis.PastaConfig) then
-    if not CreateDir(Variaveis.PastaConfig) then
-      raise EProgramaErro.Create(excecaoCriarDirConfig);
+  Result := CreateMutex(nil, true, 'AppMutex_PrismaPDFConfig1');
+  if Result <> 0 then
+  begin
+    if GetLastError = ERROR_ALREADY_EXISTS then
+    begin
+      CloseHandle(Result);
+      Halt(0);
+    end;
+  end;
 end;
 
 function DialogoCriar(const Mensagem: String): TTaskDialog;
@@ -127,6 +119,28 @@ begin
       Free;
     end;
   end;
+end;
+
+procedure PrepararPastaConfig;
+var
+  PastaConfigPai: String;
+begin
+  PastaConfigPai := ExtractFilePath(ExcludeTrailingPathDelimiter(Variaveis.PastaConfig));
+  if not DirectoryExists(PastaConfigPai) then
+    if not CreateDir(PastaConfigPai) then
+      raise EProgramaErro.Create(excecaoCriarDirConfig);
+  if not DirectoryExists(Variaveis.PastaConfig) then
+    if not CreateDir(Variaveis.PastaConfig) then
+      raise EProgramaErro.Create(excecaoCriarDirConfig);
+end;
+
+function SepararTexto(Texto: String; Sep: Char): TTupla;
+var
+  Posicao: Integer;
+begin
+  Posicao := Pos(Sep, Texto);
+  Result.Texto1 := LeftStr(Texto, Posicao - 1);
+  Result.Texto2 := RightStr(Texto, Texto.Length - Posicao);
 end;
 
 end.
