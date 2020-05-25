@@ -1,0 +1,8 @@
+# Ignorar o conteudo desta pasta exceto este arquivo
+!.gitignore
+loader32.exe
+loader64.exe
+manual.pdf
+deltmpfiles.bat
+config32.exe
+config64.exe
