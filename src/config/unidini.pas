@@ -15,12 +15,14 @@ type
     function GetModoExibicao: Integer;
     function GetLocalizacaoPDF24: String;
     function GetArgumentosPDF24: String;
+    function GetNomeFonte: String;
     function GetExcluirSequenciaCarac: Boolean;
     function GetSequenciaCaracAExcluir: String;
     function GetUsarParamINI: Boolean;
     procedure SetModoExibicao(Value: Integer);
     procedure SetLocalizacaoPDF24(Value: String);
     procedure SetArgumentosPDF24(Value: String);
+    procedure SetNomeFonte(Value: String);
     procedure SetSequenciaCaracAExcluir(Value: String);
     procedure SetUsarParamINI(Value: Boolean);
     procedure SetExcluirSequenciaCarac(Value: Boolean);
@@ -29,6 +31,7 @@ type
     destructor Destroy; override;
     procedure Salvar;
     property ModoExibicao: Integer read GetModoExibicao write SetModoExibicao;
+    property NomeFonte: String read GetNomeFonte write SetNomeFonte;
     property LocalizacaoPDF24: String read GetLocalizacaoPDF24 write SetLocalizacaoPDF24;
     property ArgumentosPDF24: String read GetArgumentosPDF24 write SetArgumentosPDF24;
     property SequenciaCaracAExcluir: String read GetSequenciaCaracAExcluir write SetSequenciaCaracAExcluir;
@@ -85,6 +88,11 @@ begin
   Result := FIni.ValueExists('Configuracoes', 'SequenciaApagar');
 end;
 
+function TArquivoIni.GetNomeFonte: String;
+begin
+  Result := FIni.ReadString('Configuracoes', 'NomeFonte', '');
+end;
+
 function TArquivoIni.GetSequenciaCaracAExcluir: String;
 begin
   Result := FIni.ReadString('Configuracoes', 'SequenciaApagar', '');
@@ -126,6 +134,12 @@ begin
   if not Value then
     FIni.DeleteKey('Configuracoes', 'SequenciaApagar');
     //FArquivoIni.UpdateFile;
+end;
+
+procedure TArquivoIni.SetNomeFonte(Value: String);
+begin
+  FIni.WriteString('Configuracoes', 'NomeFonte', Value);
+  //FArquivoIni.UpdateFile;
 end;
 
 procedure TArquivoIni.SetSequenciaCaracAExcluir(Value: String);

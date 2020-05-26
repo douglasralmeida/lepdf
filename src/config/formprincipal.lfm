@@ -1,7 +1,7 @@
 object JanelaPadrao: TJanelaPadrao
-  Left = 299
+  Left = 687
   Height = 435
-  Top = 108
+  Top = 164
   Width = 410
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   BorderStyle = bsDialog
@@ -18,9 +18,11 @@ object JanelaPadrao: TJanelaPadrao
     Height = 392
     Top = 8
     Width = 398
-    ActivePage = TabPrincipal
-    TabIndex = 0
+    ActivePage = tabReiniciar
+    TabIndex = 2
     TabOrder = 0
+    OnChange = PaginaChange
+    OnChanging = PaginaChanging
     object TabPrincipal: TTabSheet
       Caption = 'Relatório PDF'
       ClientHeight = 364
@@ -266,6 +268,19 @@ object JanelaPadrao: TJanelaPadrao
           Caption = '&Restaurar configurações'
           OnClick = BotaoRestaurarClick
           TabOrder = 0
+        end
+        object TextoConfigRestauradas: TLabel
+          Left = 57
+          Height = 15
+          Top = 84
+          Width = 297
+          Caption = 'Configurações restauradas para configuração de fábrica.'
+          Color = 56576
+          Font.Color = clBlack
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Visible = False
         end
       end
     end

@@ -37,6 +37,7 @@ type
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
+    TextoConfigRestauradas: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -63,8 +64,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Label12Click(Sender: TObject);
+    procedure PaginaChange(Sender: TObject);
+    procedure PaginaChanging(Sender: TObject; var AllowChange: Boolean);
   private
     ArquivoINI: TArquivoIni;
+    NomeFonte: String;
     function ChecarControles: Boolean;
     procedure SalvarConfiguracoes;
   public
@@ -104,13 +108,18 @@ end;
 
 procedure TJanelaPadrao.BotaoRestaurarClick(Sender: TObject);
 begin
-  RadioExibirPDF.Checked := true;
-  EditCaminhoPDF24.Text := Variaveis.PastaArqProgx86 + 'PDF24\pdf24-Creator.exe';
-  EditArgsPDF24.Text := '%s';
-  ChecExcluirSequenciaCarac.Checked := false;
-  EditSequenciaExclusao.Enabled := false;
-  EditSequenciaExclusao.Text := '';
-  checUsarPDFParam.Checked := false;
+  if ExibirPergunta('Você deseja restaurar as configurações para a configuração de fábrica?', ['Sim, restaurar.', 'Não, não restaurar.'], 1) = 0 then
+  begin
+    RadioExibirPDF.Checked := true;
+    EditCaminhoPDF24.Text := Variaveis.PastaArqProgx86 + 'PDF24\pdf24-Creator.exe';
+    EditArgsPDF24.Text := '%s';
+    ChecExcluirSequenciaCarac.Checked := false;
+    EditSequenciaExclusao.Enabled := false;
+    EditSequenciaExclusao.Text := '';
+    checUsarPDFParam.Checked := false;
+    NomeFonte := 'CascadiaMono.ttf';
+    TextoConfigRestauradas.Show;
+  end;
 end;
 
 function TJanelaPadrao.ChecarControles: Boolean;
@@ -174,6 +183,7 @@ begin
   if ChecExcluirSequenciaCarac.Checked then
     EditSequenciaExclusao.Text := ArquivoINI.SequenciaCaracAExcluir;
   checUsarPDFParam.Checked := ArquivoINI.UsarParamINI;
+  NomeFonte := ArquivoINI.NomeFonte;
 end;
 
 procedure TJanelaPadrao.FormCreate(Sender: TObject);
@@ -195,6 +205,18 @@ begin
   OpenDocument('http://www.github.com/douglasralmeida/lepdf');
 end;
 
+procedure TJanelaPadrao.PaginaChange(Sender: TObject);
+begin
+  if Pagina.ActivePage = tabReiniciar then
+    TextoConfigRestauradas.Hide;
+end;
+
+procedure TJanelaPadrao.PaginaChanging(Sender: TObject; var AllowChange: Boolean
+  );
+begin
+
+end;
+
 procedure TJanelaPadrao.SalvarConfiguracoes;
 begin
   if RadioNaoExecutar.Checked then
@@ -212,6 +234,7 @@ begin
   else
     ArquivoINI.ExcluirSequenciaCarac := false;
   ArquivoINI.UsarParamINI := checUsarPDFParam.Checked;
+  ArquivoINI.NomeFonte := NomeFonte;
   ArquivoINI.Salvar;
 end;
 
