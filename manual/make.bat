@@ -1,2 +1,2 @@
 pdflatex main.tex
-move main.pdf ..\dist\manual.pdf
+move main.pdf ..\bin\manual.pdf

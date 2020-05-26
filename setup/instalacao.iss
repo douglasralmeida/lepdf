@@ -4,7 +4,7 @@
 #include "ambiente.iss"
 
 #define MyAppName "Componente PDF para Prisma"
-#define MyAppVersion "2.0.0"
+#define MyAppVersion "2.1.0"
 #define MyAppPublisher "Douglas R. Almeida"
 #define MyAppURL "https://github.com/douglasralmeida/lepdf"
 
@@ -19,7 +19,6 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 AllowNoIcons=yes
 AlwaysRestart=True
-ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 ChangesAssociations=True
 ChangesEnvironment=true
@@ -37,8 +36,8 @@ ShowLanguageDialog=no
 UninstallDisplayName=Componente PrismaPDF
 UninstallDisplayIcon={app}\loader.exe
 UninstallDisplaySize=50000000
-VersionInfoVersion=2.0.0
-VersionInfoProductVersion=2.0
+VersionInfoVersion=2.1.0
+VersionInfoProductVersion=2.1
 WizardImageFile=..\res\setupgrande.bmp
 WizardSmallImageFile=..\res\setuppequeno.bmp
 WizardStyle=modern
@@ -46,18 +45,21 @@ WizardStyle=modern
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
-[Files]
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "..\dist\loader64.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 64bit; Components: programa; Check: IsWin64
-Source: "..\dist\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
-Source: "..\ini\config.ini.template"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
-Source: "..\ini\config.ini.template"; DestDir: "{localappdata}\Aplicações do INSS\Componente PrismaPDF"; DestName: "config.ini"; Flags: ignoreversion; Components: programa
-Source: "..\scripts\deltmpfiles.bat"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
-Source: "..\dist\jre\*"; DestDir: "{app}\jre"; Flags: ignoreversion createallsubdirs recursesubdirs; Components: java
-
 [Dirs]
 Name: "{pf}\Java\jre6\bin"; Components: programa
-Name: "{localappdata}\Aplicações do INSS\Componente PrismaPDF"; Components: programa
+Name: "{localappdata}\Aplicativos do INSS\Componente PrismaPDF"; Components: programa
+
+[Files]
+; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "..\bin\loader32.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 32bit; Components: programa; Check: not IsWin64
+Source: "..\bin\loader64.exe"; DestDir: "{app}"; DestName: "loader.exe"; Flags: ignoreversion 64bit; Components: programa; Check: IsWin64
+Source: "..\bin\manual.pdf"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\modelos\prismapdf.prc"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\modelos\prismapdf.prc"; DestDir: "{localappdata}\Aplicativos do INSS\Componente PrismaPDF"; DestName: "prismapdf.ini"; Flags: ignoreversion; Components: programa
+Source: "..\scripts\deltmpfiles.cmd"; DestDir: "{app}"; Flags: ignoreversion; Components: programa
+Source: "..\bin\jre32\*"; DestDir: "{app}\jre"; Flags: ignoreversion 64bit createallsubdirs recursesubdirs; Components: java
+Source: "..\bin\jre64\*"; DestDir: "{app}\jre"; Flags: ignoreversion 32bit createallsubdirs recursesubdirs; Components: java
+
 
 [Icons]
 Name: "{group}\Manual para Geração de PDF no Prisma"; Filename: "{app}\manual.pdf"; WorkingDir: "{app}"
