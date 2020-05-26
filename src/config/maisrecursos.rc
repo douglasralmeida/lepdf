@@ -1,0 +1,8 @@
+// Icone extra do aplicativo
+1000 ICON                       "icones\\app.ico"
+1001 ICON                       "icones\\arquivoparam.ico"
+1002 ICON                       "icones\\arquivopdf.ico"
+1003 ICON                       "icones\\caractere.ico"
+1004 ICON                       "icones\\pdf24.ico"
+1005 ICON                       "icones\\restaurar.ico"
+1006 ICON                       "icones\\logotipo.ico"

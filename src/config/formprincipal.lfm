@@ -18,11 +18,10 @@ object JanelaPadrao: TJanelaPadrao
     Height = 392
     Top = 8
     Width = 398
-    ActivePage = tabReiniciar
-    TabIndex = 2
+    ActivePage = Sobre
+    TabIndex = 3
     TabOrder = 0
     OnChange = PaginaChange
-    OnChanging = PaginaChanging
     object TabPrincipal: TTabSheet
       Caption = 'Relatório PDF'
       ClientHeight = 364
@@ -36,9 +35,9 @@ object JanelaPadrao: TJanelaPadrao
         ClientHeight = 140
         ClientWidth = 365
         TabOrder = 0
-        object Image1: TImage
+        object ImagemRelatorio: TImage
           Left = 8
-          Height = 28
+          Height = 32
           Top = 0
           Width = 32
         end
@@ -94,9 +93,9 @@ object JanelaPadrao: TJanelaPadrao
         ClientHeight = 149
         ClientWidth = 364
         TabOrder = 1
-        object Image2: TImage
+        object ImagemPDF24: TImage
           Left = 8
-          Height = 28
+          Height = 32
           Top = 0
           Width = 32
         end
@@ -160,9 +159,9 @@ object JanelaPadrao: TJanelaPadrao
         ClientHeight = 116
         ClientWidth = 365
         TabOrder = 0
-        object Image3: TImage
+        object ImagemCaracteres: TImage
           Left = 8
-          Height = 28
+          Height = 32
           Top = 0
           Width = 32
         end
@@ -204,9 +203,9 @@ object JanelaPadrao: TJanelaPadrao
         ClientHeight = 76
         ClientWidth = 365
         TabOrder = 1
-        object Image4: TImage
+        object ImagemParam: TImage
           Left = 8
-          Height = 28
+          Height = 32
           Top = 0
           Width = 32
         end
@@ -244,9 +243,9 @@ object JanelaPadrao: TJanelaPadrao
         ClientHeight = 116
         ClientWidth = 365
         TabOrder = 0
-        object Image5: TImage
+        object ImagemRestaura: TImage
           Left = 8
-          Height = 28
+          Height = 32
           Top = 0
           Width = 32
         end
@@ -288,7 +287,7 @@ object JanelaPadrao: TJanelaPadrao
       Caption = 'Sobre'
       ClientHeight = 364
       ClientWidth = 390
-      object Image6: TImage
+      object ImagemLogo: TImage
         Left = 24
         Height = 64
         Top = 32

@@ -12,6 +12,7 @@ uses
   { you can add units after this };
 
 {$R *.res}
+{$R maisrecursos.rc}
 
 var
   Mutex: THandle;

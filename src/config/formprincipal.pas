@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, StdCtrls,
-  ExtCtrls, EditBtn, IniPropStorage, unidIni, process, eventlog;
+  ExtCtrls, EditBtn, unidIni;
 
 type
 
@@ -27,12 +27,12 @@ type
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
     GroupBox5: TGroupBox;
-    Image1: TImage;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Image5: TImage;
-    Image6: TImage;
+    ImagemRelatorio: TImage;
+    ImagemPDF24: TImage;
+    ImagemCaracteres: TImage;
+    ImagemParam: TImage;
+    ImagemRestaura: TImage;
+    ImagemLogo: TImage;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -65,10 +65,10 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure Label12Click(Sender: TObject);
     procedure PaginaChange(Sender: TObject);
-    procedure PaginaChanging(Sender: TObject; var AllowChange: Boolean);
   private
     ArquivoINI: TArquivoIni;
     NomeFonte: String;
+    function CarregarRecursos: Boolean;
     function ChecarControles: Boolean;
     procedure SalvarConfiguracoes;
   public
@@ -122,6 +122,37 @@ begin
   end;
 end;
 
+function TJanelaPadrao.CarregarRecursos: Boolean;
+const
+  ICO_PARAM = 1001;
+  ICO_PDF = 1002;
+  ICO_CARACTERE = 1003;
+  ICO_PDF24 = 1004;
+  ICO_RESTAURAR = 1005;
+  ICO_LOGO = 1006;
+var
+  Icone: TIcon;
+begin
+  Icone := TIcon.Create;
+  try
+    Icone.LoadFromResourceID(HInstance, ICO_PDF);
+    ImagemRelatorio.Picture.Icon.Assign(Icone);
+    Icone.LoadFromResourceID(HInstance, ICO_PDF24);
+    ImagemPDF24.Picture.Icon.Assign(Icone);
+    Icone.LoadFromResourceID(HInstance, ICO_CARACTERE);
+    ImagemCaracteres.Picture.Icon.Assign(Icone);
+    Icone.LoadFromResourceID(HInstance, ICO_PARAM);
+    ImagemParam.Picture.Icon.Assign(Icone);
+    Icone.LoadFromResourceID(HInstance, ICO_RESTAURAR);
+    ImagemRestaura.Picture.Icon.Assign(Icone);
+    Icone.LoadFromResourceID(HInstance, ICO_LOGO);
+    ImagemLogo.Picture.Icon.Assign(Icone);
+  finally
+    Icone.Free;
+  end;
+  Result := true;
+end;
+
 function TJanelaPadrao.ChecarControles: Boolean;
 begin
   if not (RadioNaoExecutar.Checked or
@@ -167,6 +198,8 @@ end;
 
 procedure TJanelaPadrao.FormActivate(Sender: TObject);
 begin
+  CarregarRecursos;
+
   Pagina.ActivePageIndex := 0;
   SetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE, GetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE) OR BS_MULTILINE);
   case ArquivoINI.ModoExibicao of
@@ -209,12 +242,6 @@ procedure TJanelaPadrao.PaginaChange(Sender: TObject);
 begin
   if Pagina.ActivePage = tabReiniciar then
     TextoConfigRestauradas.Hide;
-end;
-
-procedure TJanelaPadrao.PaginaChanging(Sender: TObject; var AllowChange: Boolean
-  );
-begin
-
 end;
 
 procedure TJanelaPadrao.SalvarConfiguracoes;
