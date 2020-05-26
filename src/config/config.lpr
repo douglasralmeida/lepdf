@@ -19,7 +19,7 @@ var
 begin
   RequireDerivedFormResource := True;
   Mutex := CriarMutex;
-  Application.Title := 'Configurações do PrismaPDF';
+  Application.Title:='Configurações do PrismaPDF';
   Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TJanelaPadrao, JanelaPadrao);
