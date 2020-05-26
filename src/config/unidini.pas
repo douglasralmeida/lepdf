@@ -17,10 +17,14 @@ type
     function GetArgumentosPDF24: String;
     function GetNomeFonte: String;
     function GetExcluirSequenciaCarac: Boolean;
+    function GetPosicaoX: Integer;
+    function GetPosicaoY: Integer;
     function GetSequenciaCaracAExcluir: String;
     function GetUsarParamINI: Boolean;
     procedure SetModoExibicao(Value: Integer);
     procedure SetLocalizacaoPDF24(Value: String);
+    procedure SetPosicaoX(Value: Integer);
+    procedure SetPosicaoY(Value: Integer);
     procedure SetArgumentosPDF24(Value: String);
     procedure SetNomeFonte(Value: String);
     procedure SetSequenciaCaracAExcluir(Value: String);
@@ -34,6 +38,8 @@ type
     property NomeFonte: String read GetNomeFonte write SetNomeFonte;
     property LocalizacaoPDF24: String read GetLocalizacaoPDF24 write SetLocalizacaoPDF24;
     property ArgumentosPDF24: String read GetArgumentosPDF24 write SetArgumentosPDF24;
+    property PosicaoX: Integer read GetPosicaoX write SetPosicaoX;
+    property PosicaoY: Integer read GetPosicaoY write SetPosicaoY;
     property SequenciaCaracAExcluir: String read GetSequenciaCaracAExcluir write SetSequenciaCaracAExcluir;
     property UsarParamINI: Boolean read GetUsarParamINI write SetUsarParamINI;
     property ExcluirSequenciaCarac: Boolean read GetExcluirSequenciaCarac write SetExcluirSequenciaCarac;
@@ -103,6 +109,34 @@ begin
   Result := FIni.ReadBool('Configuracoes', 'UsarParamINI', false);
 end;
 
+function TArquivoIni.GetPosicaoX: Integer;
+var
+  resultado: Integer;
+  valor: String;
+begin
+  valor := FIni.ReadString('JanelaConfigurador', 'PosicaoX', '-1');
+  try
+    resultado := StrToInt(valor);
+  except
+    resultado := -1;
+  end;
+  Result := resultado;
+end;
+
+function TArquivoIni.GetPosicaoY: Integer;
+var
+  resultado: Integer;
+  valor: String;
+begin
+  valor := FIni.ReadString('JanelaConfigurador', 'PosicaoY', '-1');
+  try
+    resultado := StrToInt(valor);
+  except
+    resultado := -1;
+  end;
+  Result := resultado;
+end;
+
 procedure TArquivoIni.Salvar;
 begin
   FIni.UpdateFile;
@@ -133,25 +167,31 @@ procedure TArquivoIni.SetExcluirSequenciaCarac(Value: Boolean);
 begin
   if not Value then
     FIni.DeleteKey('Configuracoes', 'SequenciaApagar');
-    //FArquivoIni.UpdateFile;
 end;
 
 procedure TArquivoIni.SetNomeFonte(Value: String);
 begin
   FIni.WriteString('Configuracoes', 'NomeFonte', Value);
-  //FArquivoIni.UpdateFile;
 end;
 
 procedure TArquivoIni.SetSequenciaCaracAExcluir(Value: String);
 begin
   FIni.WriteString('Configuracoes', 'SequenciaApagar', Value);
-  //FArquivoIni.UpdateFile;
 end;
 
 procedure TArquivoIni.SetUsarParamINI(Value: Boolean);
 begin
   FIni.WriteBool('Configuracoes', 'UsarParamINI', Value);
-  //FArquivoIni.UpdateFile;
+end;
+
+procedure TArquivoIni.SetPosicaoX(Value: Integer);
+begin
+  FIni.WriteInteger('JanelaConfigurador', 'PosicaoX', Value);
+end;
+
+procedure TArquivoIni.SetPosicaoY(Value: Integer);
+begin
+  FIni.WriteInteger('JanelaConfigurador', 'PosicaoY', Value);
 end;
 
 end.

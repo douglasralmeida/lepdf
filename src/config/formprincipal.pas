@@ -63,6 +63,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure Label12Click(Sender: TObject);
     procedure PaginaChange(Sender: TObject);
   private
@@ -228,9 +229,40 @@ end;
 procedure TJanelaPadrao.FormDestroy(Sender: TObject);
 begin
   if Assigned(ArquivoINI) then
+  begin
+    ArquivoINI.PosicaoY := Top;
+    ArquivoINI.PosicaoX := Left;
+    ArquivoINI.Salvar;
     ArquivoINI.Free;
+  end;
   if Assigned(Variaveis) then
     Variaveis.Free;
+end;
+
+procedure TJanelaPadrao.FormShow(Sender: TObject);
+var
+  PosX, PosY: Integer;
+begin
+  try
+    PosX := ArquivoINI.PosicaoX;
+    PosY := ArquivoINI.PosicaoY;
+    if (PosX > -1) and (PosY > -1) then
+    begin
+      Left := PosX;
+      Top := PosY;
+      Position := poDesigned;
+    end
+    else
+      Position := poScreenCenter;
+  except
+    on E: Exception do
+    begin
+      ExibirMensagemErro(E.Message, E.HelpContext);
+      Variaveis.Free;
+      ArquivoINI.Free;
+      Halt(1);
+    end;
+  end;
 end;
 
 procedure TJanelaPadrao.Label12Click(Sender: TObject);

@@ -17,3 +17,13 @@ LocalizacaoPDF24=C:\\Program Files (x86)\\PDF24\\pdf24-Creator.exe
 ArgumentosPDF24=%s
 NomeFonte=CascadiaMono.ttf
 UsarParamINI=0
+
+; Parâmetros da interface com o usuário Configurações do Prisma PDF
+; 
+; PosicaoX: Posição horizontal da janela
+; PosicaoY: Posição vertical da janela
+;    * -1, indica posição centralizada da janela
+
+[JanelaConfigurador]
+PosicaoX=-1
+PosicaoY=-1
