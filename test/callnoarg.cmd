@@ -1,1 +1,1 @@
-..\dist\loader64 -jar lePdf.jar
+..\bin\loader64 -jar lePdf.jar

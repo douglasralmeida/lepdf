@@ -1,1 +1,1 @@
-..\dist\jre\bin\javaw -m lePdf/lePdf.lePdf
+..\bin\jre\bin\javaw -m lePdf/lePdf.lePdf
