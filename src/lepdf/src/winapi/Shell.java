@@ -18,7 +18,7 @@ public class Shell {
 
 	public static void abrir(String comando, TipoGeracao modo) {
 		int i;
-		
+				
 		if (modo == TipoGeracao.TIPOGERACAO_SEGUNDOPLANO)
 			i = WinUser.SW_SHOWMINNOACTIVE;
 		else

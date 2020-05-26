@@ -9,9 +9,10 @@ import org.ini4j.InvalidFileFormatException;
 public class Config {
   boolean excluirNome = false;	
   String arquivoPDF24 = "";
-  String exePDF24 = "";
-  String nomeAExcluir = "";
+  String argumentosPDF24 = "";
+  String sequenciaAExcluir = "";
   String nomeFonte = "";
+  boolean usarPDFParam = false;
   TipoGeracao modoGeracao = TipoGeracao.TIPOGERACAO_PRIMEIROPLANO; 
 	
   public boolean carregar() {
@@ -38,32 +39,35 @@ public class Config {
   private void processar(Ini ini) {
 	Ini.Section configuracoes = ini.get("Configuracoes");
 		
-	String nomeapagar = configuracoes.get("NomeApagar");
-	if (nomeapagar.length() > 0) {
+	String nomeapagar = configuracoes.get("SequenciaApagar");
+	if (configuracoes.containsKey("SequenciaApagar") && nomeapagar.length() > 0) {
 	  excluirNome = true;
-	  nomeAExcluir = nomeapagar;
+	  sequenciaAExcluir = nomeapagar;
 	}
-		
+
 	String modogeracao = configuracoes.get("ModoGeracao");
-	if (modogeracao.length() > 0) {
-	  if (modogeracao.toLowerCase().equals("segundoplano"))
-		modoGeracao = TipoGeracao.TIPOGERACAO_SEGUNDOPLANO;
-	  else if (modogeracao.toLowerCase().equals("diretopdf24"))
-		modoGeracao = TipoGeracao.TIPOGERACAO_DIRETA;
-	  else 
-		modoGeracao = TipoGeracao.TIPOGERACAO_PRIMEIROPLANO;
+	try {	
+	 int i = Integer.parseInt(modogeracao);
+	 modoGeracao = TipoGeracao.values()[i];
 	}
-		
-	String localpdf24 = configuracoes.get("LocalPDF24");
+	catch (Exception e) {
+      e.printStackTrace();
+	}
+
+	String localpdf24 = configuracoes.get("LocalizacaoPDF24");
 	if (localpdf24.length() > 0)
 	  arquivoPDF24 = localpdf24;
 		
-	String localexepdf24 = configuracoes.get("ExePDF24");
-	if (localexepdf24.length() > 0)
-	  exePDF24 = localexepdf24;
+	String localargpdf24 = configuracoes.get("ArgumentosPDF24");
+	if (localargpdf24.length() > 0)
+		argumentosPDF24 = localargpdf24;
 		
 	String localNomeFonte = configuracoes.get("NomeFonte");
 	if (localNomeFonte.length() > 0)
 	  nomeFonte = localNomeFonte;
+	
+	String localUsarParam = configuracoes.get("UsarParamINI");
+	if (localUsarParam.length() > 0)
+      usarPDFParam = (localUsarParam == "1");  
   }
 }

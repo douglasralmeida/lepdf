@@ -1,1 +1,0 @@
-jlink --add-modules lePdf --module-path lib;bin --launcher gui=lePdf/lePdf.lePdf --output ../dist/jre --strip-debug --compress=2 --no-header-files --no-man-pages --ignore-signing-information

@@ -35,11 +35,11 @@ import winapi.Mensagem;
 import winapi.Shell;
 
 public class lePdf {
-  static Config config = new Config();
-  static Recursos recursos = new Recursos(config);
+  static Config config;
+  static Recursos recursos;
+  static Parametros parametros = new Parametros();
   static String usuario = System.getProperty("user.name");
   static float tamanhoFonte = 0.0F;
-  static String diretorio = "C:/cnislinha/";
   static final String[] acentuados = { "a `", "a '", "a &", 
     "a ~", "e `", "e '", "e &", "i `", "i '", "i &", "o `", "o '", 
 	"o &", "o ~", "u `", "u '", "u &", "c ,", "A `", "A '", "A &", 
@@ -88,8 +88,8 @@ public class lePdf {
 
     linhaProcessada = limparLinha(linha);
     resto = linhaProcessada.replaceAll("[^a-zA-Z ]", " ").trim().concat(" ");
-    if (config.excluirNome && config.nomeAExcluir.length() > 0) {
-    	if (resto.toLowerCase().contains(config.nomeAExcluir.toLowerCase()))
+    if (config.excluirNome && config.sequenciaAExcluir.length() > 0) {
+    	if (resto.toLowerCase().contains(config.sequenciaAExcluir.toLowerCase()))
     		return "";
     }
     while (resto.indexOf(" ") != -1) {
@@ -166,7 +166,7 @@ public class lePdf {
   
   public static void enviarParaPDF24(String saida) {	  
 	try {
-	  Shell.executar(config.arquivoPDF24, config.exePDF24, saida);
+	  Shell.executar(config.arquivoPDF24, Variaveis.pastaDesktop, String.format(config.argumentosPDF24, saida));
 	}
 	catch (Exception e) {
 	  exibirMsg(e.getMessage());
@@ -192,6 +192,10 @@ public class lePdf {
   }
    
   public static void main(String[] args) {
+	boolean exibirArquivoPDF;
+	String saida;
+	
+	config = new Config();
     if (args.length < 3) {
       exibirMsg("Erro ao executar o componente de processamento PDF: Parâmetros insuficientes.");
       System.exit(1);
@@ -200,21 +204,32 @@ public class lePdf {
       if (!PrimeiroUso.processar())
         System.exit(1);    		    
     String entrada = args[0];
-	String saida = args[1];
+    if (config.usarPDFParam && parametros.usarParametros && parametros.nomePDFSaida.length() > 0)
+      saida = parametros.nomePDFSaida;
+    else
+	  saida = args[1];
 	String processo = args[2];
-	boolean exibirArquivoPDF = args.length > 3;
+	exibirArquivoPDF = args.length > 3;
 	if (!config.carregar())
 	  System.exit(1);
+	recursos = new Recursos(config);	
+	if (!recursos.carregar()) {
+		exibirMsg("Erro ao executar o componente de processamento PDF: Não foi possível carregar os recursos do programa.");
+		System.exit(1);
+	}
 	if (processo.equals("I")) {
-	  calcularFonte(diretorio + entrada);
-	  processarTexto(diretorio + entrada, diretorio + saida);
-	  if (exibirArquivoPDF)
-	    if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
-		  enviarParaPDF24(diretorio + saida);
-		else
-		  exibirPDF(diretorio + saida);
+	  calcularFonte(Variaveis.pastaOrigem + entrada);
+	  processarTexto(Variaveis.pastaOrigem + entrada, Variaveis.pastaOrigem + saida);
+	  if (config.modoGeracao != TipoGeracao.TIPOGERACAO_SEMACAO) {
+	    if (exibirArquivoPDF) {
+	      if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
+			enviarParaPDF24(Variaveis.pastaOrigem + saida);
+		  else
+			exibirPDF(Variaveis.pastaOrigem + saida);
+	    }		  
+	  }
 	} else if (processo.equals("E"))
-	  exibirPDF(diretorio + saida);
+	    exibirPDF(Variaveis.pastaOrigem + saida);
 	System.runFinalization();
 	System.exit(0);
   }
