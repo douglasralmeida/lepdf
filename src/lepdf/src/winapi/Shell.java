@@ -27,7 +27,7 @@ public class Shell {
 		lib.ShellExecuteW(0, new WString("open"), new WString(comando), null, null, i);
 	}
 	
-	public static void executar(String pasta, String exe, String param) {
+	public static void executar(String exe, String pasta, String param) {
 		Shell32 lib = (Shell32)Native.load("Shell32", Shell32.class);
 		lib.ShellExecuteW(0, new WString("open"), new WString(exe), new WString(param), new WString(pasta), WinUser.SW_SHOWMINNOACTIVE);
 	}

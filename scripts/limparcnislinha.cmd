@@ -1,2 +1,3 @@
 ECHO OFF
+ECHO Limpando pasta CNISLINHA...
 IF EXIST "C:\cnislinha" DEL /F /Q C:\cnislinha\*.txt C:\cnislinha\*.pdf

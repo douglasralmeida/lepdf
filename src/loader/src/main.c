@@ -27,6 +27,9 @@
 void alterarArg(wchar_t* arg, wchar_t* novoarg) {
   wchar_t* p;
 
+  /* adiciona uma otimização Java */
+  
+  wcscpy(novoarg, L"-Xshare:auto ");
   wcscpy(novoarg, L"-m lePdf/lePdf.lePdf");
 
   /* elimina os dois primeiros argumentos */

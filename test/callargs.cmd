@@ -1,1 +1,1 @@
-..\bin\loader64 -jar lePdf.jar in.txt out.pdf I
+..\bin\loader64 -jar lePdf.jar prisma.txt out.pdf I

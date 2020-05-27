@@ -12,7 +12,7 @@ public class Variaveis {
   static String nomeArquivoParam = "pdfparam.ini";
   static String nomeOrganizacao = "Aplicativos do INSS";
   static String nomeAplicativo = "Prisma";
-  public static String pastaOrigem = "C:/cnislinha/";
+  public static String pastaOrigem = "C:\\cnislinha\\";
   static String pastaAppData = Shell32Util.getFolderPath(ShlObj.CSIDL_LOCAL_APPDATA) + '\\';
   static String pastaAppFiles = Shell32Util.getFolderPath(ShlObj.CSIDL_PROGRAM_FILES) + '\\';;
   static String pastaDesktop = Shell32Util.getFolderPath(ShlObj.CSIDL_DESKTOPDIRECTORY) + '\\';;
