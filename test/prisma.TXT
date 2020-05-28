@@ -1,10 +1,10 @@
-11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  1
-                                                 ******************  ATE 31/12/2016  **********************
-                                                                                                                Versao.....: 9.5o 
-       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
-       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
-       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
-       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  1
+                                                 ******************  ATE 16/12/1998  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
        TIPO CALCULO: 
        ------------------------------------------------------------------------------------------------------------------------------------------
                                                              DOCUMENTOS APRESENTADOS
@@ -12,7 +12,7 @@
            TIPO     NUMERO         SERIE   DESCRICAO DO DOCUMENTO
        01  CTPS                           
        02  CARNE    12345678901           
-       03  CTC                            
+       03  ATVESP                         
        ------------------------------------------------------------------------------------------------------------------------------------------
        
                                                    P E R I O D O S   D O S   D O C U M E N T O S  
@@ -20,55 +20,54 @@
        ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
                                                                              CONTRIBUICOES                 
        
-       01 0001 01/02/1999  31/01/2001 30     TS   2  1          02  00  00                                   SECRETARIA DE ESTADO DE PLANEJ
-                                                                02  00  00                                   AMENTO E GESTAO      
-                                                                02  00  00      24                        
+       01 0001 01/08/1986  10/08/1988 35     TS   2  1          02  00  10                                   HOLLYWOOD E CIA LTDA
+                                                                02  00  10                                                       
+                                                                02  00  10      25                        
        
        
-       02 0001 01/08/2006  31/08/2006 30     TS   2  8    S     00  01  00                                   PER. CONTR. CNIS 3            
-                                                                00  00  00                                                        
-                                                                00  00  00                     2          
-       SP/RD 01/08/2006  31/08/2006
-       
-       02 0002 01/01/2007  28/02/2007 30     TS   2  8    S     00  02  00                                   PER. CONTR. CNIS 4            
-                                                                00  00  00                                                        
-                                                                00  00  00                     2          
-       SP/RD 01/01/2007  28/02/2007
-       
-       02 0003 01/03/2007  31/12/2007 30     TS   2  8          00  10  00                                   PER. CONTR. CNIS 4            
-                                                                00  10  00                                                        
-                                                                00  10  00      10             2          
+       01 0002 02/01/1989  07/11/1989 35     TS   2  1          00  10  06                                   HOLLYWOOD E CIA LTDA
+                                                                00  10  06                                                       
+                                                                00  10  06      11                        
        
        
-       02 0004 01/01/2008  31/01/2008 30     TS   2  8    S     00  01  00                                   PER. CONTR. CNIS 4            
-                                                                00  00  00                                                        
-                                                                00  00  00                     2          
-       SP/RD 01/01/2008  31/01/2008
-       
-       02 0005 01/06/2010  30/11/2010 30     TS   2  8          00  06  00                                   PER. CONTR. CNIS 5            
-                                                                00  06  00                                                        
-                                                                00  06  00       1             4 11/2010  
+       01 0003 01/04/1990  01/06/1990 35     TS   2  1          00  02  01                                   MADE IN USA LTDA        
+                                                                00  02  01                                                        
+                                                                00  02  01       3                        
        
        
-       02 0006 01/02/2011  28/02/2011 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 6            
-                                                                00  01  00                                                        
-                                                                00  01  00       1             4 02/2011  
+       01 0004 06/01/1992  12/07/1992 35     TS   2  1          00  06  07                                   ACADEMY AWARDS SA      
+                                                                00  06  07                                                        
+                                                                00  06  07       7                        
        
        
-       02 0007 01/04/2011  31/03/2012 30     TS   2  8          01  00  00                                   PER. CONTR. CNIS 7            
-                                                                01  00  00                                                        
-                                                                01  00  00      12             4 04/2011  
+       01 0005 01/08/1993  19/07/1994 35     TS   2  1          00  11  19                                   GOLDEN GLOBE SA
+                                                                00  11  19                                   
+                                                                00  11  19      11                        
+       
+       
+       01 0006 20/07/1994  02/05/1996 35     TS   2  1          01  09  13                                   I LOVE CINEMA SA             
+                                                                01  09  13                                                        
+                                                                01  09  13      22                        
+       
+       
+       01 0007 15/05/1996  31/07/1998 35     TS   2  1          02  02  16                                   WARNER BROS SA
+                                                                02  02  16                                   
+                                                                02  02  16      27                        
+       
+       
+       01 0008 01/03/1999  06/07/1999 35     TS   2  1          00  04  06                                   YET ANOTHER MOVIE COMPANY
+                                                                00  00  00                                   WITH A BIG NAME SA
+                                                                00  00  00                                
        
        
        
-       11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  2
-                                                 ******************  ATE 31/12/2016  **********************
-                                                                                                                Versao.....: 9.5o 
-
-       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
-       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
-       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
-       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  2
+                                                 ******************  ATE 16/12/1998  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
        TIPO CALCULO: 
        ------------------------------------------------------------------------------------------------------------------------------------------
        
@@ -77,49 +76,49 @@
        ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
                                                                              CONTRIBUICOES                 
        
-       02 0008 01/10/2012  31/10/2012 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 8            
-                                                                00  01  00                                                        
-                                                                00  01  00       1             4          
+       01 0009 07/07/1999  08/10/1999 35     TS   2  1          00  03  02                                   CIA. MINEIRA DE ARMAZENS GERAI
+                                                                00  00  00                                   S                    
+                                                                00  00  00                                
        
        
-       02 0009 01/07/2014  31/07/2014 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 9            
-                                                                00  01  00                                                        
-                                                                00  01  00       1             4          
+       01 0010 08/02/2000  18/09/2013 35     TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                00  00  00                                   ES PLASTICOS LTDA    
+                                                                00  00  00                                
        
        
-       02 0010 01/10/2014  31/12/2014 30     TS   2  8          00  03  00                                   PER. CONTR. CNIS 10           
-                                                                00  03  00                                                        
-                                                                00  03  00       3             4          
+       01 0011 07/04/2014  15/12/2015 35     TS   2  1          01  08  09                                   COOPER-STANDARD AUTOMOTIVE BRA
+                                                                00  00  00                                   SIL SEALING LTDA     
+                                                                00  00  00                                
        
        
-       02 0011 01/01/2015  31/01/2015 30     TS   2  5          00  01  00                                   PER. CONTR. CNIS 11           
-                                                                00  01  00                                                        
-                                                                00  01  00       1             4 01/2015  
+       01 0012 07/03/2016  30/04/2020 35     TS   2  1          04  01  24                                   ELECTRO PLASTIC LTDA.         
+                                                                00  00  00                                                        
+                                                                00  00  00                                
        
        
-       02 0012 01/02/2015  31/10/2016 30     TS   2  8          01  09  00                                   PER. CONTR. CNIS 12           
-                                                                01  09  00                                                        
-                                                                01  09  00      21             4          
+       01 0013 08/06/2004  30/06/2004 35     BT   2  1          00  00  00                                   TEMPO EM BENEFICIO            
+                                                                00  00  00                                                        
+                                                                00  00  00                                
+       31/509.141.339-8
        
+       01 0014 06/05/2019  06/07/2019 35     BT   2  1          00  00  00                                   TEMPO EM BENEFICIO            
+                                                                00  00  00                                                        
+                                                                00  00  00                                
+       31/627.968.944-5
        
-       02 0013 01/12/2016  31/12/2016 30     TS   2  8          00  01  00                                   PER. CONTR. CNIS 13           
-                                                                00  01  00                                                        
-                                                                00  01  00       1             4 12/2016  
-       
-       
-       03 0001 01/04/1991  20/07/1992 30     TS   7  1          01  03  20                                   SEPLAG MG                     
-                                                                01  03  20                                                        
-                                                                01  03  20      16                        
-       
+       03 0001 15/05/1996  31/07/1998 25 0   TS   2  1          02  02  16                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
        
        
-       11.001.040 - APS BH PE EUSTAQUIO     * RESUMO DE DOCUMENTOS PARA CALCULO DE TEMPO DE CONTRIBUICAO *       03/08/2018  *   PAG.  3
-                                                 ******************  ATE 31/12/2016  **********************
-                                                                                                                Versao.....: 9.5o 
-       NB..........: 123.46.789-0       ESPECIE..: 41         DER.........: 13/11/2017                         DIB........: 13/11/2017
-       SEGURADO....: NICOLE KIDMAN                            DATA NASC...: 01/01/1900                         DAT........: 01/01/2017
-       NIT.........: 12345678901	         SEXO....: FEMININO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 8 CONTRIBUINTE INDIVIDUAL
-       DESPACHO....: 35 INDEFERIMENTO                                                                             DDB CONSID.: 03/04/2018
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  3
+                                                 ******************  ATE 16/12/1998  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
        TIPO CALCULO: 
        ------------------------------------------------------------------------------------------------------------------------------------------
        
@@ -128,43 +127,646 @@
        ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
                                                                              CONTRIBUICOES                 
        
-       03 0002 01/01/1993  29/01/1993 30     TS   7  1          00  00  29                                   SEPLAG MG                     
-                                                                00  00  29                                                        
-                                                                00  00  29       1                        
+       03 0002 08/02/2000  18/09/2013 25 0   TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                00  00  00                                   ES PLASTICOS LTDA    
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
        
+       03 0003 07/04/2014  31/07/2015 25 0   TS   2  1          01  03  24                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
        
-       03 0003 02/08/1993  29/06/1994 30     TS   7  1          00  10  28                                   SEPLAG MG                     
-                                                                00  10  28                                                        
-                                                                00  10  28      11                        
+       03 0004 01/08/2015  15/12/2015 25 0   TS   2  1          00  04  15                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
        
-       
-       03 0004 15/03/1995  12/05/1995 30     TS   7  1          00  01  28                                   SEPLAG MG                     
-                                                                00  01  28                                                        
-                                                                00  01  28       3                        
-       
-       
-       03 0005 16/05/1995  19/02/1998 30     TS   7  1          02  09  04                                   SEPLAG MG                     
-                                                                02  09  04                                                        
-                                                                02  09  04      33                        
-       
+       03 0005 07/03/2016  06/04/2018 25 0   TS   2  1          02  01  00                                   ELECTRO PLASTIC LTDA          
+                                                                00  00  00                                                        
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
        
        ------------------------------------------------------------------------------------------------------------------------------------------
        
-                          TEMPO DE CONTRIBUICAO COMUM ( BASE CONSIDERADA 30 ANOS )  :  11 ANOS   11 MESES   19 DIAS
+                          TEMPO DE CONTRIBUICAO COMUM ( BASE CONSIDERADA 35 ANOS )  :  8 ANOS   6 MESES   12 DIAS
        
-                          GRUPO DE CONTRIBUICAO  :  12 GRUPOS 01 CONTRIBUICOES
+                          GRUPO DE CONTRIBUICAO  :  08 GRUPOS 10 CONTRIBUICOES
        
-                          TOTAL DE CARENCIA EM CONTRIBUICOES.......................................: 140
-                          TOTAL DE CARENCIA CONSIDERADA............................................: 140
-                          PERIODOS DE QUALIDADE DE SEGURADO........................................: 01/04/1991 a 15/03/2002
-                                                                                                     01/03/2007 a 16/02/2009
-                                                                                                     01/06/2010 a 16/12/2013
-                                                                                                     01/07/2014 a 15/02/2018
+                          TOTAL DE CARENCIA EM CONTRIBUICOES.......................................: 106
+                          TOTAL DE CARENCIA CONSIDERADA............................................: 106
+                          PERIODOS DE QUALIDADE DE SEGURADO........................................: 01/08/1986 a 15/08/1991
+                                                                                                     06/01/1992 a 15/06/2022
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  1
+                                                 ******************  ATE 28/11/1999  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+                                                             DOCUMENTOS APRESENTADOS
+       
+           TIPO     NUMERO         SERIE   DESCRICAO DO DOCUMENTO
+       01  CTPS                           
+       02  CARNE    12345678901           
+       03  ATVESP                         
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       01 0001 01/08/1986  10/08/1988 35     TS   2  1          02  00  10                                   MARCELO CORREA COSTA E CIA LTD
+                                                                02  00  10                                   A                    
+                                                                02  00  10      25                        
+       
+       
+       01 0002 02/01/1989  07/11/1989 35     TS   2  1          00  10  06                                   MARCELO CORREA COSTA E CIA LTD
+                                                                00  10  06                                   A                    
+                                                                00  10  06      11                        
+       
+       
+       01 0003 01/04/1990  01/06/1990 35     TS   2  1          00  02  01                                   G ALMEIDA & FILHO LTDA        
+                                                                00  02  01                                                        
+                                                                00  02  01       3                        
+       
+       
+       01 0004 06/01/1992  12/07/1992 35     TS   2  1          00  06  07                                   CAFE SOLUVEL BRASILIA SA      
+                                                                00  06  07                                                        
+                                                                00  06  07       7                        
+       
+       
+       01 0005 01/08/1993  19/07/1994 35     TS   2  1          00  11  19                                   SOLAR DOS LAGOS EMPREENDIMENTO
+                                                                00  11  19                                   S MOBILIARIOS LTDA   
+                                                                00  11  19      11                        
+       
+       
+       01 0006 20/07/1994  02/05/1996 35     TS   2  1          01  09  13                                   CAFE BOM DIA LTDA             
+                                                                01  09  13                                                        
+                                                                01  09  13      22                        
+       
+       
+       01 0007 15/05/1996  31/07/1998 35     TS   2  1          02  02  16                                   COOPER-STANDARD AUTOMOTIVE BRA
+                                                                02  02  16                                   SIL SEALING LTDA     
+                                                                02  02  16      27                        
+       
+       
+       01 0008 01/03/1999  06/07/1999 35     TS   2  1          00  04  06                                   COMERCIAL INDUSTRIAL BRANCO PE
+                                                                00  04  06                                   RES DE CAFE LTDA     
+                                                                00  04  06       5                        
+       
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  2
+                                                 ******************  ATE 28/11/1999  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       01 0009 07/07/1999  08/10/1999 35     TS   2  1          00  03  02                                   CIA. MINEIRA DE ARMAZENS GERAI
+                                                                00  03  02                                   S                    
+                                                                00  03  02       3                        
+       
+       
+       01 0010 08/02/2000  18/09/2013 35     TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                00  00  00                                   ES PLASTICOS LTDA    
+                                                                00  00  00                                
+       
+       
+       01 0011 07/04/2014  15/12/2015 35     TS   2  1          01  08  09                                   COOPER-STANDARD AUTOMOTIVE BRA
+                                                                00  00  00                                   SIL SEALING LTDA     
+                                                                00  00  00                                
+       
+       
+       01 0012 07/03/2016  30/04/2020 35     TS   2  1          04  01  24                                   ELECTRO PLASTIC LTDA.         
+                                                                00  00  00                                                        
+                                                                00  00  00                                
+       
+       
+       01 0013 08/06/2004  30/06/2004 35     BT   2  1          00  00  00                                   TEMPO EM BENEFICIO            
+                                                                00  00  00                                                        
+                                                                00  00  00                                
+       31/509.141.339-8
+       
+       01 0014 06/05/2019  06/07/2019 35     BT   2  1          00  00  00                                   TEMPO EM BENEFICIO            
+                                                                00  00  00                                                        
+                                                                00  00  00                                
+       31/627.968.944-5
+       
+       03 0001 15/05/1996  31/07/1998 25 0   TS   2  1          02  02  16                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  3
+                                                 ******************  ATE 28/11/1999  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       03 0002 08/02/2000  18/09/2013 25 0   TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                00  00  00                                   ES PLASTICOS LTDA    
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0003 07/04/2014  31/07/2015 25 0   TS   2  1          01  03  24                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0004 01/08/2015  15/12/2015 25 0   TS   2  1          00  04  15                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0005 07/03/2016  06/04/2018 25 0   TS   2  1          02  01  00                                   ELECTRO PLASTIC LTDA          
+                                                                00  00  00                                                        
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                          TEMPO DE CONTRIBUICAO COMUM ( BASE CONSIDERADA 35 ANOS )  :  9 ANOS   1 MESES   20 DIAS
+       
+                          GRUPO DE CONTRIBUICAO  :  09 GRUPOS 06 CONTRIBUICOES
+       
+                          TOTAL DE CARENCIA EM CONTRIBUICOES.......................................: 114
+                          TOTAL DE CARENCIA CONSIDERADA............................................: 114
+                          PERIODOS DE QUALIDADE DE SEGURADO........................................: 01/08/1986 a 15/08/1991
+                                                                                                     06/01/1992 a 15/06/2022
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  1
+                                                 ******************  ATE 30/04/2020  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+                                                             DOCUMENTOS APRESENTADOS
+       
+           TIPO     NUMERO         SERIE   DESCRICAO DO DOCUMENTO
+       01  CTPS                           
+       02  CARNE    12345678901           
+       03  ATVESP                         
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       01 0001 01/08/1986  10/08/1988 35     TS   2  1          02  00  10                                   MARCELO CORREA COSTA E CIA LTD
+                                                                02  00  10                                   A                    
+                                                                02  00  10      25                        
+       
+       
+       01 0002 02/01/1989  07/11/1989 35     TS   2  1          00  10  06                                   MARCELO CORREA COSTA E CIA LTD
+                                                                00  10  06                                   A                    
+                                                                00  10  06      11                        
+       
+       
+       01 0003 01/04/1990  01/06/1990 35     TS   2  1          00  02  01                                   G ALMEIDA & FILHO LTDA        
+                                                                00  02  01                                                        
+                                                                00  02  01       3                        
+       
+       
+       01 0004 06/01/1992  12/07/1992 35     TS   2  1          00  06  07                                   CAFE SOLUVEL BRASILIA SA      
+                                                                00  06  07                                                        
+                                                                00  06  07       7                        
+       
+       
+       01 0005 01/08/1993  19/07/1994 35     TS   2  1          00  11  19                                   SOLAR DOS LAGOS EMPREENDIMENTO
+                                                                00  11  19                                   S MOBILIARIOS LTDA   
+                                                                00  11  19      11                        
+       
+       
+       01 0006 20/07/1994  02/05/1996 35     TS   2  1          01  09  13                                   CAFE BOM DIA LTDA             
+                                                                01  09  13                                                        
+                                                                01  09  13      22                        
+       
+       
+       01 0007 15/05/1996  31/07/1998 35     TS   2  1          02  02  16                                   COOPER-STANDARD AUTOMOTIVE BRA
+                                                                02  02  16                                   SIL SEALING LTDA     
+                                                                02  02  16      27                        
+       
+       
+       01 0008 01/03/1999  06/07/1999 35     TS   2  1          00  04  06                                   COMERCIAL INDUSTRIAL BRANCO PE
+                                                                00  04  06                                   RES DE CAFE LTDA     
+                                                                00  04  06       5                        
+       
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  2
+                                                 ******************  ATE 30/04/2020  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       01 0009 07/07/1999  08/10/1999 35     TS   2  1          00  03  02                                   CIA. MINEIRA DE ARMAZENS GERAI
+                                                                00  03  02                                   S                    
+                                                                00  03  02       3                        
+       
+       
+       01 0010 08/02/2000  18/09/2013 35     TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                13  06  18                                   ES PLASTICOS LTDA    
+                                                                13  06  18     164                        
+       
+       
+       01 0011 07/04/2014  15/12/2015 35     TS   2  1          01  08  09                                   COOPER-STANDARD AUTOMOTIVE BRA
+                                                                01  08  09                                   SIL SEALING LTDA     
+                                                                01  08  09      21                        
+       
+       
+       01 0012 07/03/2016  30/04/2020 35     TS   2  1          04  01  24                                   ELECTRO PLASTIC LTDA.         
+                                                                03  11  23                                                        
+                                                                03  11  23      49                        
+       
+       
+       01 0013 08/06/2004  30/06/2004 35     BT   2  1          00  00  23                                   TEMPO EM BENEFICIO            
+                                                                00  00  23                                                        
+                                                                00  00  23                                
+       31/509.141.339-8
+       
+       01 0014 06/05/2019  06/07/2019 35     BT   2  1          00  02  01                                   TEMPO EM BENEFICIO            
+                                                                00  02  01                                                        
+                                                                00  02  01                                
+       31/627.968.944-5
+       
+       03 0001 15/05/1996  31/07/1998 25 0   TS   2  1          02  02  16                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       
+       11.001.040 - APS BH PE EUSTAQUIO     *    ANALISE DE DIREITO APOS A EMENDA CONSTITUCIONAL 103/2019   *       26/05/2020  *   PAG.  3
+                                                 ******************  ATE 30/04/2020  **********************
+                                                                                                                Versao.....: 9.6  
+       NB..........: 00.000.000-0       ESPECIE..: 42         DER.........: 26/05/2020                         DIB........: 26/05/2020
+       SEGURADO....: NICOLE KIDMAN DA SILVA                   DATA NASC...: 27/08/1966                         DAT........: 
+       NIT.........: 12345678901        SEXO....: MASCULINO   RAMO ATIV...: 2 COMERCIARIOS   F.FILIACAO...: 1  EMPREGADO
+       DESPACHO....:                                                                                           DDB CONSID.: 
+       TIPO CALCULO: 
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+                                                   P E R I O D O S   D O S   D O C U M E N T O S  
+       
+       ND  NP  DATA INI.   DATA FIM   TBC A  TP  RA FF  SP/RD  ANO MES DIA     CARENCIA     D TC  1a DIA     EMPREGADOR  
+                                                                             CONTRIBUICOES                 
+       
+       03 0002 08/02/2000  18/09/2013 25 0   TS   2  1          13  07  11                                   PLASCAR INDUSTRIA DE COMPONENT
+                                                                00  00  00                                   ES PLASTICOS LTDA    
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0003 07/04/2014  31/07/2015 25 0   TS   2  1          01  03  24                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0004 01/08/2015  15/12/2015 25 0   TS   2  1          00  04  15                                   COOPERSTANDARD AUTOMOTIVE BRAS
+                                                                00  00  00                                   IL SEALING LTDA      
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       03 0005 07/03/2016  06/04/2018 25 0   TS   2  1          02  01  00                                   ELECTRO PLASTIC LTDA          
+                                                                00  00  00                                                        
+       CODIGO ANEXO  0.0.0                                      00  00  00                               
+       NAO ENQUADRADO PELA PERICIA MEDICA FEDERAL
+       
+       ------------------------------------------------------------------------------------------------------------------------------------------
+       
+       
+                          GRUPO DE CONTRIBUICAO  :  29 GRUPOS 01 CONTRIBUICOES
+       
+                          TOTAL DE CARENCIA EM CONTRIBUICOES.......................................: 348
+                          TOTAL DE CARENCIA CONSIDERADA............................................: 348
+                          PERIODOS DE QUALIDADE DE SEGURADO........................................: 01/08/1986 a 15/08/1991
+                                                                                                     06/01/1992 a 15/06/2022
+       
        
        
        
                                                       ____________________________________________
                                                       Assinatura do Servidor
-                                                      douglas rodrigues de almeida
-                                                      1234567
+                                                      Nome do Servidor vai aqui
+                                                      1234657
+       
+       ====================================================================================================================================
+                                                                ANALISE DO DIREITO                                                         
+       ====================================================================================================================================
+       Perfil contributivo 4202 - Aposentadoria por tempo de contribuicao convencional                                                     
+       Possui direito neste perfil: nao                                                                                                    
+       ====================================================================================================================================
+       ====================================================================================================================================
+       Direito a aposentadoria por tempo de contribuicao integral antes da Emenda Constitucional 103/2019                                  
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 13/11/2019 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Direito a aposentadoria por tempo de contribuicao integral antes da Emenda Constitucional 103/2019     
+       Total de tempo c/conversao : 28a, 01m, 17d                                                                                          
+       Total de tempo natural     : 28a, 01m, 17d                                                                                          
+       Total de tempo comum       : 28a, 01m, 17d                                                                                          
+       Total de tempo considerado : 28a, 01m, 17d                                                                                          
+       Quantidade de carencia     : 343                                                                                                    
+       Idade                      : 53a, 02m, 17d                                                                                          
+       Soma Idade e TC            : 81a, 04m, 04d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 343                                                                                                 
+                                                                                                                                           
+       Requisito  : Data anterior a vigencia da Emenda Constitucional 103/2019                                                             
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Tempo de contribuicao para aposentadoria integral antes da vigencia da EC 103/2019                                     
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       ====================================================================================================================================
+       Direito a aposentadoria por tempo de contribuicao proporcional antes da Emenda Constitucional 103/2019                              
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 13/11/2019 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Direito a aposentadoria por tempo de contribuicao proporcional antes da Emenda Constitucional 103/2019 
+       Total de tempo c/conversao : 28a, 01m, 17d                                                                                          
+       Total de tempo natural     : 28a, 01m, 17d                                                                                          
+       Total de tempo comum       : 28a, 01m, 17d                                                                                          
+       Tempo s/ descontar pedagio : 28a, 01m, 17d                                                                                          
+       Tempo de pedagio           : 08a, 07m, 01d                                                                                          
+       Total de tempo considerado : 19a, 06m, 16d                                                                                          
+       Quantidade de carencia     : 343                                                                                                    
+       Idade                      : 53a, 02m, 17d                                                                                          
+       Soma Idade e TC            : 72a, 09m, 03d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Idade minima para aposentadoria proporcional                                                                           
+       Atendido   : sim                                                                                                                    
+       Observacoes: Idade exigida: 53 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 343                                                                                                 
+                                                                                                                                           
+       Requisito  : Tempo de contribuicao insuficiente para aposentadoria integral                                                         
+       Atendido   : sim                                                                                                                    
+       Observacoes: Tempo de contribuicao precisa ser inferior a 35 anos                                                                   
+                                                                                                                                           
+       Requisito  : Data anterior a vigencia da Emenda Constitucional 103/2019                                                             
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Tempo de contribuicao para aposentadoria proporcional antes da vigencia da EC 103/2019                                 
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 30 anos                                                                                                 
+                                                                                                                                           
+       ====================================================================================================================================
+       Regra transitoria do Art.15 - Aposentadoria por tempo de contribuicao com soma de idade e tempo                                     
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 31/12/2019 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.15 - Aposentadoria por tempo de contribuicao com soma de idade e tempo        
+       Total de tempo c/conversao : 28a, 03m, 04d                                                                                          
+       Total de tempo natural     : 28a, 03m, 04d                                                                                          
+       Total de tempo comum       : 28a, 03m, 04d                                                                                          
+       Total de tempo considerado : 28a, 03m, 04d                                                                                          
+       Quantidade de carencia     : 344                                                                                                    
+       Idade                      : 53a, 04m, 04d                                                                                          
+       Soma Idade e TC            : 81a, 07m, 08d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 344                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Somatorio de idade e tempo de contribuicao (EC 103/2019 Art.15 inc. II)                                                
+       Atendido   : nao                                                                                                                    
+       Observacoes: Pontuacao exigida: 96 anos                                                                                             
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao (EC 103/2019 Art.15 inc. I)                                                               
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       ------------------------------------------------- Analise do direito em 26/05/2020 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.15 - Aposentadoria por tempo de contribuicao com soma de idade e tempo        
+       Total de tempo c/conversao : 28a, 07m, 04d                                                                                          
+       Total de tempo natural     : 28a, 07m, 04d                                                                                          
+       Total de tempo comum       : 28a, 07m, 04d                                                                                          
+       Total de tempo considerado : 28a, 07m, 04d                                                                                          
+       Quantidade de carencia     : 348                                                                                                    
+       Idade                      : 53a, 08m, 29d                                                                                          
+       Soma Idade e TC            : 82a, 04m, 03d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 348                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Somatorio de idade e tempo de contribuicao (EC 103/2019 Art.15 inc. II)                                                
+       Atendido   : nao                                                                                                                    
+       Observacoes: Pontuacao exigida: 97 anos                                                                                             
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao (EC 103/2019 Art.15 inc. I)                                                               
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       ====================================================================================================================================
+       Regra transitoria do Art.16 - Tempo de contribuicao com idade minima                                                                
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 31/12/2019 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.16 - Tempo de contribuicao com idade minima                                   
+       Total de tempo c/conversao : 28a, 03m, 04d                                                                                          
+       Total de tempo natural     : 28a, 03m, 04d                                                                                          
+       Total de tempo comum       : 28a, 03m, 04d                                                                                          
+       Total de tempo considerado : 28a, 03m, 04d                                                                                          
+       Quantidade de carencia     : 344                                                                                                    
+       Idade                      : 53a, 04m, 04d                                                                                          
+       Soma Idade e TC            : 81a, 07m, 08d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 344                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Idade minima (EC 103/2019 art. 16 inc. II)                                                                             
+       Atendido   : nao                                                                                                                    
+       Observacoes: Idade exigida: 61 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao (EC 103/2019 Art.16 inc. I)                                                               
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       ------------------------------------------------- Analise do direito em 26/05/2020 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.16 - Tempo de contribuicao com idade minima                                   
+       Total de tempo c/conversao : 28a, 07m, 04d                                                                                          
+       Total de tempo natural     : 28a, 07m, 04d                                                                                          
+       Total de tempo comum       : 28a, 07m, 04d                                                                                          
+       Total de tempo considerado : 28a, 07m, 04d                                                                                          
+       Quantidade de carencia     : 348                                                                                                    
+       Idade                      : 53a, 08m, 29d                                                                                          
+       Soma Idade e TC            : 82a, 04m, 03d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 348                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Idade minima (EC 103/2019 art. 16 inc. II)                                                                             
+       Atendido   : nao                                                                                                                    
+       Observacoes: Idade exigida: 61 anos e 06 meses                                                                                      
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao (EC 103/2019 Art.16 inc. I)                                                               
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       ====================================================================================================================================
+       Regra transitoria do Art.17 - Tempo de contribuicao com pedagio de 50%                                                              
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 26/05/2020 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.17 - Tempo de contribuicao com pedagio de 50%                                 
+       Total de tempo c/conversao : 28a, 07m, 04d                                                                                          
+       Total de tempo natural     : 28a, 07m, 04d                                                                                          
+       Total de tempo comum       : 28a, 07m, 04d                                                                                          
+       Tempo s/ descontar pedagio : 28a, 07m, 04d                                                                                          
+       Tempo de pedagio           : 03a, 05m, 06d                                                                                          
+       Total de tempo considerado : 25a, 01m, 28d                                                                                          
+       Quantidade de carencia     : 348                                                                                                    
+       Idade                      : 53a, 08m, 29d                                                                                          
+       Soma Idade e TC            : 78a, 10m, 27d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 348                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao na data anterior a vigencia da EC 103/2019                                                
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido ate a vespera da vigencia da EC 103/2019: 33 anos                                                        
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao apos deduzido o pedagio (EC 103/2019 art. 17 inc. I e II)                                 
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
+       ====================================================================================================================================
+       Regra transitoria do Art.20 - Tempo de contribuicao com pedagio de 100%                                                             
+       Possui direito nesta regra: nao                                                                                                     
+       ====================================================================================================================================
+       ------------------------------------------------- Analise do direito em 26/05/2020 -------------------------------------------------
+       Perfil contributivo        : 4202 - Aposentadoria por tempo de contribuicao convencional                                            
+       Regra de direito           : Regra transitoria do Art.20 - Tempo de contribuicao com pedagio de 100%                                
+       Total de tempo c/conversao : 28a, 07m, 04d                                                                                          
+       Total de tempo natural     : 28a, 07m, 04d                                                                                          
+       Total de tempo comum       : 28a, 07m, 04d                                                                                          
+       Tempo s/ descontar pedagio : 28a, 07m, 04d                                                                                          
+       Tempo de pedagio           : 06a, 10m, 13d                                                                                          
+       Total de tempo considerado : 21a, 08m, 21d                                                                                          
+       Quantidade de carencia     : 348                                                                                                    
+       Idade                      : 53a, 08m, 29d                                                                                          
+       Soma Idade e TC            : 75a, 05m, 20d                                                                                          
+       Possui direito nesta data  : nao                                                                                                    
+                                                                                                                                           
+       Requisito  : Carencia igual ou superior ao minimo exigido para aposentadoria                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Exigido 180 obtido 348                                                                                                 
+                                                                                                                                           
+       Requisito  : Ingresso no RGPS ate 13/11/2019                                                                                        
+       Atendido   : sim                                                                                                                    
+       Observacoes: Ingresso no RGPS em 01/08/1986                                                                                         
+                                                                                                                                           
+       Requisito  : Idade minima (EC 103/2019 art. 20 inc. I)                                                                              
+       Atendido   : nao                                                                                                                    
+       Observacoes: Idade exigida: 60 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Tempo minimo de contribuicao (EC 103/2019 art. 20 inc. II)                                                             
+       Atendido   : nao                                                                                                                    
+       Observacoes: Tempo exigido: 35 anos                                                                                                 
+                                                                                                                                           
+       Requisito  : Data a partir da vigencia da Emenda Constitucional 103/2019                                                            
+       Atendido   : sim                                                                                                                    
+                                                                                                                                           
        Y5!                                                                              Y5!
