@@ -68,6 +68,6 @@ public class Config {
 	
 	String localUsarParam = configuracoes.get("UsarParamINI");
 	if (localUsarParam.length() > 0)
-      usarPDFParam = (localUsarParam == "1");  
+      usarPDFParam = localUsarParam.equals("1");  
   }
 }

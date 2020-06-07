@@ -202,16 +202,18 @@ public class lePdf {
     }
     if (PrimeiroUso.testar())
       if (!PrimeiroUso.processar())
-        System.exit(1);    		    
+        System.exit(1);
+  	if (!config.carregar()) {
+  		exibirMsg("Erro ao executar o componente de processamento PDF: As configurações não foram carregadas corretamente.");
+    	System.exit(1);    	
+  	}
     String entrada = args[0];
-    if (config.usarPDFParam && parametros.usarParametros && parametros.nomePDFSaida.length() > 0)
+    if (config.usarPDFParam && parametros.usarParametros)
       saida = parametros.nomePDFSaida;
     else
 	  saida = args[1];
 	String processo = args[2];
 	exibirArquivoPDF = args.length > 3;
-	if (!config.carregar())
-	  System.exit(1);
 	recursos = new Recursos(config);	
 	if (!recursos.carregar()) {
 		exibirMsg("Erro ao executar o componente de processamento PDF: Não foi possível carregar os recursos do programa.");

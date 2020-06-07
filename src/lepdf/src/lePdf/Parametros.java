@@ -18,22 +18,23 @@ public class Parametros {
 		  try {
 			ini.load(arquivo);
 		  } catch (InvalidFileFormatException e) {
-		    usarParametros = false;
+			usarParametros = false;
 		  } catch (IOException e) {
 			usarParametros = false;
 		  }
-		  processar(ini);
-		  usarParametros = true;
+		  if (processar(ini))
+		    usarParametros = true;
 		}
-		else
-		  usarParametros = false;
 	}
 	
-	private void processar(Ini ini) {
-		Ini.Section configuracoes = ini.get("Pametros");
+	private boolean processar(Ini ini) {
+		Ini.Section configuracoes = ini.get("Parametros");
 			
 		String nomearquivosaida = configuracoes.get("NomeArquivoSaida");
-		if (nomearquivosaida.length() > 0)
+		if (nomearquivosaida.length() > 0) {
 		  nomePDFSaida = nomearquivosaida;
+		  return true;
+		}
+		return false;
 	  }
 }

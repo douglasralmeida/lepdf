@@ -11,7 +11,6 @@
 ; UsarParamINI: 1 > Utiliza pdfparam.ini com parâmetros no modo de execução
 
 [Configuracoes]
-SequenciaApagar=NomeQualquer
 ModoGeracao=DiretoPDF24
 LocalizacaoPDF24=C:\\Program Files (x86)\\PDF24\\pdf24-Creator.exe
 ArgumentosPDF24=%s
