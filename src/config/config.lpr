@@ -3,13 +3,7 @@ program config;
 {$mode objfpc}{$H+}
 
 uses
-  {$IFDEF UNIX}{$IFDEF UseCThreads}
-  cthreads,
-  {$ENDIF}{$ENDIF}
-  Interfaces, Windows,
-  Forms, lazcontrols, formPrincipal, unidVariaveis, unidIni, unidExcecoes,
-  unidExcecoesLista, unidUtils
-  { you can add units after this };
+  Windows, Forms, Interfaces, formPrincipal, unidUtils;
 
 {$R *.res}
 {$R maisrecursos.rc}

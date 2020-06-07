@@ -6,12 +6,11 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, StdCtrls,
-  ExtCtrls, EditBtn, unidIni;
+  ExtCtrls, EditBtn, Windows, unidIni;
 
 type
 
   { TJanelaPadrao }
-
   TJanelaPadrao = class(TForm)
     BotaoAplicar: TButton;
     BotaoRestaurar: TButton;
@@ -63,15 +62,19 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure Label12Click(Sender: TObject);
     procedure PaginaChange(Sender: TObject);
   private
     ArquivoINI: TArquivoIni;
     NomeFonte: String;
+    procedure Ajuda;
     function CarregarRecursos: Boolean;
     function ChecarControles: Boolean;
     procedure SalvarConfiguracoes;
+  protected
+    procedure WMSysCommand(var Message: TWMSysCommand); message WM_SYSCOMMAND;
   public
 
   end;
@@ -81,11 +84,22 @@ var
 
 implementation
 
-uses LClIntf, Windows, unidVariaveis, unidUtils;
+uses LClIntf, LCLType, unidAjuda, unidVariaveis, unidUtils;
 
 {$R *.lfm}
 
 { TJanelaPadrao }
+procedure TJanelaPadrao.Ajuda;
+begin
+  if Pagina.ActivePage = TabPrincipal then
+    ExibirAjuda('opcoesrelpdf')
+  else if Pagina.ActivePage = TabAutomacao then
+    ExibirAjuda('opcoesauto')
+  else if Pagina.ActivePage = TabReiniciar then
+    ExibirAjuda('opcoesconfigorig')
+  else
+    ExibirAjuda();
+end;
 
 procedure TJanelaPadrao.BotaoCancelarClick(Sender: TObject);
 begin
@@ -200,7 +214,6 @@ end;
 procedure TJanelaPadrao.FormActivate(Sender: TObject);
 begin
   CarregarRecursos;
-
   Pagina.ActivePageIndex := 0;
   SetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE, GetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE) OR BS_MULTILINE);
   case ArquivoINI.ModoExibicao of
@@ -224,10 +237,12 @@ procedure TJanelaPadrao.FormCreate(Sender: TObject);
 begin
   Variaveis := TVariaveis.Create;
   ArquivoINI := TArquivoINI.Create;
+  Application.HelpFile := ExtractFilePath(Application.ExeName) + 'prisma.chm';
 end;
 
 procedure TJanelaPadrao.FormDestroy(Sender: TObject);
 begin
+  FecharAjuda;
   if Assigned(ArquivoINI) then
   begin
     ArquivoINI.PosicaoY := Top;
@@ -237,6 +252,13 @@ begin
   end;
   if Assigned(Variaveis) then
     Variaveis.Free;
+end;
+
+procedure TJanelaPadrao.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_F1 then
+    Ajuda;
 end;
 
 procedure TJanelaPadrao.FormShow(Sender: TObject);
@@ -295,6 +317,18 @@ begin
   ArquivoINI.UsarParamINI := checUsarPDFParam.Checked;
   ArquivoINI.NomeFonte := NomeFonte;
   ArquivoINI.Salvar;
+end;
+
+procedure TJanelaPadrao.WMSysCommand(var Message: TWMSysCommand);
+begin
+  if Message.CmdType = SC_CONTEXTHELP then
+  begin
+    Ajuda;
+    Message.Result := 0;
+  end else
+  begin
+    inherited;
+  end;
 end;
 
 end.

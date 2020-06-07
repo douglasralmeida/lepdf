@@ -18,10 +18,9 @@
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <RevisionNr Value="100"/>
+      <RevisionNr Value="110"/>
       <BuildNr Value="1"/>
       <Language Value="0416"/>
-      <Attributes pvaPreRelease="True"/>
       <StringTable CompanyName="Douglas R. Almeida" FileDescription="Configurações do PrismaPDF" InternalName="CONFIG" LegalCopyright="Programa sem direitos autorais. Uso livre" OriginalFilename="CONFIG.EXE" ProductName="Componente PrismaPDF" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -38,6 +37,8 @@
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
             <TargetProcessor Value="pentium4"/>
             <TargetCPU Value="i386"/>
             <Optimizations>
@@ -50,6 +51,7 @@
               <DebugInfoType Value="dsDwarf2"/>
               <UseLineInfoUnit Value="False"/>
             </Debugging>
+            <LinkSmart Value="True"/>
             <Options>
               <Win32>
                 <GraphicApplication Value="True"/>
@@ -70,6 +72,8 @@
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
             <TargetCPU Value="x86_64"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
@@ -81,6 +85,7 @@
               <DebugInfoType Value="dsDwarf2"/>
               <UseLineInfoUnit Value="False"/>
             </Debugging>
+            <LinkSmart Value="True"/>
             <Options>
               <Win32>
                 <GraphicApplication Value="True"/>
@@ -109,7 +114,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="config.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -147,6 +152,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unidUtils"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="unidajuda.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unidAjuda"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -8,9 +8,11 @@ object JanelaPadrao: TJanelaPadrao
   Caption = 'Configurações do Prisma PDF'
   ClientHeight = 435
   ClientWidth = 410
+  KeyPreview = True
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '2.0.8.0'
@@ -19,8 +21,8 @@ object JanelaPadrao: TJanelaPadrao
     Height = 392
     Top = 8
     Width = 398
-    ActivePage = tabReiniciar
-    TabIndex = 2
+    ActivePage = TabPrincipal
+    TabIndex = 0
     TabOrder = 0
     OnChange = PaginaChange
     object TabPrincipal: TTabSheet
@@ -119,7 +121,7 @@ object JanelaPadrao: TJanelaPadrao
           Filter = 'Arquivos executáveis (*.exe)|*.exe|Arquivos de comando (*.bat;*.cmd)|*.bat;*.cmd|Arquivos de scripts (*.js;*.vbs)|*.js;*.vbs|Demais arquivos |*.*'
           FilterIndex = 0
           HideDirectories = False
-          ButtonHint = 'Procurar o executável do PDF24'
+          ButtonHint = 'Procurar o executável do PDF24|'
           ButtonWidth = 23
           NumGlyphs = 1
           Flat = True
@@ -309,7 +311,7 @@ object JanelaPadrao: TJanelaPadrao
         Height = 15
         Top = 56
         Width = 79
-        Caption = 'Versão 2.1.0050'
+        Caption = 'Versão 2.1.0110'
         ParentColor = False
       end
       object Label9: TLabel
