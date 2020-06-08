@@ -12,7 +12,7 @@
 
 [Configuracoes]
 SequenciaApagar=NomeQualquer
-ModoGeracao=DiretoPDF24
+ModoGeracao=0
 LocalizacaoPDF24=C:\\Program Files\\PDF24\\pdf24-Creator.exe
 ArgumentosPDF24=%s
 NomeFonte=CascadiaMono.ttf

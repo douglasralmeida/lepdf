@@ -201,8 +201,10 @@ public class lePdf {
       System.exit(1);
     }
     if (PrimeiroUso.testar())
-      if (!PrimeiroUso.processar())
-        System.exit(1);
+      if (!PrimeiroUso.processar()) {
+    	  exibirMsg("Erro ao executar o componente de processamento PDF: A configuração de primeiro uso não obteve sucesso.");
+          System.exit(1);
+      }
   	if (!config.carregar()) {
   		exibirMsg("Erro ao executar o componente de processamento PDF: As configurações não foram carregadas corretamente.");
     	System.exit(1);    	
@@ -230,8 +232,12 @@ public class lePdf {
 			exibirPDF(Variaveis.pastaOrigem + saida);
 	    }		  
 	  }
-	} else if (processo.equals("E"))
-	    exibirPDF(Variaveis.pastaOrigem + saida);
+	} else if (processo.equals("E")) {
+	  if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
+		enviarParaPDF24(Variaveis.pastaOrigem + saida);
+	  else
+		exibirPDF(Variaveis.pastaOrigem + saida);
+	}
 	System.runFinalization();
 	System.exit(0);
   }
