@@ -1,10 +1,10 @@
 ; Instruções
 ;
 ; SequenciaApagar: Indica a sequencia de caracteres que será apagada do relatório
-; ModoGeracao: 0  > Gerar o PDF e exibe na tela
+; ModoGeracao: 0  > Gera o PDF e não executa nenhuma ação posterior
 ;              1  > Gera o PDF numa janela minimizada
-;              2  > Gera o PDF e o envia para o PDF 24
-;              3  > Gera o PDF e não executa nenhuma ação posterior
+;              2  > Gerar o PDF e exibe na tela
+;              3  > Gera o PDF e o envia para o PDF 24
 ; LocalizacaoPDF24: Caminho completo do PDF24 (usar barras duplas '\\')
 ; ArgumentosPDF24: Indica os argumentos utilizados ao executar o PDF24
 ; NomeFonte:  Nome da fonte utilizada nos arquivos PDF
@@ -12,7 +12,7 @@
 
 [Configuracoes]
 SequenciaApagar=NomeQualquer
-ModoGeracao=0
+ModoGeracao=2
 LocalizacaoPDF24=C:\\Program Files\\PDF24\\pdf24-Creator.exe
 ArgumentosPDF24=%s
 NomeFonte=CascadiaMono.ttf
