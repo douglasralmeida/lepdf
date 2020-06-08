@@ -10,8 +10,8 @@ CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Application.manifest"
 //Tabela de strings
 STRINGTABLE
 BEGIN
-IDS_OLAMUNDO L"Ol\x00E1, mundo!"
-IDS_JAVANAOENCONTRADO L"Subsistema Java nN\x00E3o encontrado. Reinstale este aplicativo."
+  IDS_OLAMUNDO L"Ol\x00E1, mundo!"
+  IDS_JAVANAOENCONTRADO L"Subsistema Java nN\x00E3o encontrado. Reinstale este aplicativo."
 END
 
 // Informacoes de versao do executavel.
@@ -26,7 +26,7 @@ FILESUBTYPE        VFT2_UNKNOWN
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
-    BLOCK "041604b0"
+    BLOCK "000004b0"
     BEGIN
       VALUE "CompanyName", "Douglas R. Almeida"
       VALUE "FileDescription", "Carregador do Componente PrismaPDF"
@@ -40,6 +40,6 @@ BEGIN
   END
   BLOCK "VarFileInfo"
   BEGIN
-    VALUE "Translation", 0x0416, 1200
+    VALUE "Translation", 0x0, 1200
   END
 END

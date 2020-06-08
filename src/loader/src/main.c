@@ -22,6 +22,7 @@
 */
 #include <stdlib.h>
 #include <windows.h>
+#include "main.h"
 
 /* substitui o arg. -jar lepdf.jar por -m lePdf/lePdf.lePdf */
 void alterarArg(wchar_t* arg, wchar_t* novoarg) {
@@ -40,24 +41,56 @@ void alterarArg(wchar_t* arg, wchar_t* novoarg) {
   wcscat(novoarg, p);
 }
 
-/* define o caminho do java runtime */
-void setJavaPath(wchar_t* path) {
-  wchar_t exepath[MAX_PATH + 1];
-
-  GetModuleFileName(0, exepath, MAX_PATH+1);
-  _wsplitpath(exepath, NULL, path, NULL, NULL);
-  wcscat(path, L"jre\\bin");
-}
-
 /* executa a aplicação Java */
 void chamarSubsistemaJava(wchar_t* arg) {
   wchar_t* javaexe = L"javaw.exe";
   wchar_t novoarg[256] = {0};
-  wchar_t javapath[MAX_PATH + 1];
+  wchar_t javapath[MAX_PATH];
 
   alterarArg(arg, novoarg);
   setJavaPath(javapath);
   ShellExecute(NULL, L"open", javaexe, novoarg, javapath, SW_SHOWNORMAL);
+}
+
+/* exibe mensagens de erro na tela */
+void exibirMensagem(const wchar_t* msg) {
+  MessageBoxW(0, msg, L"Erro", 0x00000000L | 0x00000040L);
+}
+
+/* obtém do registro do Windows a pasta de instalação do PDF Prisma */
+void getPrismaPDFPath(wchar_t* path) {
+  HKEY hKey;
+  const wchar_t* erromsg = L"Ocorreu um erro ao encontrar o componente Prisma PDF. Reinstale o aplicativo e tente novamente.";
+  const wchar_t* chave = L"SOFTWARE\\INSS\\Prisma";
+  const wchar_t* nome = L"Pasta";
+  DWORD tamanho;
+  DWORD tipo;
+
+  if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, chave, 0, KEY_QUERY_VALUE, &hKey) != ERROR_SUCCESS) {
+    exibirMensagem(erromsg);
+    exit(EXIT_FAILURE);
+  }
+
+  if (RegQueryValueExW(hKey, nome, NULL, &tipo, NULL, &tamanho) != ERROR_SUCCESS || tipo != REG_SZ) {
+    RegCloseKey(hKey);
+    exibirMensagem(erromsg);
+    exit(EXIT_FAILURE);
+  }
+
+  if (RegQueryValueExW(hKey, nome, NULL, &tipo, (LPBYTE)path, &tamanho) != ERROR_SUCCESS) {
+    RegCloseKey(hKey);
+    exibirMensagem(erromsg);
+    exit(EXIT_FAILURE);
+  }
+  RegCloseKey(hKey);
+}
+
+/* define o caminho do java runtime */
+void setJavaPath(wchar_t* path) {
+  //GetModuleFileName(0, exepath, MAX_PATH+1);
+  //_wsplitpath(exepath, NULL, path, NULL, NULL);
+  getPrismaPDFPath(path);
+  wcscat(path, L"\\jre\\bin");
 }
 
 #pragma GCC diagnostic push
