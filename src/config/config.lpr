@@ -3,7 +3,7 @@ program config;
 {$mode objfpc}{$H+}
 
 uses
-  Windows, Forms, Interfaces, formPrincipal, unidUtils;
+  Windows, Forms, Interfaces, formPrincipal, unidUtils, unidReg;
 
 {$R *.res}
 {$R maisrecursos.rc}

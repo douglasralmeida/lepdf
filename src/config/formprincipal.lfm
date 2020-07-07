@@ -21,8 +21,8 @@ object JanelaPadrao: TJanelaPadrao
     Height = 392
     Top = 8
     Width = 398
-    ActivePage = TabPrincipal
-    TabIndex = 0
+    ActivePage = Sobre
+    TabIndex = 3
     TabOrder = 0
     OnChange = PaginaChange
     object TabPrincipal: TTabSheet
@@ -295,6 +295,7 @@ object JanelaPadrao: TJanelaPadrao
         Height = 64
         Top = 32
         Width = 64
+        KeepOriginXWhenClipped = True
       end
       object Label7: TLabel
         Left = 136
@@ -306,7 +307,7 @@ object JanelaPadrao: TJanelaPadrao
         ParentColor = False
         ParentFont = False
       end
-      object Label8: TLabel
+      object txtVersao: TLabel
         Left = 152
         Height = 15
         Top = 56

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, StdCtrls,
-  ExtCtrls, EditBtn, Windows, unidIni;
+  ExtCtrls, EditBtn, Windows, unidIni, unidReg;
 
 type
 
@@ -43,7 +43,7 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
-    Label8: TLabel;
+    txtVersao: TLabel;
     Label9: TLabel;
     Pagina: TPageControl;
     RadioNaoExecutar: TRadioButton;
@@ -68,10 +68,12 @@ type
     procedure PaginaChange(Sender: TObject);
   private
     ArquivoINI: TArquivoIni;
+    DadosRegistro: TDadosRegistro;
     NomeFonte: String;
     procedure Ajuda;
     function CarregarRecursos: Boolean;
     function ChecarControles: Boolean;
+    procedure ProcessarRegistro;
     procedure SalvarConfiguracoes;
   protected
     procedure WMSysCommand(var Message: TWMSysCommand); message WM_SYSCOMMAND;
@@ -89,6 +91,10 @@ uses LClIntf, LCLType, unidAjuda, unidVariaveis, unidUtils;
 {$R *.lfm}
 
 { TJanelaPadrao }
+
+{
+  Exibe o sistema de ajuda
+}
 procedure TJanelaPadrao.Ajuda;
 begin
   if Pagina.ActivePage = TabPrincipal then
@@ -147,6 +153,7 @@ const
   ICO_LOGO = 1006;
 var
   Icone: TIcon;
+  IconeInfo: TIconInfo;
 begin
   Icone := TIcon.Create;
   try
@@ -161,7 +168,8 @@ begin
     Icone.LoadFromResourceID(HInstance, ICO_RESTAURAR);
     ImagemRestaura.Picture.Icon.Assign(Icone);
     Icone.LoadFromResourceID(HInstance, ICO_LOGO);
-    ImagemLogo.Picture.Icon.Assign(Icone);
+    GetIconInfo(Icone.Handle, @IconeInfo);
+    ImagemLogo.Picture.Bitmap.LoadFromBitmapHandles(IconeInfo.hbmColor, IconeInfo.hbmMask, nil);
   finally
     Icone.Free;
   end;
@@ -214,7 +222,10 @@ end;
 procedure TJanelaPadrao.FormActivate(Sender: TObject);
 begin
   CarregarRecursos;
+  ProcessarRegistro;
   Pagina.ActivePageIndex := 0;
+
+  //Adiciona suporte a multiplas linhas no controle.
   SetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE, GetWindowLong(ChecExcluirSequenciaCarac.Handle, GWL_STYLE) OR BS_MULTILINE);
   case ArquivoINI.ModoExibicao of
     0: RadioNaoExecutar.Checked := true;
@@ -237,6 +248,7 @@ procedure TJanelaPadrao.FormCreate(Sender: TObject);
 begin
   Variaveis := TVariaveis.Create;
   ArquivoINI := TArquivoINI.Create;
+  DadosRegistro := TDadosRegistro.Create;
   Application.HelpFile := ExtractFilePath(Application.ExeName) + 'prisma.chm';
 end;
 
@@ -250,6 +262,8 @@ begin
     ArquivoINI.Salvar;
     ArquivoINI.Free;
   end;
+  if Assigned(DadosRegistro) then
+    DadosRegistro.Free;
   if Assigned(Variaveis) then
     Variaveis.Free;
 end;
@@ -298,6 +312,14 @@ begin
     TextoConfigRestauradas.Hide;
 end;
 
+procedure TJanelaPadrao.ProcessarRegistro;
+begin
+  if Assigned(DadosRegistro) then
+  begin
+    txtVersao.Caption := Format('Versão 2.1.0110.3 (Prisma Cliente %s)', [DadosRegistro.Versao]);
+  end;
+end;
+
 procedure TJanelaPadrao.SalvarConfiguracoes;
 begin
   if RadioNaoExecutar.Checked then
@@ -321,6 +343,7 @@ end;
 
 procedure TJanelaPadrao.WMSysCommand(var Message: TWMSysCommand);
 begin
+  //Abre ajuda ao clicar no botão Ajuda da barra de título
   if Message.CmdType = SC_CONTEXTHELP then
   begin
     Ajuda;

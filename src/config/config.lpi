@@ -19,7 +19,7 @@
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="110"/>
-      <BuildNr Value="1"/>
+      <BuildNr Value="3"/>
       <Language Value="0416"/>
       <StringTable CompanyName="Douglas R. Almeida" FileDescription="Configurações do PrismaPDF" InternalName="CONFIG" LegalCopyright="Programa sem direitos autorais. Uso livre" OriginalFilename="CONFIG.EXE" ProductName="Componente PrismaPDF" ProductVersion="2.1"/>
     </VersionInfo>
@@ -114,7 +114,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="config.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -157,6 +157,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unidAjuda"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="unidreg.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unidReg"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

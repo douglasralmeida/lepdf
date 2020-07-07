@@ -55,7 +55,7 @@ function HtmlHelp(hwndCaller: HWND; pszFile: PChar; uCommand: UINT; dwData: DWOR
 begin
   if uCommand = HH_CLOSE_ALL then
     if ModuloAjuda = 0 then
-      Exit;
+      Exit(0);
   InitAjuda;
   if (@HH <> nil) then
     Result := HH(hwndCaller, pszFile, uCommand, dwData)
