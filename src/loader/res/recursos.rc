@@ -16,7 +16,7 @@ END
 
 // Informacoes de versao do executavel.
 VS_VERSION_INFO    VERSIONINFO
-FILEVERSION        2,1,110,1
+FILEVERSION        2,1,110,3
 PRODUCTVERSION     2,1,0
 FILEFLAGSMASK      0
 FILEFLAGS          0
@@ -30,7 +30,7 @@ BEGIN
     BEGIN
       VALUE "CompanyName", "Douglas R. Almeida"
       VALUE "FileDescription", "Carregador do Componente PrismaPDF"
-      VALUE "FileVersion", "2.1.110.1"
+      VALUE "FileVersion", "2.1.110.3"
       VALUE "InternalName", "LOADER"
       VALUE "LegalCopyright", "Programa sem direitos autorais. Uso livre"
       VALUE "OriginalFilename", "loader.exe"

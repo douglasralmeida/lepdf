@@ -96,6 +96,10 @@ void setJavaPath(wchar_t* path) {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
+  if (wcslen(lpCmdLine) == 0) {
+    exibirMensagem(L"Este programa não deve ser executado de forma independente.");
+    exit(EXIT_FAILURE);
+  }
   chamarSubsistemaJava(lpCmdLine);
   exit(EXIT_SUCCESS);    
 }
