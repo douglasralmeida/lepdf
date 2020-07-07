@@ -4,23 +4,9 @@ O lePdf é uma ferramenta para uso interno no Instituto Nacional do Seguro Socia
 
 * [Notas de lançamento](docs/atualizacoes.md)
 
-## Instalando o Componente PDF para Prisma 2.0
+## Instalando o Componente PDF para Prisma 2.1
 
-A versão 2.0 requer sistema Windows de 64 bits e o aplicativo PDF24.
-
-1. Se seu computador possui o Java 6 instalado, remova-o.
-2. Instale o PDF24 (https://tools.pdf24.org/pt/creator#download).
-3. Baixe o instalador da versão 2.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
-4. Execute o progrma de instalação.
-
-## Instalando o Componente PDF para Prisma 1.0
-
-A versão 1.0 é indicada para computadores antigos que executam sistema Windows de 32 bits.
-
-1. Se seu computador possui o Java 6 instalado, remova-o.
-2. Instale o [JRE 8.0](https://www.java.com/pt_BR/download/).
-3. Baixe o instalador da versão 1.0.0 em [Release](https://github.com/douglasralmeida/lepdf/releases).
-4. Execute o progrma de instalação.
+O instalador do Componente PDF está incluso no Instalador do Prisma.
 
 ## Ativando a geração de PDF
 
@@ -41,9 +27,10 @@ Instalar o JRE 6 em um computador com o Componente PDF instalado o tornará inut
 
 Para compilar todos os componentes, é necessário:
 
-* IDE Eclipse 2019.6 ou superior.
+* IDE Eclipse 2020.6 ou superior.
 * OpenJDK 12.0.2
-* Compilador GCC 8.1.
+* Compilador GCC 10.0.
+* Lazarus 2.0.8
 * MingW-w64.
 * Biblioteca itextpdf io 7.1.5
 * Biblioteca itextpdf kernel 7.1.5
@@ -54,7 +41,6 @@ Para compilar todos os componentes, é necessário:
 * Biblioteca BouncyCastle 1.60
 * Biblioteca Ini4j 0.5.4
 * LaTeX.
-* Inno Setup 5.6.1.
 
 As bibliotecas JAR descritas acima não possuem suporte a modularização do Java 12. Use as versões modificadas disponíveis em loader/lib/.
 

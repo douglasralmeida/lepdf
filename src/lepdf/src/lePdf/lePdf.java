@@ -107,12 +107,12 @@ public class lePdf {
   }
   
   public static void processarTexto(String entrada, String saida) {
-	int i;
+	  int i;
     String linha = "";	
-	BufferedReader buffer = null;
+	  BufferedReader buffer = null;
     Document doc = null;	
-	PdfDocument pdf = null;
-	StringBuilder sb;
+	  PdfDocument pdf = null;
+	  StringBuilder sb;
 
     sb = new StringBuilder(256);
     try {
@@ -158,44 +158,46 @@ public class lePdf {
   public static void exibirPDF(String saida) {
     try {
       Shell.abrir(saida, config.modoGeracao);
-	}
-	catch (Exception e) {
-	  exibirMsg(e.getMessage());
-	}
+	  }
+	  catch (Exception e) {
+	    exibirMsg(e.getMessage());
+	  }
   }
   
   public static void enviarParaPDF24(String saida) {	  
-	try {
-	  Shell.executar(config.arquivoPDF24, Variaveis.pastaDesktop, String.format(config.argumentosPDF24, saida));
-	}
-	catch (Exception e) {
-	  exibirMsg(e.getMessage());
-	}
+	  try {
+	    Shell.executar(config.arquivoPDF24, Variaveis.pastaDesktop, String.format(config.argumentosPDF24, saida));
+	  }
+	  catch (Exception e) {
+	    exibirMsg(e.getMessage());
+	  }
   }
     
   public static String limparLinha(String dado) {
     int i;
-	int x;
+    int x;
 	  
-	dado = dado.replace('\b', ' ');
-	dado = dado.replace('^', '&');
-	dado = dado.replaceAll("\033Y5!", "");
-	for (i = 0; i < acentuados.length; i++) {
-	  x = dado.indexOf(acentuados[i]);
-	  if (x != -1)
-	    dado = dado.replaceAll(acentuados[i], trocados[i]);
-	}
-	for (i = 0; i <= 31; i++)
-	  dado = dado.replace((char)i, '\000');
+    dado = dado.replace('\b', ' ');
+	  dado = dado.replace('^', '&');
+	  dado = dado.replaceAll("\033Y5!", "");
+	  for (i = 0; i < acentuados.length; i++) {
+  	  x = dado.indexOf(acentuados[i]);
+	    if (x != -1)
+	      dado = dado.replaceAll(acentuados[i], trocados[i]);
+	  }
+	  for (i = 0; i <= 31; i++)
+	    dado = dado.replace((char)i, '\000');
 
-	return dado;
+  	return dado;
   }
    
   public static void main(String[] args) {
-	boolean exibirArquivoPDF;
-	String saida;
+	  boolean exibirArquivoPDF;
+	  String saida;
 	
-	config = new Config();
+    config = new Config();
+
+    //Processa a linha de comando
     if (args.length < 3) {
       exibirMsg("Erro ao executar o componente de processamento PDF: Parâmetros insuficientes.");
       System.exit(1);
@@ -210,35 +212,47 @@ public class lePdf {
     	System.exit(1);    	
   	}
     String entrada = args[0];
+    String processo = args[2];
+    exibirArquivoPDF = args.length > 3;
+
+    //Processa os parâmetros em tempo de execução
     if (config.usarPDFParam && parametros.usarParametros)
       saida = parametros.nomePDFSaida;
     else
-	  saida = args[1];
-	String processo = args[2];
-	exibirArquivoPDF = args.length > 3;
-	recursos = new Recursos(config);	
-	if (!recursos.carregar()) {
-		exibirMsg("Erro ao executar o componente de processamento PDF: Não foi possível carregar os recursos do programa.");
-		System.exit(1);
-	}
-	if (processo.equals("I")) {
-	  calcularFonte(Variaveis.pastaOrigem + entrada);
-	  processarTexto(Variaveis.pastaOrigem + entrada, Variaveis.pastaOrigem + saida);
-	  if (config.modoGeracao != TipoGeracao.TIPOGERACAO_SEMACAO) {
-	    if (exibirArquivoPDF) {
-	      if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
-			enviarParaPDF24(Variaveis.pastaOrigem + saida);
-		  else
-			exibirPDF(Variaveis.pastaOrigem + saida);
-	    }		  
+      saida = args[1];     
+	  
+    //Carrega os recursos do programa
+	  recursos = new Recursos(config);	
+	  if (!recursos.carregar()) {
+  		exibirMsg("Erro ao executar o componente de processamento PDF: Não foi possível carregar os recursos do programa.");
+		  System.exit(1);
 	  }
-	} else if (processo.equals("E")) {
-	  if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
-		enviarParaPDF24(Variaveis.pastaOrigem + saida);
-	  else
-		exibirPDF(Variaveis.pastaOrigem + saida);
-	}
-	System.runFinalization();
-	System.exit(0);
+
+	  if (processo.equals("I")) {
+      //Calcula o tamanho da fonte conforme quantidade de linhas de texto
+	    calcularFonte(Variaveis.pastaOrigem + entrada);
+
+      //Gera o arquivo PDF
+	    processarTexto(Variaveis.pastaOrigem + entrada, Variaveis.pastaOrigem + saida);
+
+      //Exibe o arquivo PDF ou envia para o PDF24
+	    if (config.modoGeracao != TipoGeracao.TIPOGERACAO_SEMACAO) {
+  	    if (exibirArquivoPDF) {
+	        if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
+		  	enviarParaPDF24(Variaveis.pastaOrigem + saida);
+		    else
+			  exibirPDF(Variaveis.pastaOrigem + saida);
+	      }		  
+	    }
+	  } else if (processo.equals("E")) {
+	    if (config.modoGeracao == TipoGeracao.TIPOGERACAO_DIRETA)
+		  enviarParaPDF24(Variaveis.pastaOrigem + saida);
+	    else
+		  exibirPDF(Variaveis.pastaOrigem + saida);
+	  }
+
+    //Partiu!!!
+	  System.runFinalization();
+	  System.exit(0);
   }
 }

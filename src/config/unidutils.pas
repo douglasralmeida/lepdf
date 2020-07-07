@@ -121,6 +121,9 @@ begin
   end;
 end;
 
+{
+  Cria as pastas que armazenam as configurações do programa
+}
 procedure PrepararPastaConfig;
 var
   PastaConfigPai: String;

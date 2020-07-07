@@ -2,6 +2,14 @@
 
 Este documento descreve os novos recursos e as correções disponíveis durante a atualização de versão do Componente PDF para Prisma.
 
+## Versão 2.1.0 final (junho/2020)
+* Inclui aplicativo para alterar as configurações do usuário.
+* Suporte a 32 e 64 bits.
+* Sem instalador autônomo. Instalado junto com o Prisma.
+* Suporta parâmetros no tempo de execução.
+* Corrige um erro de execução em Windows cujo idioma está diferente do Português.
+* Limpeza de lixo automática da pasta CNISLINHA.
+
 ## Versão 2.0.0 final (abril/2020)
 * Suporte a instalação em computadores com múltiplos usuários.
 
